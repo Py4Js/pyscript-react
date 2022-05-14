@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Helmet } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export type PyScriptProperties = {
   cssSource?: string;
@@ -11,10 +11,12 @@ const PyScript: FC<PyScriptProperties> = ({
   jsSource = "https://pyscript.net/alpha/pyscript.js",
 }) => {
   return (
-    <Helmet>
-      <link rel="stylesheet" href={cssSource} />
-      <script defer src={jsSource}></script>
-    </Helmet>
+    <HelmetProvider>
+      <Helmet>
+        <link rel="stylesheet" href={cssSource} />
+        <script defer src={jsSource}></script>
+      </Helmet>
+    </HelmetProvider>
   );
 };
 
