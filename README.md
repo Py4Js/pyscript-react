@@ -8,6 +8,18 @@ PyAnalizer combine react with the most popular python sci libraries (like pandas
 ## Try it 
 `work in progress... 🚀`
 
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn build`
+
+### `yarn storybook`
+
+### `yarn build-storybook`
+
+
+
 ## Contributiong 
 We are working on contributing guidline. For now you can just create a issue.
 
