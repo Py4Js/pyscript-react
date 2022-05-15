@@ -8,8 +8,12 @@ type UseMarkersArguments = {
 const useMarkers = ({ mapName, markers }: UseMarkersArguments) => {
   return markers && mapName && Array.isArray(markers)
     ? markers
-        .map(({ x: markerX, y: markerY, value }) => {
-          return `folium.Marker(location=[${markerX}, ${markerY}], popup=\"${value}\").add_to(${mapName})`;
+        .map(({ location, popup, toolTip, draggable }) => {
+          return `folium.Marker(location=[${location[0]}, ${location[1]}]${
+            popup ? `, popup="${popup}"` : ""
+          }${toolTip ? `, tooltip="${toolTip}"` : ""}${
+            draggable ? ", draggable=True" : ""
+          }).add_to(${mapName})`;
         })
         .join("\n")
     : "";

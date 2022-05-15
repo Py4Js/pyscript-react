@@ -5,7 +5,7 @@ type UseRectangleArguments = {
   rectangles?: Rectangle[];
 };
 
-const useRectangle = ({
+const useRectangles = ({
   mapName,
   rectangles,
 }: UseRectangleArguments): string => {
@@ -38,4 +38,4 @@ const useRectangle = ({
     : "";
 };
 
-export default useRectangle;
+export default useRectangles;

@@ -14,10 +14,10 @@ const useScript = ({
   mapName = "",
 }: UseScriptArguments) => {
   return `
-    ${mapString}
-    ${markersString}
-    ${rectanglesString}
-    ${mapName}
+${mapString}
+${markersString}
+${rectanglesString}
+${mapName}
   `;
 };
 
