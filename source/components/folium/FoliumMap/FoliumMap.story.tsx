@@ -31,4 +31,18 @@ FoliumMapExample.args = {
   tiles: "Stamen Terrain",
   mapName: "test",
   markers: [{ x: 50.25637753089188, y: 18.971101614473774, value: "Katowice" }],
+  rectangles: [
+    {
+      bounds: [
+        [50.121754, 18.51261],
+        [50.079657, 18.595915],
+      ],
+      color: "#1D59A1",
+      fill: true,
+      fillColor: "#2696CE",
+      fillOpacity: 0.2,
+      dashArray: "5,10",
+      weight: 2,
+    },
+  ],
 };

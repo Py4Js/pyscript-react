@@ -3,8 +3,19 @@ import PyScript from "../../base/PyScript/PyScript";
 import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
+import useRectangle from "./utils/useRectangle/useRectangle";
 
 export type Marker = { x: number; y: number; value: string };
+
+export type Rectangle = {
+  bounds: [[number, number], [number, number]];
+  color?: string;
+  weight?: number;
+  fill?: boolean;
+  fillColor?: string;
+  fillOpacity?: number;
+  dashArray?: string;
+};
 
 export type FoliumMapProperties = {
   x: number;
@@ -13,6 +24,7 @@ export type FoliumMapProperties = {
   zoomStart?: number;
   mapName?: string;
   markers?: Marker[];
+  rectangles?: Rectangle[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({
@@ -22,6 +34,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   tiles,
   mapName,
   markers,
+  rectangles,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -32,8 +45,15 @@ const FoliumMap: FC<FoliumMapProperties> = ({
     return argument !== "";
   });
   const mapString = useMap({ mapName, x, y, pythonArguments });
+  const rectanglesString = useRectangle({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
-  const scriptString = useScript({ mapName, mapString, markersString });
+  const scriptString = useScript({
+    mapName,
+    mapString,
+    markersString,
+    rectanglesString,
+  });
+
   return (
     <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
       {scriptString}
