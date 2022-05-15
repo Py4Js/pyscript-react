@@ -29,4 +29,6 @@ FoliumMapExample.args = {
   y: 18.971101614473774,
   zoomStart: 12,
   tiles: "Stamen Terrain",
+  mapName: "test",
+  markers: [{ x: 50.25637753089188, y: 18.971101614473774, value: "Katowice" }],
 };
