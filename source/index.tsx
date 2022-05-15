@@ -6,6 +6,7 @@ import PyRepl from "~root/source/components/base/PyRepl/PyRepl";
 import PyConfig from "~root/source/components/base/PyConfig/PyConfig";
 import PyInputBox from "~root/source/components/base/PyInputBox/PyInputBox";
 import PyBox from "~root/source/components/base/PyBox/PyBox";
+import PyRegisterWidget from "~root/source/components/base/PyRegisterWidget/PyRegisterWidget";
 
 export {
   PyScriptProvider,
@@ -16,5 +17,6 @@ export {
   PyConfig,
   PyInputBox,
   PyBox,
+  PyRegisterWidget,
 };
 export default PyScript;

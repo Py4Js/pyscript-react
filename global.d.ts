@@ -46,6 +46,13 @@ declare global {
           children: ReactNode;
         }
       >;
+      ["py-register-widget"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          src: string;
+          name?: string;
+          klass?: string;
+        }
+      >;
     }
   }
 }
