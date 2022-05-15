@@ -4,7 +4,9 @@ export type PyEnvProperties = {
   children: string | string[];
 };
 
-const PyEnv: FC<PyEnvProperties> = ({ children }) => {
+const PyEnv: FC<PyEnvProperties> = ({
+  children,
+}: PyEnvProperties): JSX.Element => {
   const fixedChildren = useMemo(() => {
     return Array.isArray(children)
       ? children
