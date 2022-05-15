@@ -36,6 +36,11 @@ declare global {
           children: string;
         }
       >;
+      ["py-inputbox"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+        }
+      >;
     }
   }
 }
