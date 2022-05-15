@@ -1,7 +1,7 @@
 {
   "name": "pyanalize-react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "destination/main.js",
   "repository": "https://github.com/ShootGan/PyAnalize-React.git",
   "author": "ShootGan <nawelpalepka@gmail.com>",
   "license": "MIT",
