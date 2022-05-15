@@ -17,9 +17,9 @@ const PyScript: FC<PyScriptProperties> = ({
     return Array.isArray(pyEnvContent)
       ? pyEnvContent
           .map((element) => {
-            return `- ${element};`;
+            return `- ${element}`;
           })
-          .join(" ")
+          .join("\n")
       : pyEnvContent;
   }, [pyEnvContent]);
   return (
