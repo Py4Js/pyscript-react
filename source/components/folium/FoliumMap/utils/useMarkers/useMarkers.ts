@@ -1,8 +1,8 @@
-import { Marker } from "../../FoliumMap";
+import { FoliumMapProperties } from "../../FoliumMap";
 
 type UseMarkersArguments = {
-  mapName?: string;
-  markers?: Marker[];
+  mapName?: FoliumMapProperties["mapName"];
+  markers?: FoliumMapProperties["markers"];
 };
 
 const useMarkers = ({ mapName, markers }: UseMarkersArguments) => {
