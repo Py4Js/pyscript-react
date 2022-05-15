@@ -5,6 +5,7 @@ import PyEnv from "~root/source/components/base/PyEnv/PyEnv";
 import PyRepl from "~root/source/components/base/PyRepl/PyRepl";
 import PyConfig from "~root/source/components/base/PyConfig/PyConfig";
 import PyInputBox from "~root/source/components/base/PyInputBox/PyInputBox";
+import PyBox from "~root/source/components/base/PyBox/PyBox";
 
 export {
   PyScriptProvider,
@@ -14,5 +15,6 @@ export {
   PyRepl,
   PyConfig,
   PyInputBox,
+  PyBox,
 };
 export default PyScript;

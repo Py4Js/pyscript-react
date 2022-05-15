@@ -41,6 +41,11 @@ declare global {
           children: string;
         }
       >;
+      ["py-box"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: ReactNode;
+        }
+      >;
     }
   }
 }
