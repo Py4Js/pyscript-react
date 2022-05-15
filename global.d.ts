@@ -53,6 +53,17 @@ declare global {
           klass?: string;
         }
       >;
+      ["py-button"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+          label: string;
+        }
+      >;
+      ["py-title"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+        }
+      >;
     }
   }
 }
