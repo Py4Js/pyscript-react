@@ -1,12 +1,12 @@
 {
   "name": "pyanalize-react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "destination/main.js",
   "repository": "https://github.com/ShootGan/PyAnalize-React.git",
   "author": "ShootGan <nawelpalepka@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "cross-env tsc && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack",
+    "build": "cross-env rimraf destination && cross-env tsc && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack",
     "storybook": "start-storybook -p 6006"
   },
   "peerDependencies": {
@@ -28,12 +28,15 @@
     "@storybook/manager-webpack5": "^6.4.22",
     "@storybook/react": "^6.4.22",
     "@storybook/testing-library": "^0.0.11",
+    "@types/node": "^17.0.33",
     "@types/react": "^18.0.9",
     "@types/react-helmet-async": "^1.0.3",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-node-externals": "^2.5.3",
     "babel-loader": "^8.2.5",
     "core-js": "^3.22.5",
     "cross-env": "^7.0.3",
+    "rimraf": "^3.0.2",
     "storybook": "^6.4.22",
     "ts-node": "^10.7.0",
     "tsconfig-paths": "^4.0.0",
@@ -41,6 +44,7 @@
     "typescript-transform-paths": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.18"
   },
   "resolutions": {

@@ -2648,7 +2648,7 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*":
+"@types/node@*", "@types/node@^17.0.33":
   version "17.0.33"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.33.tgz#3c1879b276dc63e73030bb91165e62a4509cd506"
   integrity sha512-miWq2m2FiQZmaHfdZNcbpp9PuXg34W5JZ5CrJ/BaS70VuhoJENBEQybeiYSaPBRNq6KQGnjfEnc/F3PN++D+XQ==
@@ -2752,6 +2752,14 @@
   version "1.16.4"
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.16.4.tgz#1f4969042bf76d7ef7b5914f59b3b60073f4e1f4"
   integrity sha512-llS8qveOUX3wxHnSykP5hlYFFuMfJ9p5JvIyCiBgp7WTfl6K5ZcyHj8r8JsN/J6QODkAsRRCLIcTuOCu8etkUw==
+
+"@types/webpack-node-externals@^2.5.3":
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/@types/webpack-node-externals/-/webpack-node-externals-2.5.3.tgz#921783aadda1fe686db0a70e20e4b9548b5a3cef"
+  integrity sha512-A9JxaR8QXoYT95egET4AmCFuChyTlP8d18ZAnmSHuIMsFdS7QlCQQ8pmN/+FHgLIkm+ViE/VngltT5avLACY9A==
+  dependencies:
+    "@types/node" "*"
+    webpack "^5"
 
 "@types/webpack-sources@*":
   version "3.2.0"
@@ -10741,6 +10749,11 @@ webpack-merge@^5.7.3:
   dependencies:
     clone-deep "^4.0.1"
     wildcard "^2.0.0"
+
+webpack-node-externals@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-node-externals/-/webpack-node-externals-3.0.0.tgz#1a3407c158d547a9feb4229a9e3385b7b60c9917"
+  integrity sha512-LnL6Z3GGDPht/AigwRh2dvL9PQPFQ8skEpVrWZXLWBYmqcaojHNN0onvHzie6rq7EWKrrBfPYqNEzTJgiwEQDQ==
 
 webpack-sources@^1.4.0, webpack-sources@^1.4.1, webpack-sources@^1.4.3:
   version "1.4.3"

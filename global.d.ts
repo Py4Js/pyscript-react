@@ -25,6 +25,34 @@ declare global {
           children: string;
         }
       >;
+      ["py-repl"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+          "auto-generate"?: boolean;
+        }
+      >;
+      ["py-config"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+        }
+      >;
+      ["py-inputbox"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+        }
+      >;
+      ["py-box"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: ReactNode;
+        }
+      >;
+      ["py-register-widget"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          src: string;
+          name?: string;
+          klass?: string;
+        }
+      >;
     }
   }
 }

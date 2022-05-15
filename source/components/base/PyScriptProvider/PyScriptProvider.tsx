@@ -17,7 +17,6 @@ const PyScriptProvider: FC<PropsWithChildren<PyScriptProviderProperties>> = ({
         <link rel="stylesheet" href={cssSource} />
         <script defer src={jsSource}></script>
       </Helmet>
-      <div></div>
       {children}
     </HelmetProvider>
   );
