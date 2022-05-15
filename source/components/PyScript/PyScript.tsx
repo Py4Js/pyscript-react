@@ -1,10 +1,4 @@
-import {
-  createElement,
-  FC,
-  PropsWithChildren,
-  ReactHTML,
-  useMemo,
-} from "react";
+import { createElement, FC, ReactHTML, useMemo } from "react";
 
 export type PyScriptProperties = {
   children: string;
@@ -13,7 +7,7 @@ export type PyScriptProperties = {
   pyEnvContent?: string | string[];
 };
 
-const PyScript: FC<PropsWithChildren<PyScriptProperties>> = ({
+const PyScript: FC<PyScriptProperties> = ({
   children,
   output,
   generateOutputTag,
@@ -34,6 +28,9 @@ const PyScript: FC<PropsWithChildren<PyScriptProperties>> = ({
       {generateOutputTag &&
         createElement(
           typeof generateOutputTag === "string" ? generateOutputTag : "div",
+          {
+            id: output,
+          },
         )}
       <py-script output={output}>{children}</py-script>
     </>

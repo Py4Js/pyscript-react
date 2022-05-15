@@ -18,10 +18,10 @@ const Template: ComponentStory<FunctionComponent<PyScriptProviderProperties>> =
     );
   };
 
-export const PyScriptExample: ComponentStory<typeof PyScriptProvider> =
+export const PyScriptProviderExample: ComponentStory<typeof PyScriptProvider> =
   Template.bind({});
 
-PyScriptExample.args = {
+PyScriptProviderExample.args = {
   cssSource: "https://pyscript.net/alpha/pyscript.css",
   jsSource: "https://pyscript.net/alpha/pyscript.js",
 };
