@@ -1,4 +1,4 @@
-import { createElement, FC, ReactHTML, useMemo } from "react";
+import { createElement, FC, ReactHTML } from "react";
 import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
 
 export type PyScriptProperties = {
