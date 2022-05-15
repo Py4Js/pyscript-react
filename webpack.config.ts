@@ -1,4 +1,5 @@
 import { Configuration } from "webpack";
+import nodeExternals from "webpack-node-externals";
 
 type WebpackArguments = {
   mode: "production" | "development";
@@ -17,6 +18,8 @@ const setupConfig: SetupConfig = (): Configuration => {
     resolve: {
       extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
     },
+    externals: [nodeExternals()],
+
     entry: "./source/index.tsx",
     mode: "production",
     devtool: "source-map",
