@@ -1,4 +1,5 @@
 import { FC } from "react";
+import PyScript from "../../base/PyScript/PyScript";
 
 export type FoliumMapProperties = {
   x: number;
@@ -29,9 +30,9 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   `;
   return (
     <>
-      <py-env>- folium</py-env>
-      <div id="folium"></div>
-      <py-script output="folium">{script}</py-script>
+      <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
+        {script}
+      </PyScript>
     </>
   );
 };
