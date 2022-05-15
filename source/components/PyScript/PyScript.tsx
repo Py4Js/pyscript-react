@@ -1,10 +1,11 @@
 import { createElement, FC, ReactHTML, useMemo } from "react";
+import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
 
 export type PyScriptProperties = {
   children: string;
   output?: string;
   generateOutputTag?: boolean | keyof ReactHTML;
-  pyEnvContent?: string | string[];
+  pyEnvContent?: PyEnvProperties["children"];
 };
 
 const PyScript: FC<PyScriptProperties> = ({
@@ -13,18 +14,9 @@ const PyScript: FC<PyScriptProperties> = ({
   generateOutputTag,
   pyEnvContent,
 }: PyScriptProperties): JSX.Element => {
-  const pyEnvFixedContent = useMemo(() => {
-    return Array.isArray(pyEnvContent)
-      ? pyEnvContent
-          .map((element) => {
-            return `- ${element}`;
-          })
-          .join("\n")
-      : pyEnvContent;
-  }, [pyEnvContent]);
   return (
     <>
-      {pyEnvFixedContent && <py-env>{pyEnvFixedContent}</py-env>}
+      {pyEnvContent && <PyEnv>{pyEnvContent}</PyEnv>}
       {generateOutputTag &&
         createElement(
           typeof generateOutputTag === "string" ? generateOutputTag : "div",

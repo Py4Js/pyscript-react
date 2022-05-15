@@ -1,3 +1,4 @@
+import { join } from "path";
 import { Configuration } from "webpack";
 import nodeExternals from "webpack-node-externals";
 
@@ -13,13 +14,16 @@ type SetupConfig = (
 const setupConfig: SetupConfig = (): Configuration => {
   return {
     output: {
+      path: join(process.cwd(), "destination"),
       library: "pyanalize_react",
     },
     resolve: {
       extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
+      alias: {
+        "~root": process.cwd(),
+      },
     },
     externals: [nodeExternals()],
-
     entry: "./source/index.tsx",
     mode: "production",
     devtool: "source-map",
