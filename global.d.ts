@@ -31,6 +31,11 @@ declare global {
           "auto-generate"?: boolean;
         }
       >;
+      ["py-config"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+        }
+      >;
     }
   }
 }
