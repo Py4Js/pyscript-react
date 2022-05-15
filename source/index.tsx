@@ -1,3 +1,4 @@
-import PyScript from "./PyScript/PyScript";
+import PyScriptProvider from "./PyScriptProvider/PyScriptProvider";
+import FoliumMap from "./FoliumMap/FoliumMap";
 
-export { PyScript };
+export { PyScriptProvider, FoliumMap };

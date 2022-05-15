@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, memo, PropsWithChildren } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-export type PyScriptProperties = {
+export type PyScriptProviderProperties = {
   cssSource?: string;
   jsSource?: string;
 };
 
-const PyScript: FC<PyScriptProperties> = ({
+const PyScriptProvider: FC<PropsWithChildren<PyScriptProviderProperties>> = ({
   cssSource = "https://pyscript.net/alpha/pyscript.css",
   jsSource = "https://pyscript.net/alpha/pyscript.js",
+  children,
 }) => {
   return (
     <HelmetProvider>
@@ -16,8 +17,10 @@ const PyScript: FC<PyScriptProperties> = ({
         <link rel="stylesheet" href={cssSource} />
         <script defer src={jsSource}></script>
       </Helmet>
+      <div></div>
+      {children}
     </HelmetProvider>
   );
 };
 
-export default PyScript;
+export default memo(PyScriptProvider);
