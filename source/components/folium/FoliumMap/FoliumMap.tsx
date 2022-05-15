@@ -29,11 +29,9 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   })
   `;
   return (
-    <>
-      <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
-        {script}
-      </PyScript>
-    </>
+    <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
+      {script}
+    </PyScript>
   );
 };
 
