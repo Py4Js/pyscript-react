@@ -1,11 +1,18 @@
 import { FC } from "react";
 import PyScript from "../../base/PyScript/PyScript";
+import useMap from "./utils/useMap/useMap";
+import useMarkers from "./utils/useMarkers/useMarkers";
+import useScript from "./utils/useScript/useScript";
+
+export type Marker = { x: number; y: number; value: string };
 
 export type FoliumMapProperties = {
   x: number;
   y: number;
-  tiles?: "Stamen Terrain";
+  tiles?: "Stamen Terrain" | "OpenStreetMap";
   zoomStart?: number;
+  mapName?: string;
+  markers?: Marker[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({
@@ -13,6 +20,8 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   y,
   zoomStart,
   tiles,
+  mapName,
+  markers,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -22,15 +31,12 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   ].filter((argument) => {
     return argument !== "";
   });
-  const script = `
-    import folium;
-    folium.Map(location=[${x}, ${y}]${
-    pythonArguments ? `,${pythonArguments.join(",")}` : ""
-  })
-  `;
+  const mapString = useMap({ mapName, x, y, pythonArguments });
+  const markersString = useMarkers({ mapName, markers });
+  const scriptString = useScript({ mapName, mapString, markersString });
   return (
     <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
-      {script}
+      {scriptString}
     </PyScript>
   );
 };
