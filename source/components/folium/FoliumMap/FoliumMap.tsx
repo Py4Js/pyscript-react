@@ -3,9 +3,14 @@ import PyScript from "../../base/PyScript/PyScript";
 import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
-import useRectangle from "./utils/useRectangle/useRectangle";
+import useRectangles from "./utils/useRectangle/useRectangles";
 
-export type Marker = { x: number; y: number; value: string };
+export type Marker = {
+  location: [number, number];
+  popup?: string;
+  toolTip?: string;
+  draggable?: boolean;
+};
 
 export type Rectangle = {
   bounds: [[number, number], [number, number]];
@@ -45,7 +50,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
     return argument !== "";
   });
   const mapString = useMap({ mapName, x, y, pythonArguments });
-  const rectanglesString = useRectangle({ mapName, rectangles });
+  const rectanglesString = useRectangles({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
   const scriptString = useScript({
     mapName,

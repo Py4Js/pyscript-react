@@ -30,7 +30,19 @@ FoliumMapExample.args = {
   zoomStart: 12,
   tiles: "Stamen Terrain",
   mapName: "test",
-  markers: [{ x: 50.25637753089188, y: 18.971101614473774, value: "Katowice" }],
+  markers: [
+    {
+      location: [50.25637753089188, 18.971101614473774],
+      popup: "Random location",
+      draggable: false,
+    },
+    {
+      location: [50.286317, 19.104359],
+      popup: "Another random location",
+      draggable: true,
+      toolTip: "Sosnowiec",
+    },
+  ],
   rectangles: [
     {
       bounds: [
