@@ -25,6 +25,12 @@ declare global {
           children: string;
         }
       >;
+      ["py-repl"]: CustomElement<
+        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+          children: string;
+          "auto-generate"?: boolean;
+        }
+      >;
     }
   }
 }
