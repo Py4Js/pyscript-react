@@ -34,10 +34,9 @@ body:
     id: Contributing
     attributes:
       label: Do you want to be assigne to this issue?
-      description: ""
+      description: "If you want to solve this issue chose this option."
       options:
         - label: I want to be assigne to this issue
-
   - type: checkboxes
     id: terms
     attributes:
