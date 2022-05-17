@@ -1,6 +1,10 @@
 import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider";
-import PyScript from "~components/base/PyScript/PyScript";
+import PyScript, {
+  PyScriptProperties,
+} from "~components/base/PyScript/PyScript";
 import { cleanup, render } from "@testing-library/react";
+import { expectType } from "tsd";
+import { FC } from "react";
 
 afterEach(cleanup);
 
@@ -27,5 +31,8 @@ def example():
       </PyScriptProvider>,
     );
     expect(container).toMatchSnapshot();
+  });
+  it("Has correct type", () => {
+    expectType<FC<PyScriptProperties>>(PyScript);
   });
 });
