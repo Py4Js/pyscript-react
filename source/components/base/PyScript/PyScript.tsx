@@ -8,7 +8,7 @@ import {
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
 
-type PyScriptPropertiesBase = Omit<
+export type PyScriptPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -17,30 +17,33 @@ type PyScriptPropertiesBase = Omit<
   children: string;
 };
 
-type PyScriptPropertiesWitOutput = {
+export type PyScriptPropertiesWitOutputPart = {
   output: string;
   generateOutputTag?: boolean | keyof ReactHTML;
 };
 
-type PyScriptPropertiesWitoutOutput = {
+export type PyScriptPropertiesWitoutOutputPart = {
   output?: never;
   generateOutputTag?: never;
 };
 
-type PyScriptPropertiesWithPyEnv = {
+export type PyScriptPropertiesWithPyEnvPart = {
   pyEnvContent: PyEnvProperties["children"];
   pyEnvProps?: Omit<PyEnvProperties, "children">;
 };
 
-type PyScriptPropertiesWithWithoutPyEnv = {
+export type PyScriptPropertiesWithWithoutPyEnvPart = {
   pyEnvContent?: never;
   pyEnvProps?: never;
 };
 
 export type PyScriptProperties =
   | PyScriptPropertiesBase &
-      (PyScriptPropertiesWithPyEnv | PyScriptPropertiesWithWithoutPyEnv) &
-      (PyScriptPropertiesWitOutput | PyScriptPropertiesWitoutOutput);
+      (
+        | PyScriptPropertiesWithPyEnvPart
+        | PyScriptPropertiesWithWithoutPyEnvPart
+      ) &
+      (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart);
 
 const PyScript: FC<PyScriptProperties> = ({
   children,
