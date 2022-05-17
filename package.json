@@ -58,9 +58,6 @@
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.18"
   },
-  "resolutions": {
-    "glob": "github:nicolas377/node-glob#revert-allowWindowsEscape"
-  },
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
