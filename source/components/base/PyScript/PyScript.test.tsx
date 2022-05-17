@@ -25,8 +25,8 @@ describe("PyScript", () => {
 from numba import jit
 @jit(nopython=True) 
 def example():
-  print("Hello world!") 
-          `}
+  print("Hello world!")
+`}
         </PyScript>
       </PyScriptProvider>,
     );

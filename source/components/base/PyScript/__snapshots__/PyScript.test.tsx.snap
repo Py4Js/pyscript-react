@@ -18,8 +18,8 @@ exports[`PyScript Renders component properly with PyEnv 1`] = `
 from numba import jit
 @jit(nopython=True) 
 def example():
-  print("Hello world!") 
-          
+  print("Hello world!")
+
   </py-script>
 </div>
 `;
