@@ -57,4 +57,10 @@ FoliumMapExample.args = {
       weight: 2,
     },
   ],
+  geoJSON: [
+    {
+      jsonPath:
+        "http://gist.githubusercontent.com/ShootGan/50cfdb6805c2c6a930492bddb32704df/raw/2ede7a7cc3779327d8f2aa619ed89b9eec918d91/map.geojson",
+    },
+  ],
 };

@@ -4,6 +4,7 @@ import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
 import useRectangles from "./utils/useRectangle/useRectangles";
+import useGeoJson from "./utils/useGeoJson/useGeoJson";
 
 export type Marker = {
   location: [number, number];
@@ -22,6 +23,11 @@ export type Rectangle = {
   dashArray?: string;
 };
 
+export type GeoJson = {
+  jsonPath: string;
+  name?: string;
+};
+
 export type FoliumMapProperties = {
   x: number;
   y: number;
@@ -30,6 +36,7 @@ export type FoliumMapProperties = {
   mapName?: string;
   markers?: Marker[];
   rectangles?: Rectangle[];
+  geoJSON?: GeoJson[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({
@@ -40,6 +47,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   mapName,
   markers,
   rectangles,
+  geoJSON,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -52,10 +60,12 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   const mapString = useMap({ mapName, x, y, pythonArguments });
   const rectanglesString = useRectangles({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
+  const geoJsonString = useGeoJson({ mapName, geoJSON });
   const scriptString = useScript({
     mapName,
     mapString,
     markersString,
+    geoJsonString,
     rectanglesString,
   });
 
