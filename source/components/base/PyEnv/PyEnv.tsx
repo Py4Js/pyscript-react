@@ -1,11 +1,22 @@
-import { FC, useMemo } from "react";
+import {
+  DetailedHTMLProps,
+  DOMAttributes,
+  FC,
+  HTMLAttributes,
+  useMemo,
+} from "react";
 
-export type PyEnvProperties = {
-  children: string | string[];
-};
+export type PyEnvProperties = DetailedHTMLProps<
+  HTMLAttributes<HTMLElement>,
+  HTMLElement
+> &
+  DOMAttributes<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>> & {
+    children: string | string[];
+  };
 
 const PyEnv: FC<PyEnvProperties> = ({
   children,
+  ...rest
 }: PyEnvProperties): JSX.Element => {
   const fixedChildren = useMemo(() => {
     return Array.isArray(children)
@@ -16,7 +27,7 @@ const PyEnv: FC<PyEnvProperties> = ({
           .join("\n")
       : children;
   }, [children]);
-  return <py-env>{fixedChildren}</py-env>;
+  return <py-env {...rest}>{fixedChildren}</py-env>;
 };
 
 export default PyEnv;
