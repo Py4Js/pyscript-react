@@ -15,39 +15,39 @@ declare global {
   namespace JSX {
     export interface IntrinsicElements {
       ["py-script"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: string;
           output: string;
         }
       >;
       ["py-env"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: string;
         }
       >;
       ["py-repl"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: string;
           "auto-generate"?: boolean;
         }
       >;
       ["py-config"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: string;
         }
       >;
       ["py-inputbox"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: string;
         }
       >;
       ["py-box"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           children: ReactNode;
         }
       >;
       ["py-register-widget"]: CustomElement<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement> & {
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> & {
           src: string;
           name?: string;
           klass?: string;

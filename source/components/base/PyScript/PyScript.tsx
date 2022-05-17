@@ -1,7 +1,16 @@
-import { createElement, FC, ReactHTML } from "react";
+import {
+  createElement,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactHTML,
+} from "react";
 import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
 
-export type PyScriptProperties = {
+export type PyScriptProperties = DetailedHTMLProps<
+  HTMLAttributes<HTMLElement>,
+  HTMLElement
+> & {
   children: string;
   output?: string;
   generateOutputTag?: boolean | keyof ReactHTML;
