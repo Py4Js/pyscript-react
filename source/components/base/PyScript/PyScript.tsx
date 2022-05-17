@@ -1,23 +1,21 @@
 import {
   createElement,
   DetailedHTMLProps,
-  DOMAttributes,
   FC,
   HTMLAttributes,
   ReactHTML,
 } from "react";
-import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
+import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
 
-export type PyScriptProperties = DetailedHTMLProps<
-  HTMLAttributes<HTMLElement>,
-  HTMLElement
-> &
-  DOMAttributes<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>> & {
-    children: string;
-    output?: string;
-    generateOutputTag?: boolean | keyof ReactHTML;
-    pyEnvContent?: PyEnvProperties["children"];
-  };
+export type PyScriptProperties = ReactElementProps<
+  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+> & {
+  children: string;
+  output?: string;
+  generateOutputTag?: boolean | keyof ReactHTML;
+  pyEnvContent?: PyEnvProperties["children"];
+};
 
 const PyScript: FC<PyScriptProperties> = ({
   children,

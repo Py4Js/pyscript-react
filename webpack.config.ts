@@ -22,6 +22,7 @@ const setupConfig: SetupConfig = (): Configuration => {
       alias: {
         "~root": process.cwd(),
         "~components": join(process.cwd(), "source", "components"),
+        "~types": join(process.cwd(), "source", "types"),
       },
     },
     externals: [nodeExternals()],

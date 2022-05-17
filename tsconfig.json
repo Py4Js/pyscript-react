@@ -41,7 +41,8 @@
     "baseUrl": ".",
     "paths": {
       "~root/*": ["*"],
-      "~components/*": ["source/components/*"]
+      "~components/*": ["source/components/*"],
+      "~types/*": ["source/types/*"],
     },
     "plugins": [{
       "transform": "typescript-transform-paths"
