@@ -1,6 +1,12 @@
-import { FC } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyReplProperties = {
+export type PyReplProperties = Omit<
+  ReactElementProps<
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  >,
+  "children"
+> & {
   autoGenerate?: boolean;
   children?: string;
 };
@@ -8,8 +14,13 @@ export type PyReplProperties = {
 const PyRepl: FC<PyReplProperties> = ({
   autoGenerate = false,
   children,
+  ...rest
 }: PyReplProperties) => {
-  return <py-repl auto-generate={autoGenerate}>{children}</py-repl>;
+  return (
+    <py-repl {...rest} auto-generate={autoGenerate}>
+      {children}
+    </py-repl>
+  );
 };
 
 export default PyRepl;
