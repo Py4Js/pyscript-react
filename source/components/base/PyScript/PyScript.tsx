@@ -1,6 +1,7 @@
 import {
   createElement,
   DetailedHTMLProps,
+  DOMAttributes,
   FC,
   HTMLAttributes,
   ReactHTML,
@@ -10,18 +11,20 @@ import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
 export type PyScriptProperties = DetailedHTMLProps<
   HTMLAttributes<HTMLElement>,
   HTMLElement
-> & {
-  children: string;
-  output?: string;
-  generateOutputTag?: boolean | keyof ReactHTML;
-  pyEnvContent?: PyEnvProperties["children"];
-};
+> &
+  DOMAttributes<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>> & {
+    children: string;
+    output?: string;
+    generateOutputTag?: boolean | keyof ReactHTML;
+    pyEnvContent?: PyEnvProperties["children"];
+  };
 
 const PyScript: FC<PyScriptProperties> = ({
   children,
   output,
   generateOutputTag,
   pyEnvContent,
+  ...rest
 }: PyScriptProperties): JSX.Element => {
   return (
     <>
@@ -33,7 +36,9 @@ const PyScript: FC<PyScriptProperties> = ({
             id: output,
           },
         )}
-      <py-script output={output}>{children}</py-script>
+      <py-script {...rest} output={output}>
+        {children}
+      </py-script>
     </>
   );
 };
