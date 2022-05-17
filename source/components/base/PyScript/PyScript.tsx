@@ -15,6 +15,12 @@ export type PyScriptProperties = ReactElementProps<
   output?: string;
   generateOutputTag?: boolean | keyof ReactHTML;
   pyEnvContent?: PyEnvProperties["children"];
+  pyEnvProps?: Omit<
+    ReactElementProps<
+      DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+    >,
+    "children"
+  >;
 };
 
 const PyScript: FC<PyScriptProperties> = ({
@@ -22,11 +28,12 @@ const PyScript: FC<PyScriptProperties> = ({
   output,
   generateOutputTag,
   pyEnvContent,
+  pyEnvProps,
   ...rest
 }: PyScriptProperties): JSX.Element => {
   return (
     <>
-      {pyEnvContent && <PyEnv>{pyEnvContent}</PyEnv>}
+      {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
       {generateOutputTag &&
         createElement(
           typeof generateOutputTag === "string" ? generateOutputTag : "div",
