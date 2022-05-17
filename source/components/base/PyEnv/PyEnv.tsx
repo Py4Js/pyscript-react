@@ -1,18 +1,14 @@
-import {
-  DetailedHTMLProps,
-  DOMAttributes,
-  FC,
-  HTMLAttributes,
-  useMemo,
-} from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, useMemo } from "react";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyEnvProperties = DetailedHTMLProps<
-  HTMLAttributes<HTMLElement>,
-  HTMLElement
-> &
-  DOMAttributes<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>> & {
-    children: string | string[];
-  };
+export type PyEnvProperties = Omit<
+  ReactElementProps<
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  >,
+  "children"
+> & {
+  children: string | string[];
+};
 
 const PyEnv: FC<PyEnvProperties> = ({
   children,
