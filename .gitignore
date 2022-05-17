@@ -2,3 +2,4 @@ node_modules
 tsconfig.tsbuildinfo
 yarn-error.log
 destination
+coverage

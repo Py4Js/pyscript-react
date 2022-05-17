@@ -21,6 +21,7 @@ const setupConfig: SetupConfig = (): Configuration => {
       extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
       alias: {
         "~root": process.cwd(),
+        "~components": join(process.cwd(), "source", "components"),
       },
     },
     externals: [nodeExternals()],
