@@ -1,7 +1,7 @@
 import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseScriptArguments = {
-  mapName: FoliumMapProperties["mapName"];
+  mapName?: FoliumMapProperties["mapName"];
   mapString: string;
   markersString: string;
   rectanglesString: string;
