@@ -22,7 +22,7 @@
     "@babel/preset-react": "^7.17.12",
     "@storybook/addon-actions": "^6.4.22",
     "@storybook/addon-essentials": "^6.4.22",
-    "@storybook/addon-interactions": "^6.4.22",
+    "@storybook/addon-interactions": "^6.5.0",
     "@storybook/addon-links": "^6.4.22",
     "@storybook/builder-webpack5": "^6.4.22",
     "@storybook/core-common": "^6.4.22",
