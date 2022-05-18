@@ -1,11 +1,8 @@
-import {
-  FoliumMapProperties,
-  Circle,
-} from "~components/folium/FoliumMap/FoliumMap";
+import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseCircleArguments = {
   mapName?: FoliumMapProperties["mapName"];
-  circles?: Circle[];
+  circles?: FoliumMapProperties["circles"];
 };
 
 const useCircle = ({ mapName, circles }: UseCircleArguments): string => {

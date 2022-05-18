@@ -1,11 +1,8 @@
-import {
-  FoliumMapProperties,
-  Rectangle,
-} from "~components/folium/FoliumMap/FoliumMap";
+import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseRectangleArguments = {
   mapName?: FoliumMapProperties["mapName"];
-  rectangles?: Rectangle[];
+  rectangles?: FoliumMapProperties["rectangles"];
 };
 
 const useRectangles = ({
