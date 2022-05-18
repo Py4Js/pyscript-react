@@ -3,8 +3,10 @@ import { customAlphabet } from "nanoid";
 
 export type GeneratePythonVariableName = () => string;
 
+type NanoId = (size?: number) => string;
+
 const generatePythonVariableName: GeneratePythonVariableName = (): string => {
-  const nanoid = customAlphabet("abcdefghijklmnoprsquwxyz", 16);
-  return snakeCase(nanoid());
+  const nanoId: NanoId = customAlphabet("abcdefghijklmnoprsquwxyz", 16);
+  return snakeCase(nanoId());
 };
 export default generatePythonVariableName;
