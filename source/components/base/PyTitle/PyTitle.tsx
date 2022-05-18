@@ -1,11 +1,20 @@
-import { FC } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyTitleProperties = {
+export type PyTitleProperties = Omit<
+  ReactElementProps<
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  >,
+  "children"
+> & {
   children: string;
 };
 
-const PyTitle: FC<PyTitleProperties> = ({ children }: PyTitleProperties) => {
-  return <py-title>{children}</py-title>;
+const PyTitle: FC<PyTitleProperties> = ({
+  children,
+  ...rest
+}: PyTitleProperties) => {
+  return <py-title {...rest}>{children}</py-title>;
 };
 
 export default PyTitle;

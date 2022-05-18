@@ -23,6 +23,7 @@ const setupConfig: SetupConfig = (): Configuration => {
         "~root": process.cwd(),
         "~components": join(process.cwd(), "source", "components"),
         "~types": join(process.cwd(), "source", "types"),
+        "~utils": join(process.cwd(), "source", "utils"),
       },
     },
     externals: [nodeExternals()],

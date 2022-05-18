@@ -16,6 +16,9 @@ import PyBox from "~components/base/PyBox/PyBox";
 import PyRegisterWidget from "~components/base/PyRegisterWidget/PyRegisterWidget";
 import PyButton from "~components/base/PyButton/PyButton";
 import PyTitle from "~components/base/PyTitle/PyTitle";
+import generatePythonVariableName, {
+  GeneratePythonVariableName,
+} from "~utils/generatePythonVariableName/generatePythonVariableName";
 
 export {
   PyScriptProvider,
@@ -29,6 +32,7 @@ export {
   PyRegisterWidget,
   PyButton,
   PyTitle,
+  generatePythonVariableName,
 };
 export type {
   PyScriptProperties,
@@ -37,5 +41,6 @@ export type {
   PyScriptPropertiesWitoutOutputPart,
   PyScriptPropertiesWithPyEnvPart,
   PyScriptPropertiesWithWithoutPyEnvPart,
+  GeneratePythonVariableName,
 };
 export default PyScript;

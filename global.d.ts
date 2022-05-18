@@ -9,14 +9,20 @@ import ReactElementProps from "~root/source/types/ReactElementProps/ReactElement
 declare global {
   namespace JSX {
     export interface IntrinsicElements {
-      ["py-script"]: ReactElementProps<
-        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+      ["py-script"]: Omit<
+        ReactElementProps<
+          DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+        >,
+        "children"
       > & {
         children: string;
         output?: string;
       };
-      ["py-env"]: ReactElementProps<
-        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+      ["py-env"]: Omit<
+        ReactElementProps<
+          DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+        >,
+        "children"
       > & {
         children: string;
       };

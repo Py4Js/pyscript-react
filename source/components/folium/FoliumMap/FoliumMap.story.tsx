@@ -23,11 +23,10 @@ export const FoliumMapExample: ComponentStory<typeof FoliumMap> = Template.bind(
 );
 
 FoliumMapExample.args = {
-  x: 50.25637753089188,
-  y: 18.971101614473774,
+  latitude: 50.25637753089188,
+  longitude: 18.971101614473774,
   zoomStart: 12,
   tiles: "Stamen Terrain",
-  mapName: "test",
   markers: [
     {
       location: [50.25637753089188, 18.971101614473774],
@@ -38,7 +37,7 @@ FoliumMapExample.args = {
       location: [50.286317, 19.104359],
       popup: "Another random location",
       draggable: true,
-      toolTip: "Sosnowiec",
+      tooltip: "Sosnowiec",
     },
   ],
   rectangles: [
@@ -53,6 +52,24 @@ FoliumMapExample.args = {
       fillOpacity: 0.2,
       dashArray: "5,10",
       weight: 2,
+    },
+  ],
+  circles: [
+    {
+      location: [50.25637753089188, 18.971101614473774],
+      popup: "Random location",
+      tooltip: "Sosnowiec",
+      radius: 1000,
+    },
+  ],
+  polygons: [
+    {
+      locations: [
+        [50.121754, 18.51261],
+        [50.079657, 18.595915],
+      ],
+      popup: "Location",
+      tooltip: "Test polygon",
     },
   ],
 };

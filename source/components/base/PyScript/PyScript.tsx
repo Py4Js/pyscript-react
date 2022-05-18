@@ -56,7 +56,8 @@ const PyScript: FC<PyScriptProperties> = ({
   return (
     <>
       {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
-      {generateOutputTag &&
+      {output &&
+        generateOutputTag &&
         createElement(
           typeof generateOutputTag === "string" ? generateOutputTag : "div",
           {
