@@ -23,8 +23,8 @@ export const FoliumMapExample: ComponentStory<typeof FoliumMap> = Template.bind(
 );
 
 FoliumMapExample.args = {
-  x: 50.25637753089188,
-  y: 18.971101614473774,
+  latitude: 50.25637753089188,
+  longitude: 18.971101614473774,
   zoomStart: 12,
   tiles: "Stamen Terrain",
   markers: [
@@ -60,6 +60,16 @@ FoliumMapExample.args = {
       popup: "Random location",
       tooltip: "Sosnowiec",
       radius: 1000,
+    },
+  ],
+  polygons: [
+    {
+      locations: [
+        [50.121754, 18.51261],
+        [50.079657, 18.595915],
+      ],
+      popup: "Location",
+      tooltip: "Test polygon",
     },
   ],
 };

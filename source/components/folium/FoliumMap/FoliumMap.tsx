@@ -4,31 +4,18 @@ import useCircleMarkers from "./utils/useCircleMarkers/useCircleMarkers";
 import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
-import useRectangles from "./utils/useRectangle/useRectangles";
-import useCircle from "./utils/useCircle/useCircle";
+import useRectangles from "./utils/useRectangles/useRectangles";
+import useCircles from "./utils/useCircles/useCircles";
+import usePolygons from "./utils/usePolygons/usePolygons";
 import Marker from "./types/Marker/Marker";
+import Circle from "./types/Circle/Circle";
+import Rectangle from "./types/Rectangle/Rectangle";
+import Polygon from "./types/Polygon/Polygon";
 import generatePythonVariableName from "~utils/generatePythonVariableName/generatePythonVariableName";
 
-export type Circle = {
-  location: [number, number];
-  popup?: string;
-  tooltip?: string;
-  radius?: number;
-};
-
-export type Rectangle = {
-  bounds: [[number, number], [number, number]];
-  color?: string;
-  weight?: number;
-  fill?: boolean;
-  fillColor?: string;
-  fillOpacity?: number;
-  dashArray?: string;
-};
-
 export type FoliumMapProperties = {
-  x: number;
-  y: number;
+  latitude: number;
+  longitude: number;
   tiles?: "Stamen Terrain" | "OpenStreetMap";
   zoomStart?: number;
   mapName?: string;
@@ -36,11 +23,12 @@ export type FoliumMapProperties = {
   rectangles?: Rectangle[];
   circles?: Circle[];
   circleMarkers?: Circle[];
+  polygons?: Polygon[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({
-  x,
-  y,
+  latitude,
+  longitude,
   zoomStart,
   tiles,
   mapName = generatePythonVariableName(),
@@ -48,6 +36,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   rectangles,
   circleMarkers,
   circles,
+  polygons,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -57,18 +46,20 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   ].filter((argument) => {
     return argument !== "";
   });
-  const mapString = useMap({ mapName, x, y, pythonArguments });
+  const mapString = useMap({ mapName, latitude, longitude, pythonArguments });
   const rectanglesString = useRectangles({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
   const circleMarkersString = useCircleMarkers({ mapName, circleMarkers });
-  const circleString = useCircle({ mapName, circles });
+  const circlesString = useCircles({ mapName, circles });
+  const polygonsString = usePolygons({ mapName, polygons });
   const scriptString = useScript({
     mapName,
     mapString,
     markersString,
     rectanglesString,
     circleMarkersString,
-    circleString,
+    circlesString,
+    polygonsString,
   });
   return (
     <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>

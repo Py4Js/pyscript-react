@@ -3,20 +3,27 @@ import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseMapArguments = {
   mapName?: FoliumMapProperties["mapName"];
-  x: FoliumMapProperties["x"];
-  y: FoliumMapProperties["y"];
+  latitude: FoliumMapProperties["latitude"];
+  longitude: FoliumMapProperties["longitude"];
   pythonArguments: string[];
 };
 
-const useMap = ({ mapName, x, y, pythonArguments }: UseMapArguments) => {
+const useMap = ({
+  mapName,
+  latitude,
+  longitude,
+  pythonArguments,
+}: UseMapArguments) => {
   return useMemo(() => {
     return `
 import folium;
-${mapName ? `${mapName} = ` : ""}folium.Map(location=[${x}, ${y}]${
+${
+  mapName ? `${mapName} = ` : ""
+}folium.Map(location=[${latitude}, ${longitude}]${
       pythonArguments ? `,${pythonArguments.join(",")}` : ""
     })
     `;
-  }, [mapName, pythonArguments, x, y]);
+  }, [mapName, pythonArguments, latitude, longitude]);
 };
 
 export default useMap;
