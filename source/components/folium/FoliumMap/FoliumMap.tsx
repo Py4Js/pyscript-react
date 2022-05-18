@@ -6,13 +6,7 @@ import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
 import useRectangles from "./utils/useRectangle/useRectangles";
 import useCircle from "./utils/useCircle/useCircle";
-
-export type Marker = {
-  location: [number, number];
-  popup?: string;
-  tooltip?: string;
-  draggable?: boolean;
-};
+import Marker from "./types/Marker/Marker";
 
 export type Circle = {
   location: [number, number];
