@@ -10,14 +10,14 @@ import useCircle from "./utils/useCircle/useCircle";
 export type Marker = {
   location: [number, number];
   popup?: string;
-  toolTip?: string;
+  tooltip?: string;
   draggable?: boolean;
 };
 
 export type Circle = {
   location: [number, number];
   popup?: string;
-  toolTip?: string;
+  tooltip?: string;
   radius?: number;
 };
 
@@ -40,7 +40,7 @@ export type FoliumMapProperties = {
   markers?: Marker[];
   rectangles?: Rectangle[];
   circles?: Circle[];
-  circleMarkers?: Marker[];
+  circleMarkers?: Circle[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({

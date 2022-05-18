@@ -1,4 +1,4 @@
-import { FoliumMapProperties } from "../../FoliumMap";
+import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseScriptArguments = {
   mapName: FoliumMapProperties["mapName"];

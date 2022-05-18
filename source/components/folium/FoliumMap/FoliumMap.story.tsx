@@ -38,7 +38,7 @@ FoliumMapExample.args = {
       location: [50.286317, 19.104359],
       popup: "Another random location",
       draggable: true,
-      toolTip: "Sosnowiec",
+      tooltip: "Sosnowiec",
     },
   ],
   rectangles: [
@@ -59,7 +59,7 @@ FoliumMapExample.args = {
     {
       location: [50.25637753089188, 18.971101614473774],
       popup: "Random location",
-      toolTip: "Sosnowiec",
+      tooltip: "Sosnowiec",
       radius: 1000,
     },
   ],
