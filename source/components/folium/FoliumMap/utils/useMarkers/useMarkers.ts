@@ -1,4 +1,4 @@
-import { FoliumMapProperties } from "../../FoliumMap";
+import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseMarkersArguments = {
   mapName?: FoliumMapProperties["mapName"];
@@ -8,10 +8,10 @@ type UseMarkersArguments = {
 const useMarkers = ({ mapName, markers }: UseMarkersArguments) => {
   return markers && mapName && Array.isArray(markers)
     ? markers
-        .map(({ location, popup, toolTip, draggable }) => {
+        .map(({ location, popup, tooltip, draggable }) => {
           return `folium.Marker(location=[${location[0]}, ${location[1]}]${
             popup ? `, popup="${popup}"` : ""
-          }${toolTip ? `, tooltip="${toolTip}"` : ""}${
+          }${tooltip ? `, tooltip="${tooltip}"` : ""}${
             draggable ? ", draggable=True" : ""
           }).add_to(${mapName})`;
         })
