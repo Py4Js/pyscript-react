@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { FoliumMapProperties } from "../../FoliumMap";
+import { FoliumMapProperties } from "~components/folium/FoliumMap/FoliumMap";
 
 type UseMapArguments = {
   mapName?: FoliumMapProperties["mapName"];
