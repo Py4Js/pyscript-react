@@ -7,6 +7,7 @@ import useScript from "./utils/useScript/useScript";
 import useRectangles from "./utils/useRectangle/useRectangles";
 import useCircle from "./utils/useCircle/useCircle";
 import Marker from "./types/Marker/Marker";
+import generatePythonVariableName from "~utils/generatePythonVariableName/generatePythonVariableName";
 
 export type Circle = {
   location: [number, number];
@@ -42,7 +43,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   y,
   zoomStart,
   tiles,
-  mapName,
+  mapName = generatePythonVariableName(),
   markers,
   rectangles,
   circleMarkers,

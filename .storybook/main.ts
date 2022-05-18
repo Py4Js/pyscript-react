@@ -18,6 +18,7 @@ module.exports = {
         "~root": process.cwd(),
         "~components": join(process.cwd(), "source", "components"),
         "~types": join(process.cwd(), "source", "types"),
+        "~utils": join(process.cwd(), "source", "utils"),
       },
     };
     return config;

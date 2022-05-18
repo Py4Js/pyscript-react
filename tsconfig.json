@@ -42,7 +42,9 @@
     "paths": {
       "~root/*": ["*"],
       "~components/*": ["source/components/*"],
-      "~types/*": ["source/types/*"]
+      "~types/*": ["source/types/*"],
+      "~utils/*": ["source/utils/*"]
+
     },
     "plugins": [{
       "transform": "typescript-transform-paths"
