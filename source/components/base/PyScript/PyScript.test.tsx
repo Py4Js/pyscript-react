@@ -1,10 +1,10 @@
-import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider";
+import { cleanup, render } from "@testing-library/react";
+import { FC } from "react";
+import { expectType } from "tsd";
 import PyScript, {
   PyScriptProperties,
 } from "~components/base/PyScript/PyScript";
-import { cleanup, render } from "@testing-library/react";
-import { expectType } from "tsd";
-import { FC } from "react";
+import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider";
 
 afterEach(cleanup);
 

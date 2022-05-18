@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import PyScript, { PyScriptProperties } from "./PyScript";
 import { FunctionComponent } from "react";
 import PyScriptProvider from "../PyScriptProvider/PyScriptProvider";
+import PyScript, { PyScriptProperties } from "./PyScript";
 
 export default {
   title: "PyScript",

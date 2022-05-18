@@ -1,17 +1,17 @@
 import { FC } from "react";
+import generatePythonVariableName from "~utils/generatePythonVariableName/generatePythonVariableName";
 import PyScript from "../../base/PyScript/PyScript";
+import Circle from "./types/Circle/Circle";
+import Marker from "./types/Marker/Marker";
+import Polygon from "./types/Polygon/Polygon";
+import Rectangle from "./types/Rectangle/Rectangle";
 import useCircleMarkers from "./utils/useCircleMarkers/useCircleMarkers";
+import useCircles from "./utils/useCircles/useCircles";
 import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
-import useScript from "./utils/useScript/useScript";
-import useRectangles from "./utils/useRectangles/useRectangles";
-import useCircles from "./utils/useCircles/useCircles";
 import usePolygons from "./utils/usePolygons/usePolygons";
-import Marker from "./types/Marker/Marker";
-import Circle from "./types/Circle/Circle";
-import Rectangle from "./types/Rectangle/Rectangle";
-import Polygon from "./types/Polygon/Polygon";
-import generatePythonVariableName from "~utils/generatePythonVariableName/generatePythonVariableName";
+import useRectangles from "./utils/useRectangles/useRectangles";
+import useScript from "./utils/useScript/useScript";
 
 export type FoliumMapProperties = {
   latitude: number;

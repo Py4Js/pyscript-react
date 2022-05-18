@@ -1,9 +1,4 @@
-import {
-  DOMAttributes,
-  PropsWithChildren,
-  HTMLAttributes,
-  DetailedHTMLProps,
-} from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import ReactElementProps from "~root/source/types/ReactElementProps/ReactElementProps";
 
 declare global {
