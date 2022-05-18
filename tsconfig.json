@@ -40,13 +40,13 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~root/*": ["*"]
+      "~root/*": ["*"],
+      "~components/*": ["source/components/*"],
+      "~types/*": ["source/types/*"]
     },
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      }
-    ]
+    "plugins": [{
+      "transform": "typescript-transform-paths"
+    }]
   },
   "include": ["."],
   "exclude": ["node_modules", "coverage", "destination"]

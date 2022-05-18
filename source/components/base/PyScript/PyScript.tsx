@@ -1,22 +1,61 @@
-import { createElement, FC, ReactHTML } from "react";
-import PyEnv, { PyEnvProperties } from "../PyEnv/PyEnv";
+import {
+  createElement,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactHTML,
+} from "react";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
+import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
 
-export type PyScriptProperties = {
+export type PyScriptPropertiesBase = Omit<
+  ReactElementProps<
+    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+  >,
+  "children"
+> & {
   children: string;
-  output?: string;
-  generateOutputTag?: boolean | keyof ReactHTML;
-  pyEnvContent?: PyEnvProperties["children"];
 };
+
+export type PyScriptPropertiesWitOutputPart = {
+  output: string;
+  generateOutputTag?: boolean | keyof ReactHTML;
+};
+
+export type PyScriptPropertiesWitoutOutputPart = {
+  output?: never;
+  generateOutputTag?: never;
+};
+
+export type PyScriptPropertiesWithPyEnvPart = {
+  pyEnvContent: PyEnvProperties["children"];
+  pyEnvProps?: Omit<PyEnvProperties, "children">;
+};
+
+export type PyScriptPropertiesWithWithoutPyEnvPart = {
+  pyEnvContent?: never;
+  pyEnvProps?: never;
+};
+
+export type PyScriptProperties =
+  | PyScriptPropertiesBase &
+      (
+        | PyScriptPropertiesWithPyEnvPart
+        | PyScriptPropertiesWithWithoutPyEnvPart
+      ) &
+      (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart);
 
 const PyScript: FC<PyScriptProperties> = ({
   children,
   output,
   generateOutputTag,
   pyEnvContent,
+  pyEnvProps,
+  ...rest
 }: PyScriptProperties): JSX.Element => {
   return (
     <>
-      {pyEnvContent && <PyEnv>{pyEnvContent}</PyEnv>}
+      {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
       {generateOutputTag &&
         createElement(
           typeof generateOutputTag === "string" ? generateOutputTag : "div",
@@ -24,7 +63,9 @@ const PyScript: FC<PyScriptProperties> = ({
             id: output,
           },
         )}
-      <py-script output={output}>{children}</py-script>
+      <py-script {...rest} output={output}>
+        {children}
+      </py-script>
     </>
   );
 };

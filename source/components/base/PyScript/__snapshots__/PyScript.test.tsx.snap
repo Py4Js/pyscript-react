@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PyScript Renders component properly 1`] = `
+<div>
+  <py-script>
+    print("Hello world!")
+  </py-script>
+</div>
+`;
+
+exports[`PyScript Renders component properly with PyEnv 1`] = `
+<div>
+  <py-env>
+    - numba
+  </py-env>
+  <py-script>
+    
+from numba import jit
+@jit(nopython=True) 
+def example():
+  print("Hello world!")
+
+  </py-script>
+</div>
+`;

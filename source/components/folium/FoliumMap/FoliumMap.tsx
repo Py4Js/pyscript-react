@@ -1,5 +1,6 @@
 import { FC } from "react";
 import PyScript from "../../base/PyScript/PyScript";
+import useCircleMarkers from "./utils/useCircleMarkers/useCircleMarkers";
 import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
@@ -30,6 +31,7 @@ export type FoliumMapProperties = {
   mapName?: string;
   markers?: Marker[];
   rectangles?: Rectangle[];
+  circleMarkers?: Marker[];
 };
 
 const FoliumMap: FC<FoliumMapProperties> = ({
@@ -40,6 +42,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   mapName,
   markers,
   rectangles,
+  circleMarkers,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -52,13 +55,14 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   const mapString = useMap({ mapName, x, y, pythonArguments });
   const rectanglesString = useRectangles({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
+  const circleMarkersString = useCircleMarkers({ mapName, circleMarkers });
   const scriptString = useScript({
     mapName,
     mapString,
     markersString,
     rectanglesString,
+    circleMarkersString,
   });
-
   return (
     <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
       {scriptString}
