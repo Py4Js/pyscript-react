@@ -6,6 +6,7 @@ type UseScriptArguments = {
   markersString: string;
   rectanglesString: string;
   circleMarkersString: string;
+  circleString: string;
 };
 
 const useScript = ({
@@ -13,6 +14,7 @@ const useScript = ({
   markersString,
   circleMarkersString,
   rectanglesString,
+  circleString,
   mapName = "",
 }: UseScriptArguments) => {
   return `
@@ -20,6 +22,7 @@ ${mapString}
 ${markersString}
 ${rectanglesString}
 ${circleMarkersString}
+${circleString}
 ${mapName}
   `;
 };
