@@ -55,4 +55,12 @@ FoliumMapExample.args = {
       weight: 2,
     },
   ],
+  circles: [
+    {
+      location: [50.25637753089188, 18.971101614473774],
+      popup: "Random location",
+      toolTip: "Sosnowiec",
+      radius: 1000,
+    },
+  ],
 };

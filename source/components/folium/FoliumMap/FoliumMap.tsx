@@ -5,12 +5,20 @@ import useMap from "./utils/useMap/useMap";
 import useMarkers from "./utils/useMarkers/useMarkers";
 import useScript from "./utils/useScript/useScript";
 import useRectangles from "./utils/useRectangle/useRectangles";
+import useCircle from "./utils/useCircle/useCircle";
 
 export type Marker = {
   location: [number, number];
   popup?: string;
   toolTip?: string;
   draggable?: boolean;
+};
+
+export type Circle = {
+  location: [number, number];
+  popup?: string;
+  toolTip?: string;
+  radius?: number;
 };
 
 export type Rectangle = {
@@ -31,6 +39,7 @@ export type FoliumMapProperties = {
   mapName?: string;
   markers?: Marker[];
   rectangles?: Rectangle[];
+  circles?: Circle[];
   circleMarkers?: Marker[];
 };
 
@@ -43,6 +52,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   markers,
   rectangles,
   circleMarkers,
+  circles,
 }: FoliumMapProperties) => {
   const pythonArguments = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
@@ -56,12 +66,14 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   const rectanglesString = useRectangles({ mapName, rectangles });
   const markersString = useMarkers({ mapName, markers });
   const circleMarkersString = useCircleMarkers({ mapName, circleMarkers });
+  const circleString = useCircle({ mapName, circles });
   const scriptString = useScript({
     mapName,
     mapString,
     markersString,
     rectanglesString,
     circleMarkersString,
+    circleString,
   });
   return (
     <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
