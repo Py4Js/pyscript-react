@@ -12,11 +12,9 @@ const Template: ComponentStory<FunctionComponent<FoliumMapProperties>> = ({
   ...rest
 }: FoliumMapProperties): JSX.Element => {
   return (
-    <>
-      <PyScriptProvider>
-        <FoliumMap {...rest} />
-      </PyScriptProvider>
-    </>
+    <PyScriptProvider>
+      <FoliumMap {...rest} />
+    </PyScriptProvider>
   );
 };
 

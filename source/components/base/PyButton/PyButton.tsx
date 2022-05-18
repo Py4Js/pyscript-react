@@ -1,26 +1,26 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyReplProperties = Omit<
+export type PyButtonProperties = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
   "children"
 > & {
-  autoGenerate?: boolean;
-  children?: string;
+  children: string;
+  label: string;
 };
 
-const PyRepl: FC<PyReplProperties> = ({
-  autoGenerate = false,
+const PyButton: FC<PyButtonProperties> = ({
   children,
+  label,
   ...rest
-}: PyReplProperties) => {
+}: PyButtonProperties): JSX.Element => {
   return (
-    <py-repl {...rest} auto-generate={autoGenerate}>
+    <py-button {...rest} label={label}>
       {children}
-    </py-repl>
+    </py-button>
   );
 };
 
-export default PyRepl;
+export default PyButton;
