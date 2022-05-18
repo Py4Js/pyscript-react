@@ -9,7 +9,7 @@ PyScript-React combine react with the most popular python libraries (like pandas
 
 `work in progress... 🚀`
 
-## Contributiong
+## Contributing
 
 Look here: [CONTRIBUTING.md](https://github.com/Py4Js/PyScript-React/blob/main/CONTRIBUTING.md)
 
