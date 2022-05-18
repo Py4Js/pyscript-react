@@ -6,11 +6,8 @@ import {
 } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type PyBoxProperties = Omit<
-  ReactElementProps<
-    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-  >,
-  "children"
+type PyBoxProperties = ReactElementProps<
+  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 >;
 
 const PyBox: FC<PyBoxProperties> = ({
