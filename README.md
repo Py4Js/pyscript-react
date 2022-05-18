@@ -15,4 +15,4 @@ Look here: [CONTRIBUTING.md](https://github.com/Py4Js/PyScript-React/blob/main/C
 
 ## Contributors
 
-[!][](https://github.com/Py4Js/PyScript-React/graphs/contributors)](https://contrib.rocks/image?repo=Py4Js/PyScript-React)
+[![](https://github.com/Py4Js/PyScript-React/graphs/contributors)](https://contrib.rocks/image?repo=Py4Js/PyScript-React)
