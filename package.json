@@ -6,9 +6,11 @@
   "author": "ShootGan <nawelpalepka@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "build": "cross-env rimraf destination && cross-env tsc && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack",
     "storybook": "start-storybook -p 6006",
-    "test": "cross-env TS_NODE_PROJECT=tsconfig.node.json jest --coverage"
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.node.json jest --coverage",
+    "lint": "cross-env prettier --write \"./**/*.{js,jsx,ts,tsx,json,yaml,yml}\" && black ."
   },
   "peerDependencies": {
     "react": "^18.1.0",
@@ -42,9 +44,11 @@
     "babel-loader": "^8.2.5",
     "core-js": "^3.22.5",
     "cross-env": "^7.0.3",
+    "husky": "^8.0.1",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "jest-extended": "^2.0.0",
+    "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "storybook": "^6.4.22",
     "ts-jest": "^28.0.2",
