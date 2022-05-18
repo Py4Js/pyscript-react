@@ -1,5 +1,7 @@
+export type Location = [number, number];
+
 type Polygon = {
-  locations: [number, number][];
+  locations: Location[];
   popup?: string;
   tooltip?: string;
 };

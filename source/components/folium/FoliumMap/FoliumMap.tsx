@@ -37,22 +37,30 @@ const FoliumMap: FC<FoliumMapProperties> = ({
   circleMarkers,
   circles,
   polygons,
-}: FoliumMapProperties) => {
-  const pythonArguments = [
+}: FoliumMapProperties): JSX.Element => {
+  const pythonArguments: string[] = [
     typeof zoomStart === "number" && !isNaN(zoomStart)
       ? `zoom_start=${zoomStart}`
       : "",
     tiles ? `tiles=\"${tiles}\"` : "",
-  ].filter((argument) => {
+  ].filter((argument: string): boolean => {
     return argument !== "";
   });
-  const mapString = useMap({ mapName, latitude, longitude, pythonArguments });
-  const rectanglesString = useRectangles({ mapName, rectangles });
-  const markersString = useMarkers({ mapName, markers });
-  const circleMarkersString = useCircleMarkers({ mapName, circleMarkers });
-  const circlesString = useCircles({ mapName, circles });
-  const polygonsString = usePolygons({ mapName, polygons });
-  const scriptString = useScript({
+  const mapString: string = useMap({
+    mapName,
+    latitude,
+    longitude,
+    pythonArguments,
+  });
+  const rectanglesString: string = useRectangles({ mapName, rectangles });
+  const markersString: string = useMarkers({ mapName, markers });
+  const circleMarkersString: string = useCircleMarkers({
+    mapName,
+    circleMarkers,
+  });
+  const circlesString: string = useCircles({ mapName, circles });
+  const polygonsString: string = usePolygons({ mapName, polygons });
+  const scriptString: string = useScript({
     mapName,
     mapString,
     markersString,
