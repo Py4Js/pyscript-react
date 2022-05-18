@@ -11,8 +11,8 @@ type UseMapArguments = {
 const useMap = ({ mapName, x, y, pythonArguments }: UseMapArguments) => {
   return useMemo(() => {
     return `
-    import folium;
-    ${mapName ? `${mapName} = ` : ""}folium.Map(location=[${x}, ${y}]${
+import folium;
+${mapName ? `${mapName} = ` : ""}folium.Map(location=[${x}, ${y}]${
       pythonArguments ? `,${pythonArguments.join(",")}` : ""
     })
     `;
