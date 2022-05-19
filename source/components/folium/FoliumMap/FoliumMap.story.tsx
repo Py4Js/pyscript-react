@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import PyScriptProvider from "../../base/PyScriptProvider/PyScriptProvider";
 import { FunctionComponent } from "react";
+import PyScriptProvider from "../../base/PyScriptProvider/PyScriptProvider";
 import FoliumMap, { FoliumMapProperties } from "./FoliumMap";
 
 export default {

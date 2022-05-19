@@ -8,13 +8,15 @@ type UseMapArguments = {
   pythonArguments: string[];
 };
 
-const useMap = ({
+type UseMap = (argument: UseMapArguments) => string;
+
+const useMap: UseMap = ({
   mapName,
   latitude,
   longitude,
   pythonArguments,
-}: UseMapArguments) => {
-  return useMemo(() => {
+}: UseMapArguments): string => {
+  return useMemo((): string => {
     return `
 import folium;
 ${

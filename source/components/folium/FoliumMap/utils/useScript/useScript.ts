@@ -10,7 +10,9 @@ type UseScriptArguments = {
   polygonsString: string;
 };
 
-const useScript = ({
+type UseScript = (argument: UseScriptArguments) => string;
+
+const useScript: UseScript = ({
   mapString,
   markersString,
   circleMarkersString,
@@ -18,7 +20,7 @@ const useScript = ({
   circlesString,
   polygonsString,
   mapName,
-}: UseScriptArguments) => {
+}: UseScriptArguments): string => {
   return `
 ${mapString}
 ${markersString}

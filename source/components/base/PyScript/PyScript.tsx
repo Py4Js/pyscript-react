@@ -5,8 +5,8 @@ import {
   HTMLAttributes,
   ReactHTML,
 } from "react";
-import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
+import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
 export type PyScriptPropertiesBase = Omit<
   ReactElementProps<
