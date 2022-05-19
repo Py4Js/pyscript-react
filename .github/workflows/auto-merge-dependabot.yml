@@ -1,6 +1,8 @@
 name: "auto-merge-dependabot"
 on:
   pull_request:
+    branches:
+      - development
 jobs:
   auto-merge:
     runs-on: ubuntu-latest
