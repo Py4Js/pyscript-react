@@ -52,7 +52,7 @@
     "@types/webpack-node-externals": "^2.5.3",
     "@typescript-eslint/eslint-plugin": "^5.25.0",
     "@typescript-eslint/parser": "^5.25.0",
-    "audit-ci": "^6.2.0",
+    "audit-ci": "^6.2.1",
     "babel-loader": "^8.2.5",
     "core-js": "^3.22.5",
     "cross-env": "^7.0.3",
