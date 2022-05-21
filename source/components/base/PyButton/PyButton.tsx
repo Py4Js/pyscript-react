@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
@@ -21,6 +22,11 @@ const PyButton: FC<PyButtonProperties> = ({
       {children}
     </py-button>
   );
+};
+
+PyButton.propTypes = {
+  children: propTypes.string.isRequired,
+  label: propTypes.string.isRequired,
 };
 
 export default PyButton;

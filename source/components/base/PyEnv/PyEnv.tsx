@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { DetailedHTMLProps, FC, HTMLAttributes, useMemo } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
@@ -24,6 +25,10 @@ const PyEnv: FC<PyEnvProperties> = ({
       : children;
   }, [children]);
   return <py-env {...rest}>{fixedChildren}</py-env>;
+};
+
+PyEnv.propTypes = {
+  children: propTypes.oneOfType([propTypes.string, propTypes.array]).isRequired,
 };
 
 export default PyEnv;

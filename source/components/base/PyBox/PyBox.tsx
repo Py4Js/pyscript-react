@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import {
   DetailedHTMLProps,
   FC,
@@ -15,6 +16,13 @@ const PyBox: FC<PyBoxProperties> = ({
   ...rest
 }: PropsWithChildren<PyBoxProperties>): JSX.Element => {
   return <py-box {...rest}>{children}</py-box>;
+};
+
+PyBox.propTypes = {
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
 };
 
 export default PyBox;
