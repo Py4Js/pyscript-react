@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
@@ -21,6 +22,11 @@ const PyRepl: FC<PyReplProperties> = ({
       {children}
     </py-repl>
   );
+};
+
+PyRepl.propTypes = {
+  children: propTypes.string,
+  autoGenerate: propTypes.bool,
 };
 
 export default PyRepl;
