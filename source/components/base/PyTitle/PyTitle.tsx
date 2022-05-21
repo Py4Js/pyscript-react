@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
@@ -13,8 +14,12 @@ export type PyTitleProperties = Omit<
 const PyTitle: FC<PyTitleProperties> = ({
   children,
   ...rest
-}: PyTitleProperties) => {
+}: PyTitleProperties): JSX.Element => {
   return <py-title {...rest}>{children}</py-title>;
+};
+
+PyTitle.propTypes = {
+  children: propTypes.string.isRequired,
 };
 
 export default PyTitle;

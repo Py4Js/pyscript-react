@@ -1,4 +1,5 @@
-import { DetailedHTMLProps, HTMLAttributes } from "react";
+import propTypes from "prop-types";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
 type PyInputBoxProperties = Omit<
@@ -10,8 +11,15 @@ type PyInputBoxProperties = Omit<
   children: string;
 };
 
-const PyInputBox = ({ children, ...rest }: PyInputBoxProperties) => {
+const PyInputBox: FC<PyInputBoxProperties> = ({
+  children,
+  ...rest
+}: PyInputBoxProperties): JSX.Element => {
   return <py-inputbox {...rest}>{children}</py-inputbox>;
+};
+
+PyInputBox.propTypes = {
+  children: propTypes.string.isRequired,
 };
 
 export default PyInputBox;
