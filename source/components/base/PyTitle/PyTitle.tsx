@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import propTypes from "prop-types";
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  WeakValidationMap,
+} from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
 export type PyTitleProperties = Omit<
@@ -16,5 +22,9 @@ const PyTitle: FC<PyTitleProperties> = ({
 }: PyTitleProperties): JSX.Element => {
   return <py-title {...rest}>{children}</py-title>;
 };
+
+PyTitle.propTypes = {
+  children: propTypes.string,
+} as WeakValidationMap<PyTitleProperties>;
 
 export default PyTitle;
