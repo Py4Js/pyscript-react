@@ -1,4 +1,4 @@
-import { cleanup, render } from "@testing-library/react";
+import { cleanup, render, RenderResult } from "@testing-library/react";
 import { FC } from "react";
 import { expectType } from "tsd";
 import PyScript, {
@@ -8,9 +8,9 @@ import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider
 
 afterEach(cleanup);
 
-describe("PyScript", () => {
+describe("PyScript", (): void => {
   it("Renders component properly", async (): Promise<void> => {
-    const { container } = render(
+    const { container }: RenderResult = render(
       <PyScriptProvider>
         <PyScript>print("Hello world!")</PyScript>
       </PyScriptProvider>,
@@ -18,7 +18,7 @@ describe("PyScript", () => {
     expect(container).toMatchSnapshot();
   });
   it("Renders component properly with PyEnv", async (): Promise<void> => {
-    const { container } = render(
+    const { container }: RenderResult = render(
       <PyScriptProvider>
         <PyScript pyEnvContent={["numba"]}>
           {`
@@ -32,7 +32,7 @@ def example():
     );
     expect(container).toMatchSnapshot();
   });
-  it("Has correct type", () => {
+  it("Has correct type", (): void => {
     expectType<FC<PyScriptProperties>>(PyScript);
   });
 });
