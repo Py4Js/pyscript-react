@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import { FC, memo, PropsWithChildren } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
@@ -20,6 +21,15 @@ const PyScriptProvider: FC<PyScriptProviderProperties> = ({
       {children}
     </HelmetProvider>
   );
+};
+
+PyScriptProvider.propTypes = {
+  cssSource: propTypes.string,
+  jsSource: propTypes.string,
+  children: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.node),
+    propTypes.node,
+  ]).isRequired,
 };
 
 export default memo(PyScriptProvider);
