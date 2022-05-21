@@ -1,16 +1,16 @@
 import { FC, memo, PropsWithChildren } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 
-export type PyScriptProviderProperties = {
+export type PyScriptProviderProperties = PropsWithChildren<{
   cssSource?: string;
   jsSource?: string;
-};
+}>;
 
-const PyScriptProvider: FC<PropsWithChildren<PyScriptProviderProperties>> = ({
+const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   cssSource = "https://pyscript.net/alpha/pyscript.css",
   jsSource = "https://pyscript.net/alpha/pyscript.js",
   children,
-}) => {
+}: PyScriptProviderProperties): JSX.Element => {
   return (
     <HelmetProvider>
       <Helmet>

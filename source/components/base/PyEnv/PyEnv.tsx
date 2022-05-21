@@ -14,10 +14,10 @@ const PyEnv: FC<PyEnvProperties> = ({
   children,
   ...rest
 }: PyEnvProperties): JSX.Element => {
-  const fixedChildren = useMemo(() => {
+  const fixedChildren: string = useMemo((): string => {
     return Array.isArray(children)
       ? children
-          .map((element) => {
+          .map((element: string): string => {
             return `- ${element}`;
           })
           .join("\n")

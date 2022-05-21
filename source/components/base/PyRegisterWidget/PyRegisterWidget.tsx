@@ -16,7 +16,7 @@ const PyRegisterWidget: FC<PyRegisterWidgetProperties> = ({
   name,
   src,
   pythonClass,
-}: PyRegisterWidgetProperties) => {
+}: PyRegisterWidgetProperties): JSX.Element => {
   return (
     <py-register-widget
       src={src}

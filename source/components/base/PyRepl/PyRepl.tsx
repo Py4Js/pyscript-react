@@ -15,7 +15,7 @@ const PyRepl: FC<PyReplProperties> = ({
   autoGenerate = false,
   children,
   ...rest
-}: PyReplProperties) => {
+}: PyReplProperties): JSX.Element => {
   return (
     <py-repl {...rest} auto-generate={autoGenerate}>
       {children}

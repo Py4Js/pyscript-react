@@ -13,7 +13,7 @@ export type PyTitleProperties = Omit<
 const PyTitle: FC<PyTitleProperties> = ({
   children,
   ...rest
-}: PyTitleProperties) => {
+}: PyTitleProperties): JSX.Element => {
   return <py-title {...rest}>{children}</py-title>;
 };
 

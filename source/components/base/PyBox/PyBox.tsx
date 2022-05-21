@@ -13,7 +13,7 @@ type PyBoxProperties = ReactElementProps<
 const PyBox: FC<PyBoxProperties> = ({
   children,
   ...rest
-}: PropsWithChildren<PyBoxProperties>) => {
+}: PropsWithChildren<PyBoxProperties>): JSX.Element => {
   return <py-box {...rest}>{children}</py-box>;
 };
 
