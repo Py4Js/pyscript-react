@@ -5,8 +5,8 @@ import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
 
 afterEach(cleanup);
 
-describe("PyScript", () => {
-  it("Has correct type", () => {
+describe("PyScript", (): void => {
+  it("Has correct type", (): void => {
     expectType<FC<PyEnvProperties>>(PyEnv);
   });
 });
