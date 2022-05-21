@@ -1,9 +1,11 @@
+import propTypes from "prop-types";
 import {
   createElement,
   DetailedHTMLProps,
   FC,
   HTMLAttributes,
   ReactHTML,
+  WeakValidationMap,
 } from "react";
 import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
@@ -70,5 +72,13 @@ const PyScript: FC<PyScriptProperties> = ({
     </>
   );
 };
+
+PyScript.propTypes = {
+  children: propTypes.string.isRequired,
+  output: propTypes.string,
+  generateOutputTag: propTypes.oneOfType([propTypes.string, propTypes.bool]),
+  pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
+  pyEnvProps: propTypes.object,
+} as WeakValidationMap<PyScriptProperties>;
 
 export default PyScript;
