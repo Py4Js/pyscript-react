@@ -35,12 +35,11 @@ describe("PyScript", (): void => {
     expect(container).toMatchSnapshot();
   });
   it("Compile component with Python properly", (): void => {
-    const { getByTestId, debug }: RenderResult = render(
+    const { getByTestId }: RenderResult = render(
       <PyScriptHelloWorldComponent />,
     );
     const pyScript: HTMLElement = getByTestId("py-script");
     setTimeout((): void => {
-      debug();
       expect(pyScript).toContainEqual("Hello world!");
     }, 5_000);
   });

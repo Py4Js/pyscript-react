@@ -3,3 +3,4 @@ tsconfig.tsbuildinfo
 yarn-error.log
 destination
 coverage
+.docusaurus
