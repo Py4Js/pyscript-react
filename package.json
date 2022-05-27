@@ -25,7 +25,7 @@
     "@babel/preset-env": "^7.17.12",
     "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.16.7",
-    "@docusaurus/core": "^2.0.0-beta.20",
+    "@docusaurus/core": "^2.0.0-beta.21",
     "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
     "@docusaurus/preset-classic": "^2.0.0-beta.20",
     "@docusaurus/theme-classic": "^2.0.0-beta.20",
