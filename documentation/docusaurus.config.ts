@@ -1,3 +1,4 @@
+import { Options } from "@docusaurus/preset-classic";
 import { Config } from "@docusaurus/types";
 
 const config: Config = {
@@ -20,7 +21,16 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
   },
-  presets: ["@docusaurus/preset-classic"],
+  presets: [
+    [
+      "@docusaurus/preset-classic",
+      {
+        docs: {
+          sidebarPath: require.resolve("./src/sidebars.ts"),
+        },
+      } as Options,
+    ],
+  ],
 };
 
 export default config;
