@@ -18,13 +18,12 @@ const PyScriptHelloWorldComponent: FC = (): JSX.Element => {
 const PyScriptFoliumMapComponent: FC = (): JSX.Element => {
   return (
     <PyScriptProvider>
-      <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
-        {`
-from folium import Map
-variable = Map(location=[45.5236, -122.6750])
-variable
-`}
-      </PyScript>
+      <PyScript
+        output="folium"
+        generateOutputTag
+        pyEnvContent={["folium"]}
+        src="./test_data/folium_map.py"
+      ></PyScript>
     </PyScriptProvider>
   );
 };
@@ -43,7 +42,7 @@ describe("PyScript", (): void => {
       expect(pyScript).toContainEqual("Hello world!");
     }, 5_000);
   });
-  it("Renders component properly with all props", async (): Promise<void> => {
+  it("Renders component properly with output, src, pyEnvContent and generateOutputTag", async (): Promise<void> => {
     const { container }: RenderResult = render(<PyScriptFoliumMapComponent />);
     expect(container).toMatchSnapshot();
   });

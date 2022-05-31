@@ -43,7 +43,8 @@
       "~root/*": ["*"],
       "~components/*": ["source/components/*"],
       "~types/*": ["source/types/*"],
-      "~utils/*": ["source/utils/*"]
+      "~utils/*": ["source/utils/*"],
+      "~scripts/*": ["scripts/*"]
     },
     "plugins": [
       {

@@ -15,7 +15,15 @@ export type PyScriptPropertiesBase = Omit<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
   "children"
-> & {
+>;
+
+export type PyScriptPropertiesWithSource = {
+  src: string;
+  children?: never;
+};
+
+export type PyScriptPropertiesWithoutSource = {
+  src?: never;
   children: string;
 };
 
@@ -45,7 +53,8 @@ export type PyScriptProperties =
         | PyScriptPropertiesWithPyEnvPart
         | PyScriptPropertiesWithWithoutPyEnvPart
       ) &
-      (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart);
+      (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart) &
+      (PyScriptPropertiesWithSource | PyScriptPropertiesWithoutSource);
 
 const PyScript: FC<PyScriptProperties> = ({
   children,
@@ -67,18 +76,19 @@ const PyScript: FC<PyScriptProperties> = ({
           },
         )}
       <py-script {...rest} output={output}>
-        {children}
+        {children || ""}
       </py-script>
     </>
   );
 };
 
 PyScript.propTypes = {
-  children: propTypes.string.isRequired,
+  children: propTypes.string,
   output: propTypes.string,
   generateOutputTag: propTypes.oneOfType([propTypes.string, propTypes.bool]),
   pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
   pyEnvProps: propTypes.object,
+  src: propTypes.string,
 } as WeakValidationMap<PyScriptProperties>;
 
 export default PyScript;
