@@ -8,14 +8,16 @@ import {
 } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type ComplexChildren = ComplexChildrenWithPaths | ComplexChildrenWithoutPaths;
+type ChildrenAsObject =
+  | ChildrenAsObjectWithPaths
+  | ChildrenAsObjectWithoutPaths;
 
-type ComplexChildrenWithPaths = {
+type ChildrenAsObjectWithPaths = {
   paths: string[];
   items?: string[];
 };
 
-type ComplexChildrenWithoutPaths = {
+type ChildrenAsObjectWithoutPaths = {
   paths?: string[];
   items: string[];
 };
@@ -26,7 +28,7 @@ export type PyEnvProperties = Omit<
   >,
   "children"
 > & {
-  children: string | string[] | ComplexChildren;
+  children: string | string[] | ChildrenAsObject;
 };
 
 const PyEnv: FC<PyEnvProperties> = ({
@@ -34,7 +36,7 @@ const PyEnv: FC<PyEnvProperties> = ({
   ...rest
 }: PyEnvProperties): JSX.Element => {
   const fixedChildren: string = useMemo((): string => {
-    const { paths, items }: ComplexChildren = Object(children);
+    const { paths, items }: ChildrenAsObject = Object(children);
     if (paths || items) {
       const fixedItems: string =
         items
@@ -48,7 +50,10 @@ const PyEnv: FC<PyEnvProperties> = ({
             return `\t- ${element}`;
           })
           .join("\n") || "";
-      return `${fixedItems}${fixedPaths ? `\n- paths:\n${fixedPaths}` : ""}`;
+      const fixedPathsWithCondition: string = fixedPaths
+        ? `\n- paths:\n${fixedPaths}`
+        : "";
+      return `${fixedItems}${fixedPathsWithCondition}`;
     } else {
       return Array.isArray(children)
         ? children
