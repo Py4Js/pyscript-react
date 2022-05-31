@@ -1,4 +1,4 @@
-# PyAnalize-React 🐍⚛️
+# PyScript-React 🐍⚛️
 
 ![GitHub](https://img.shields.io/github/license/Py4Js/PyScript-React)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/ShootGan/PyAnalize-React.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ShootGan/PyAnalize-React/alerts/)
