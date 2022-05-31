@@ -10,7 +10,7 @@ exports[`PyScript Renders component properly 1`] = `
 </div>
 `;
 
-exports[`PyScript Renders component properly with all props 1`] = `
+exports[`PyScript Renders component properly with output, src, pyEnvContent and generateOutputTag 1`] = `
 <div>
   <py-env>
     - folium

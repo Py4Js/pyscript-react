@@ -42,7 +42,7 @@ describe("PyScript", (): void => {
       expect(pyScript).toContainEqual("Hello world!");
     }, 5_000);
   });
-  it("Renders component properly with all props", async (): Promise<void> => {
+  it("Renders component properly with output, src, pyEnvContent and generateOutputTag", async (): Promise<void> => {
     const { container }: RenderResult = render(<PyScriptFoliumMapComponent />);
     expect(container).toMatchSnapshot();
   });
