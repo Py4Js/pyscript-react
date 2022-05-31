@@ -10,9 +10,43 @@
 
 ## Try it
 
-`work in progress... 🚀`
+```sh
+yarn add pyscript-react # installation with yarn (preffered node package manager)
+npm i pyscript-react # installation with npm
+pnpm add pyscript-react # intallation with pnpm
+```
 
-## Docs
+### Example hello world
+
+```tsx
+<PyScriptProvider>
+  <PyScript>print("Hello world!")</PyScript>
+</PyScriptProvider>
+```
+
+### Example integration with folium
+
+```tsx
+<PyScriptProvider>
+  <PyScript
+    output="folium"
+    generateOutputTag
+    pyEnvContent={["folium"]}
+    src="./folium_map.py"
+  ></PyScript>
+</PyScriptProvider>
+```
+
+```py
+from folium import Map
+
+variable = Map(location=[45.5236, -122.6750])
+variable
+```
+
+## Documentation
+
+[Documentation](https://py4js.github.io/pyscript-react)
 
 `we are working on it... 🐢`
 
