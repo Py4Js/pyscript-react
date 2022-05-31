@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "build": "cross-env rimraf destination && cross-env tsc && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack",
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.node.json ts-node ./scripts/runner/commands/build/build.ts",
     "storybook": "start-storybook -p 6006",
     "test": "cross-env TS_NODE_PROJECT=tsconfig.node.json jest --coverage",
     "lint": "cross-env prettier --write \"./**/*.{js,jsx,ts,tsx,json,yaml,yml}\" && black ."
@@ -95,7 +95,7 @@
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.18",
-    "zx": "^6.1.0"
+    "zx": "^4.2.0"
   },
   "dependencies": {
     "lodash": "^4.17.21",
