@@ -23,7 +23,7 @@ export const PyScriptExample: ComponentStory<typeof PyScript> = Template.bind(
 );
 
 PyScriptExample.args = {
-  children: 'print("hello")',
+  src: "/folium_map.py",
   output: "folium",
   generateOutputTag: true,
   pyEnvContent: ["folium"],

@@ -18,13 +18,12 @@ const PyScriptHelloWorldComponent: FC = (): JSX.Element => {
 const PyScriptFoliumMapComponent: FC = (): JSX.Element => {
   return (
     <PyScriptProvider>
-      <PyScript output="folium" generateOutputTag pyEnvContent={["folium"]}>
-        {`
-from folium import Map
-variable = Map(location=[45.5236, -122.6750])
-variable
-`}
-      </PyScript>
+      <PyScript
+        output="folium"
+        generateOutputTag
+        pyEnvContent={["folium"]}
+        src="./test_data/folium_map.py"
+      ></PyScript>
     </PyScriptProvider>
   );
 };
