@@ -1,4 +1,5 @@
 import Layout from "@theme/Layout";
+// @ts-ignore
 import React from "react";
 
 const Documentation = () => {
