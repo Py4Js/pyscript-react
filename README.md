@@ -38,6 +38,7 @@ pnpm add pyscript-react # intallation with pnpm
 ```
 
 ```py
+# folium_map.py
 from folium import Map
 
 variable = Map(location=[45.5236, -122.6750])
