@@ -50,6 +50,16 @@ variable
 
 `we are working on it... 🐢`
 
+## Related implementations/libraries
+
+### Libraries
+
+[PyScript-React-Folium]()
+
+### Implementations
+
+[PyScript-Solid]()
+
 ## Contributing
 
 Look here: [CONTRIBUTING.md](https://github.com/Py4Js/PyScript-React/blob/main/CONTRIBUTING.md)
