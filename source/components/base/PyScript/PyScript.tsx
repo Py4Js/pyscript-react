@@ -2,7 +2,6 @@ import propTypes from "prop-types";
 import {
   createElement,
   DetailedHTMLProps,
-  FC,
   HTMLAttributes,
   ReactHTML,
   WeakValidationMap,
@@ -47,23 +46,31 @@ export type PyScriptPropertiesWithWithoutPyEnvPart = {
   pyEnvProps?: never;
 };
 
-export type PyScriptProperties =
-  | PyScriptPropertiesBase &
-      (
-        | PyScriptPropertiesWithPyEnvPart
-        | PyScriptPropertiesWithWithoutPyEnvPart
-      ) &
-      (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart) &
-      (PyScriptPropertiesWithSource | PyScriptPropertiesWithoutSource);
+export type PyScriptPropertiesWithoutGeneric = PyScriptPropertiesBase &
+  (PyScriptPropertiesWithPyEnvPart | PyScriptPropertiesWithWithoutPyEnvPart) &
+  (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart) &
+  (PyScriptPropertiesWithSource | PyScriptPropertiesWithoutSource);
 
-const PyScript: FC<PyScriptProperties> = ({
+export type PyScriptProperties<T extends Record<string, unknown>> =
+  T extends infer T
+    ? T & PyScriptPropertiesWithoutGeneric
+    : PyScriptPropertiesWithoutGeneric;
+
+export type PyScriptTag = {
+  <T extends Record<string, unknown>>(
+    properties: PyScriptProperties<T>,
+  ): JSX.Element;
+  propTypes?: WeakValidationMap<PyScriptProperties<{}>>;
+};
+
+const PyScript: PyScriptTag = <T extends Record<string, unknown>>({
   children,
   output,
   generateOutputTag,
   pyEnvContent,
   pyEnvProps,
   ...rest
-}: PyScriptProperties): JSX.Element => {
+}: PyScriptProperties<T>): JSX.Element => {
   return (
     <>
       {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
@@ -89,6 +96,6 @@ PyScript.propTypes = {
   pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
   pyEnvProps: propTypes.object,
   src: propTypes.string,
-} as WeakValidationMap<PyScriptProperties>;
+} as WeakValidationMap<PyScriptProperties<{}>>;
 
 export default PyScript;
