@@ -51,19 +51,16 @@ export type PyScriptPropertiesWithoutGeneric = PyScriptPropertiesBase &
   (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart) &
   (PyScriptPropertiesWithSource | PyScriptPropertiesWithoutSource);
 
-export type PyScriptProperties<T extends Record<string, unknown>> =
-  T extends infer T
-    ? T & PyScriptPropertiesWithoutGeneric
-    : PyScriptPropertiesWithoutGeneric;
+export type PyScriptProperties<T> = T extends infer T
+  ? T & PyScriptPropertiesWithoutGeneric
+  : PyScriptPropertiesWithoutGeneric;
 
 export type PyScriptTag = {
-  <T extends Record<string, unknown>>(
-    properties: PyScriptProperties<T>,
-  ): JSX.Element;
-  propTypes?: WeakValidationMap<PyScriptProperties<{}>>;
+  <T extends object>(properties: PyScriptProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
 };
 
-const PyScript: PyScriptTag = <T extends Record<string, unknown>>({
+const PyScript: PyScriptTag = <T extends object>({
   children,
   output,
   generateOutputTag,
@@ -96,6 +93,6 @@ PyScript.propTypes = {
   pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
   pyEnvProps: propTypes.object,
   src: propTypes.string,
-} as WeakValidationMap<PyScriptProperties<{}>>;
+} as WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
 
 export default PyScript;
