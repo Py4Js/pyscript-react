@@ -1,22 +1,50 @@
 import propTypes from "prop-types";
-import { FC, memo, PropsWithChildren } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import {
+  DetailedHTMLProps,
+  FC,
+  LinkHTMLAttributes,
+  memo,
+  PropsWithChildren,
+  ScriptHTMLAttributes,
+} from "react";
+import {
+  Helmet,
+  HelmetProps,
+  HelmetProvider,
+  ProviderProps,
+} from "react-helmet-async";
 
 export type PyScriptProviderProperties = PropsWithChildren<{
-  cssSource?: string;
-  jsSource?: string;
+  cssSrc?: string;
+  jsSrc?: string;
+  cssProps?: Omit<
+    DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
+    "href"
+  >;
+  jsProps?: Omit<
+    DetailedHTMLProps<
+      ScriptHTMLAttributes<HTMLScriptElement>,
+      HTMLScriptElement
+    >,
+    "src"
+  >;
+  helmetProps?: HelmetProps;
+  helmetProviderProps?: ProviderProps;
 }>;
 
 const PyScriptProvider: FC<PyScriptProviderProperties> = ({
-  cssSource = "https://pyscript.net/alpha/pyscript.css",
-  jsSource = "https://pyscript.net/alpha/pyscript.js",
+  cssSrc = "https://pyscript.net/alpha/pyscript.css",
+  jsSrc = "https://pyscript.net/alpha/pyscript.js",
   children,
+  cssProps,
+  jsProps,
+  helmetProps,
 }: PyScriptProviderProperties): JSX.Element => {
   return (
-    <HelmetProvider>
-      <Helmet>
-        <link rel="stylesheet" href={cssSource} />
-        <script defer src={jsSource}></script>
+    <HelmetProvider {...helmetProps}>
+      <Helmet {...helmetProps}>
+        <link rel="stylesheet" {...cssProps} href={cssSrc} />
+        <script defer {...jsProps} src={jsSrc} />
       </Helmet>
       {children}
     </HelmetProvider>
@@ -24,8 +52,8 @@ const PyScriptProvider: FC<PyScriptProviderProperties> = ({
 };
 
 PyScriptProvider.propTypes = {
-  cssSource: propTypes.string,
-  jsSource: propTypes.string,
+  cssSrc: propTypes.string,
+  jsSrc: propTypes.string,
   children: propTypes.oneOfType([
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
