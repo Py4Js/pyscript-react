@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type PyRegisterWidgetProperties = Omit<
+export type PyRegisterWidgetPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -13,17 +13,23 @@ type PyRegisterWidgetProperties = Omit<
   pythonClass?: string;
 };
 
-const PyRegisterWidget: FC<PyRegisterWidgetProperties> = ({
+export type PyRegisterWidgetProperties<T> = T extends infer T
+  ? T & PyRegisterWidgetPropertiesBase
+  : PyRegisterWidgetPropertiesBase;
+
+export type PyRegisterWidgetTag = {
+  <T extends object>(properties: PyRegisterWidgetProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyRegisterWidgetPropertiesBase>;
+};
+
+const PyRegisterWidget: PyRegisterWidgetTag = <T extends object>({
   name,
   src,
   pythonClass,
-}: PyRegisterWidgetProperties): JSX.Element => {
+  ...rest
+}: PyRegisterWidgetProperties<T>): JSX.Element => {
   return (
-    <py-register-widget
-      src={src}
-      name={name}
-      klass={pythonClass}
-    ></py-register-widget>
+    <py-register-widget {...rest} src={src} name={name} klass={pythonClass} />
   );
 };
 
