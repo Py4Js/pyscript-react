@@ -6,7 +6,7 @@ import {
   ReactHTML,
   WeakValidationMap,
 } from "react";
-import PyEnv, { PyEnvProperties } from "~components/base/PyEnv/PyEnv";
+import PyEnv, { PyEnvPropertiesBase } from "~components/base/PyEnv/PyEnv";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
 export type PyScriptPropertiesBase = Omit<
@@ -37,8 +37,8 @@ export type PyScriptPropertiesWitoutOutputPart = {
 };
 
 export type PyScriptPropertiesWithPyEnvPart = {
-  pyEnvContent: PyEnvProperties["children"];
-  pyEnvProps?: Omit<PyEnvProperties, "children">;
+  pyEnvContent: PyEnvPropertiesBase["children"];
+  pyEnvProps?: Omit<PyEnvPropertiesBase, "children">;
 };
 
 export type PyScriptPropertiesWithWithoutPyEnvPart = {
