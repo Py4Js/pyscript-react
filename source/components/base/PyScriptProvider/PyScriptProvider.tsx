@@ -6,6 +6,7 @@ import {
   memo,
   PropsWithChildren,
   ScriptHTMLAttributes,
+  WeakValidationMap,
 } from "react";
 import {
   Helmet,
@@ -14,27 +15,69 @@ import {
   ProviderProps,
 } from "react-helmet-async";
 
-export type PyScriptProviderProperties = PropsWithChildren<{
+export type PyScriptProviderProperties = PropsWithChildren<
+  | {
+      jsProps?: Omit<
+        DetailedHTMLProps<
+          ScriptHTMLAttributes<HTMLScriptElement>,
+          HTMLScriptElement
+        >,
+        "src"
+      >;
+      jsProperties?: PyScriptProviderProperties["jsProps"];
+      helmetProps?: HelmetProps;
+      helmetProperties?: PyScriptProviderProperties["helmetProps"];
+      helmetProviderProps?: ProviderProps;
+      helmetProviderProperties?: PyScriptProviderProperties["helmetProviderProps"];
+    } & (
+      | PyScriptProviderPropertiesWithCSSSourceFullname
+      | PyScriptProviderPropertiesWithoutCSSSourceFullname
+    ) &
+      (
+        | PyScriptProviderPropertiesWithJSourceFullname
+        | PyScriptProviderPropertiesWithoutJSourceFullname
+      ) &
+      (
+        | PyScriptProviderPropertiesWithCSSPropertiesFullname
+        | PyScriptProviderPropertiesWithoutCSSPropertiesFullname
+      )
+>;
+
+export type PyScriptProviderPropertiesWithCSSSourceFullname = {
+  cssSource?: string;
+  cssSrc?: never;
+};
+
+export type PyScriptProviderPropertiesWithoutCSSSourceFullname = {
+  cssSource?: never;
   cssSrc?: string;
-  cssSource?: PyScriptProviderProperties["cssSrc"];
+};
+
+export type PyScriptProviderPropertiesWithJSourceFullname = {
+  jsSrc?: never;
+  jsSource?: string;
+};
+
+export type PyScriptProviderPropertiesWithoutJSourceFullname = {
   jsSrc?: string;
-  jsSource?: PyScriptProviderProperties["jsSrc"];
+  jsSource?: never;
+};
+
+export type PyScriptProviderPropertiesWithCSSPropertiesFullname = {
+  cssProps?: never;
+  cssProperties?: Omit<
+    DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
+    "href"
+  >;
+};
+
+export type PyScriptProviderPropertiesWithoutCSSPropertiesFullname = {
   cssProps?: Omit<
     DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
     "href"
   >;
-  cssProperties?: PyScriptProviderProperties["cssProps"];
-  jsProps?: Omit<
-    DetailedHTMLProps<
-      ScriptHTMLAttributes<HTMLScriptElement>,
-      HTMLScriptElement
-    >,
-    "src"
-  >;
-  jsProperties?: PyScriptProviderProperties["jsProps"];
-  helmetProps?: HelmetProps;
-  helmetProviderProps?: ProviderProps;
-}>;
+  cssProperties?: never;
+};
 
 const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   cssSrc = "https://pyscript.net/alpha/pyscript.css",
@@ -47,11 +90,13 @@ const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   jsProperties,
   jsProps,
   helmetProps,
+  helmetProperties,
   helmetProviderProps,
+  helmetProviderProperties,
 }: PyScriptProviderProperties): JSX.Element => {
   return (
-    <HelmetProvider {...helmetProviderProps}>
-      <Helmet {...helmetProps}>
+    <HelmetProvider {...(helmetProviderProperties || helmetProviderProps)}>
+      <Helmet {...(helmetProperties || helmetProps)}>
         <link
           rel="stylesheet"
           {...(cssProperties || cssProps)}
@@ -67,10 +112,12 @@ const PyScriptProvider: FC<PyScriptProviderProperties> = ({
 PyScriptProvider.propTypes = {
   cssSrc: propTypes.string,
   jsSrc: propTypes.string,
+  cssSource: propTypes.string,
+  jsSource: propTypes.string,
   children: propTypes.oneOfType([
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
   ]).isRequired,
-};
+} as WeakValidationMap<PyScriptProviderProperties>;
 
 export default memo(PyScriptProvider);
