@@ -1,20 +1,29 @@
 import propTypes from "prop-types";
 import {
   DetailedHTMLProps,
-  FC,
   HTMLAttributes,
   PropsWithChildren,
+  WeakValidationMap,
 } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type PyBoxProperties = ReactElementProps<
-  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+export type PyBoxPropertiesBase = PropsWithChildren<
+  ReactElementProps<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>>
 >;
 
-const PyBox: FC<PyBoxProperties> = ({
+export type PyBoxProperties<T> = T extends infer T
+  ? T & PyBoxPropertiesBase
+  : PyBoxPropertiesBase;
+
+export type PyBoxTag = {
+  <T extends object>(properties: PyBoxProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyBoxPropertiesBase>;
+};
+
+const PyBox: PyBoxTag = <T extends object>({
   children,
   ...rest
-}: PropsWithChildren<PyBoxProperties>): JSX.Element => {
+}: PyBoxProperties<T>): JSX.Element => {
   return <py-box {...rest}>{children}</py-box>;
 };
 

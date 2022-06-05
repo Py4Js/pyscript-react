@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type PyConfigProperties = Omit<
+export type PyConfigPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -11,10 +11,19 @@ type PyConfigProperties = Omit<
   children: string;
 };
 
-const PyConfig: FC<PyConfigProperties> = ({
+export type PyConfigProperties<T> = T extends infer T
+  ? T & PyConfigPropertiesBase
+  : PyConfigPropertiesBase;
+
+export type PyConfigTag = {
+  <T extends object>(properties: PyConfigProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyConfigPropertiesBase>;
+};
+
+const PyConfig: PyConfigTag = <T extends object>({
   children,
   ...rest
-}: PyConfigProperties): JSX.Element => {
+}: PyConfigProperties<T>): JSX.Element => {
   return <py-config {...rest}>{children}</py-config>;
 };
 
