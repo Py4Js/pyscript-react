@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyReplProperties = Omit<
+export type PyReplPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -12,11 +12,20 @@ export type PyReplProperties = Omit<
   children?: string;
 };
 
-const PyRepl: FC<PyReplProperties> = ({
+export type PyReplProperties<T> = T extends infer T
+  ? T & PyReplPropertiesBase
+  : PyReplPropertiesBase;
+
+export type PyReplTag = {
+  <T extends object>(properties: PyReplProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyReplPropertiesBase>;
+};
+
+const PyRepl: PyReplTag = <T extends object>({
   autoGenerate = false,
   children,
   ...rest
-}: PyReplProperties): JSX.Element => {
+}: PyReplProperties<T>): JSX.Element => {
   return (
     <py-repl {...rest} auto-generate={autoGenerate}>
       {children}
