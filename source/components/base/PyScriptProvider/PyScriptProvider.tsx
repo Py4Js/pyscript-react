@@ -16,11 +16,14 @@ import {
 
 export type PyScriptProviderProperties = PropsWithChildren<{
   cssSrc?: string;
+  cssSource?: PyScriptProviderProperties["cssSrc"];
   jsSrc?: string;
+  jsSource?: PyScriptProviderProperties["jsSrc"];
   cssProps?: Omit<
     DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
     "href"
   >;
+  cssProperties?: PyScriptProviderProperties["cssProps"];
   jsProps?: Omit<
     DetailedHTMLProps<
       ScriptHTMLAttributes<HTMLScriptElement>,
@@ -28,23 +31,33 @@ export type PyScriptProviderProperties = PropsWithChildren<{
     >,
     "src"
   >;
+  jsProperties?: PyScriptProviderProperties["jsProps"];
   helmetProps?: HelmetProps;
   helmetProviderProps?: ProviderProps;
 }>;
 
 const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   cssSrc = "https://pyscript.net/alpha/pyscript.css",
+  cssSource,
   jsSrc = "https://pyscript.net/alpha/pyscript.js",
+  jsSource,
   children,
   cssProps,
+  cssProperties,
+  jsProperties,
   jsProps,
   helmetProps,
+  helmetProviderProps,
 }: PyScriptProviderProperties): JSX.Element => {
   return (
-    <HelmetProvider {...helmetProps}>
+    <HelmetProvider {...helmetProviderProps}>
       <Helmet {...helmetProps}>
-        <link rel="stylesheet" {...cssProps} href={cssSrc} />
-        <script defer {...jsProps} src={jsSrc} />
+        <link
+          rel="stylesheet"
+          {...(cssProperties || cssProps)}
+          href={cssSource || cssSrc}
+        />
+        <script defer {...(jsProperties || jsProps)} src={jsSource || jsSrc} />
       </Helmet>
       {children}
     </HelmetProvider>
