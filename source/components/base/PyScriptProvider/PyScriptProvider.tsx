@@ -15,34 +15,6 @@ import {
   ProviderProps,
 } from "react-helmet-async";
 
-export type PyScriptProviderProperties = PropsWithChildren<
-  | {
-      jsProps?: Omit<
-        DetailedHTMLProps<
-          ScriptHTMLAttributes<HTMLScriptElement>,
-          HTMLScriptElement
-        >,
-        "src"
-      >;
-      jsProperties?: PyScriptProviderProperties["jsProps"];
-      helmetProps?: HelmetProps;
-      helmetProperties?: PyScriptProviderProperties["helmetProps"];
-      helmetProviderProps?: ProviderProps;
-      helmetProviderProperties?: PyScriptProviderProperties["helmetProviderProps"];
-    } & (
-      | PyScriptProviderPropertiesWithCSSSourceFullname
-      | PyScriptProviderPropertiesWithoutCSSSourceFullname
-    ) &
-      (
-        | PyScriptProviderPropertiesWithJSourceFullname
-        | PyScriptProviderPropertiesWithoutJSourceFullname
-      ) &
-      (
-        | PyScriptProviderPropertiesWithCSSPropertiesFullname
-        | PyScriptProviderPropertiesWithoutCSSPropertiesFullname
-      )
->;
-
 export type PyScriptProviderPropertiesWithCSSSourceFullname = {
   cssSource?: string;
   cssSrc?: never;
@@ -63,6 +35,14 @@ export type PyScriptProviderPropertiesWithoutJSourceFullname = {
   jsSource?: never;
 };
 
+export type PyScriptProviderPropertiesWithoutCSSPropertiesFullname = {
+  cssProps?: Omit<
+    DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
+    "href"
+  >;
+  cssProperties?: never;
+};
+
 export type PyScriptProviderPropertiesWithCSSPropertiesFullname = {
   cssProps?: never;
   cssProperties?: Omit<
@@ -71,13 +51,75 @@ export type PyScriptProviderPropertiesWithCSSPropertiesFullname = {
   >;
 };
 
-export type PyScriptProviderPropertiesWithoutCSSPropertiesFullname = {
-  cssProps?: Omit<
-    DetailedHTMLProps<LinkHTMLAttributes<HTMLLinkElement>, HTMLLinkElement>,
-    "href"
+export type PyScriptProviderPropertiesWithJSPropertiesFullname = {
+  jsProps?: never;
+  jsProperties?: Omit<
+    DetailedHTMLProps<
+      ScriptHTMLAttributes<HTMLScriptElement>,
+      HTMLScriptElement
+    >,
+    "src"
   >;
-  cssProperties?: never;
 };
+
+export type PyScriptProviderPropertiesWithoutJSPropertiesFullname = {
+  jsProps?: Omit<
+    DetailedHTMLProps<
+      ScriptHTMLAttributes<HTMLScriptElement>,
+      HTMLScriptElement
+    >,
+    "src"
+  >;
+  jsProperties?: never;
+};
+
+export type PyScriptProviderPropertiesWithoutHelmetPropertiesFullname = {
+  helmetProps?: HelmetProps;
+  helmetProperties?: never;
+};
+
+export type PyScriptProviderPropertiesWithHelmetPropertiesFullname = {
+  helmetProps?: never;
+  helmetProperties?: HelmetProps;
+};
+
+export type PyScriptProviderPropertiesWithHelmetProviderPropertiesFullname = {
+  helmetProviderProps?: never;
+  helmetProviderProperties?: ProviderProps;
+};
+
+export type PyScriptProviderPropertiesWithoutHelmetProviderPropertiesFullname =
+  {
+    helmetProviderProps?: ProviderProps;
+    helmetProviderProperties?: never;
+  };
+
+export type PyScriptProviderProperties = PropsWithChildren<
+  (
+    | PyScriptProviderPropertiesWithCSSSourceFullname
+    | PyScriptProviderPropertiesWithoutCSSSourceFullname
+  ) &
+    (
+      | PyScriptProviderPropertiesWithJSourceFullname
+      | PyScriptProviderPropertiesWithoutJSourceFullname
+    ) &
+    (
+      | PyScriptProviderPropertiesWithCSSPropertiesFullname
+      | PyScriptProviderPropertiesWithoutCSSPropertiesFullname
+    ) &
+    (
+      | PyScriptProviderPropertiesWithJSPropertiesFullname
+      | PyScriptProviderPropertiesWithoutJSPropertiesFullname
+    ) &
+    (
+      | PyScriptProviderPropertiesWithHelmetPropertiesFullname
+      | PyScriptProviderPropertiesWithoutHelmetPropertiesFullname
+    ) &
+    (
+      | PyScriptProviderPropertiesWithHelmetProviderPropertiesFullname
+      | PyScriptProviderPropertiesWithoutHelmetProviderPropertiesFullname
+    )
+>;
 
 const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   cssSrc = "https://pyscript.net/alpha/pyscript.css",
