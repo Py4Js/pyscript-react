@@ -11,6 +11,7 @@
 ## Try it
 
 ```sh
+# not yet available
 yarn add pyscript-react # installation with yarn (preffered node package manager)
 npm i pyscript-react # installation with npm
 pnpm add pyscript-react # intallation with pnpm
