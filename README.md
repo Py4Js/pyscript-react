@@ -34,7 +34,7 @@ pnpm add pyscript-react # intallation with pnpm
     generateOutputTag
     pyEnvContent={["folium"]}
     src="./folium_map.py"
-  ></PyScript>
+  />
 </PyScriptProvider>
 ```
 
