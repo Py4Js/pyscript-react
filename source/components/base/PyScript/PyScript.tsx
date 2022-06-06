@@ -107,6 +107,7 @@ PyScript.propTypes = {
   pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
   pyEnvProps: propTypes.object,
   src: propTypes.string,
+  source: propTypes.string,
 } as WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
 
 export default PyScript;
