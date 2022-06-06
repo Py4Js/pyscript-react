@@ -1,7 +1,6 @@
 import propTypes from "prop-types";
 import {
   DetailedHTMLProps,
-  FC,
   HTMLAttributes,
   useMemo,
   WeakValidationMap,
@@ -22,7 +21,7 @@ type ChildrenAsObjectWithoutPaths = {
   items: string[];
 };
 
-export type PyEnvProperties = Omit<
+export type PyEnvPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -31,10 +30,19 @@ export type PyEnvProperties = Omit<
   children: string | string[] | ChildrenAsObject;
 };
 
-const PyEnv: FC<PyEnvProperties> = ({
+export type PyEnvProperties<T> = T extends infer T
+  ? T & PyEnvPropertiesBase
+  : PyEnvPropertiesBase;
+
+export type PyEnvTag = {
+  <T extends object>(properties: PyEnvProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyEnvPropertiesBase>;
+};
+
+const PyEnv: PyEnvTag = <T extends object>({
   children,
   ...rest
-}: PyEnvProperties): JSX.Element => {
+}: PyEnvProperties<T>): JSX.Element => {
   const fixedChildren: string = useMemo((): string => {
     const { paths, items }: ChildrenAsObject = Object(children);
     if (paths || items) {
@@ -76,6 +84,6 @@ PyEnv.propTypes = {
       paths: propTypes.arrayOf(propTypes.string),
     }),
   ]).isRequired,
-} as WeakValidationMap<PyEnvProperties>;
+} as WeakValidationMap<PyEnvPropertiesBase>;
 
 export default PyEnv;

@@ -23,6 +23,6 @@ export const PyScriptProviderExample: ComponentStory<typeof PyScriptProvider> =
   Template.bind({});
 
 PyScriptProviderExample.args = {
-  cssSource: "https://pyscript.net/alpha/pyscript.css",
-  jsSource: "https://pyscript.net/alpha/pyscript.js",
+  cssSrc: "https://pyscript.net/alpha/pyscript.css",
+  jsSrc: "https://pyscript.net/alpha/pyscript.js",
 };

@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyButtonProperties = Omit<
+export type PyButtonPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -12,11 +12,20 @@ export type PyButtonProperties = Omit<
   label: string;
 };
 
-const PyButton: FC<PyButtonProperties> = ({
+export type PyButtonProperties<T> = T extends infer T
+  ? T & PyButtonPropertiesBase
+  : PyButtonPropertiesBase;
+
+export type PyButtonTag = {
+  <T extends object>(properties: PyButtonProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyButtonPropertiesBase>;
+};
+
+const PyButton: PyButtonTag = <T extends object>({
   children,
   label,
   ...rest
-}: PyButtonProperties): JSX.Element => {
+}: PyButtonProperties<T>): JSX.Element => {
   return (
     <py-button {...rest} label={label}>
       {children}

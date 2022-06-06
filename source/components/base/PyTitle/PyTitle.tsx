@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-export type PyTitleProperties = Omit<
+export type PyTitlePropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -11,10 +11,19 @@ export type PyTitleProperties = Omit<
   children: string;
 };
 
-const PyTitle: FC<PyTitleProperties> = ({
+export type PyTitleProperties<T> = T extends infer T
+  ? T & PyTitlePropertiesBase
+  : PyTitlePropertiesBase;
+
+export type PyTitleTag = {
+  <T extends object>(properties: PyTitleProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyTitlePropertiesBase>;
+};
+
+const PyTitle: PyTitleTag = <T extends object>({
   children,
   ...rest
-}: PyTitleProperties): JSX.Element => {
+}: PyTitleProperties<T>): JSX.Element => {
   return <py-title {...rest}>{children}</py-title>;
 };
 

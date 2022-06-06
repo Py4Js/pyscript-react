@@ -1,8 +1,8 @@
 import propTypes from "prop-types";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
-type PyInputBoxProperties = Omit<
+export type PyInputBoxPropertiesBase = Omit<
   ReactElementProps<
     DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
   >,
@@ -11,10 +11,19 @@ type PyInputBoxProperties = Omit<
   children: string;
 };
 
-const PyInputBox: FC<PyInputBoxProperties> = ({
+export type PyInputBoxProperties<T> = T extends infer T
+  ? T & PyInputBoxPropertiesBase
+  : PyInputBoxPropertiesBase;
+
+export type PyInputBoxTag = {
+  <T extends object>(properties: PyInputBoxProperties<T>): JSX.Element;
+  propTypes: WeakValidationMap<PyInputBoxPropertiesBase>;
+};
+
+const PyInputBox: PyInputBoxTag = <T extends object>({
   children,
   ...rest
-}: PyInputBoxProperties): JSX.Element => {
+}: PyInputBoxProperties<T>): JSX.Element => {
   return <py-inputbox {...rest}>{children}</py-inputbox>;
 };
 
