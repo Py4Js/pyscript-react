@@ -14,6 +14,8 @@ export type PyTitleProperties<T> = T extends infer T
   ? T & PyTitlePropertiesBase
   : PyTitlePropertiesBase;
 
+export type PyTitleProps<T> = PyTitleProperties<T>;
+
 export type PyTitleTag = {
   <T extends object>(properties: PyTitleProperties<T>): JSX.Element;
   propTypes: WeakValidationMap<PyTitlePropertiesBase>;
