@@ -16,14 +16,22 @@ export type PyScriptPropertiesBase = Omit<
   "children"
 >;
 
+export type PyScriptPropertiesWithChildren = {
+  src?: never;
+  children: string;
+  source?: never;
+};
+
+export type PyScriptPropertiesWithSourceFullName = {
+  src?: never;
+  children?: never;
+  source: string;
+};
+
 export type PyScriptPropertiesWithSource = {
   src: string;
   children?: never;
-};
-
-export type PyScriptPropertiesWithoutSource = {
-  src?: never;
-  children: string;
+  source?: never;
 };
 
 export type PyScriptPropertiesWitOutputPart = {
@@ -49,7 +57,11 @@ export type PyScriptPropertiesWithWithoutPyEnvPart = {
 export type PyScriptPropertiesWithoutGeneric = PyScriptPropertiesBase &
   (PyScriptPropertiesWithPyEnvPart | PyScriptPropertiesWithWithoutPyEnvPart) &
   (PyScriptPropertiesWitOutputPart | PyScriptPropertiesWitoutOutputPart) &
-  (PyScriptPropertiesWithSource | PyScriptPropertiesWithoutSource);
+  (
+    | PyScriptPropertiesWithSource
+    | PyScriptPropertiesWithChildren
+    | PyScriptPropertiesWithSourceFullName
+  );
 
 export type PyScriptProperties<T> = T extends infer T
   ? T & PyScriptPropertiesWithoutGeneric
@@ -66,6 +78,8 @@ const PyScript: PyScriptTag = <T extends object>({
   generateOutputTag,
   pyEnvContent,
   pyEnvProps,
+  src,
+  source,
   ...rest
 }: PyScriptProperties<T>): JSX.Element => {
   return (
@@ -79,7 +93,7 @@ const PyScript: PyScriptTag = <T extends object>({
             id: output,
           },
         )}
-      <py-script {...rest} output={output}>
+      <py-script {...rest} src={source || src} output={output}>
         {children || ""}
       </py-script>
     </>
@@ -93,6 +107,7 @@ PyScript.propTypes = {
   pyEnvContent: propTypes.oneOfType([propTypes.string, propTypes.array]),
   pyEnvProps: propTypes.object,
   src: propTypes.string,
+  source: propTypes.string,
 } as WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
 
 export default PyScript;

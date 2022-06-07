@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PyScript Renders component properly 1`] = `
+<div>
+  <py-title>
+    Example title
+  </py-title>
+</div>
+`;
