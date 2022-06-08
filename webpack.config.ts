@@ -1,6 +1,8 @@
+import GeneratePackageJsonPlugin from "generate-package-json-webpack-plugin";
 import { join } from "path";
-import { Configuration } from "webpack";
+import { Configuration, WebpackPluginInstance } from "webpack";
 import nodeExternals from "webpack-node-externals";
+import { peerDependencies } from "./package.json";
 
 type WebpackArguments = {
   mode: "production" | "development";
@@ -31,6 +33,19 @@ const setupConfig: SetupConfig = (): Configuration => {
     entry: "./source/index.tsx",
     mode: "production",
     devtool: "source-map",
+    plugins: [
+      new GeneratePackageJsonPlugin(
+        {
+          name: "pyscript-react",
+          version: "1.0.0",
+          main: "./index.js",
+          peerDependencies,
+        },
+        {
+          excludeDependencies: [...Object.keys(peerDependencies), "core-js"],
+        },
+      ) as WebpackPluginInstance,
+    ],
     module: {
       rules: [
         {
