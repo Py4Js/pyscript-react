@@ -18,7 +18,7 @@ Make a fork of the repository and create your branch.
 `git checout -b <your_branch_name>`
 Branches names should have strcutre like `<label>/<issue name>`
 
-### Work loccaly
+### Work locally
 
 To run project locally, you need to install `npm` and `yarn`.
 Then use `yarn` and `yarn storybook` to run project locally.
