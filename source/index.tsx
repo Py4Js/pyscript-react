@@ -15,14 +15,9 @@ import PyScript, {
 } from "~components/base/PyScript/PyScript";
 import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider";
 import PyTitle from "~components/base/PyTitle/PyTitle";
-import FoliumMap from "~components/folium/FoliumMap/FoliumMap";
-import generatePythonVariableName, {
-  GeneratePythonVariableName,
-} from "~utils/generatePythonVariableName/generatePythonVariableName";
 
 export {
   PyScriptProvider,
-  FoliumMap,
   PyScript,
   PyEnv,
   PyRepl,
@@ -32,7 +27,6 @@ export {
   PyRegisterWidget,
   PyButton,
   PyTitle,
-  generatePythonVariableName,
 };
 export type {
   PyScriptProperties,
@@ -41,6 +35,5 @@ export type {
   PyScriptPropertiesWitoutOutputPart,
   PyScriptPropertiesWithPyEnvPart,
   PyScriptPropertiesWithWithoutPyEnvPart,
-  GeneratePythonVariableName,
 };
 export default PyScript;
