@@ -18,6 +18,7 @@ const setupConfig: SetupConfig = (): Configuration => {
     output: {
       path: join(process.cwd(), "destination"),
       library: "pyanalize_react",
+      filename: "index.js",
     },
     resolve: {
       extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
