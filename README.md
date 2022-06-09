@@ -84,7 +84,7 @@ If you want to test with a storybook then:
 
 Run storybook with command yarn storybook
 OR
-
+ 
 If you want to use PyScript-React components inside your typescript project without compilation:
 
 run yarn add file:
