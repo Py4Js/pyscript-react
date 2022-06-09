@@ -87,7 +87,7 @@
     "rimraf": "^3.0.2",
     "snyk": "^1.947.0",
     "storybook": "^6.4.22",
-    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard": "^26.0.0",
     "ts-jest": "^28.0.2",
     "ts-node": "^10.7.0",
     "tsconfig-paths": "^4.0.0",
