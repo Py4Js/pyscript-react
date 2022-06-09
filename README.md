@@ -10,6 +10,7 @@
 
 ## Try it
 
+
 ```sh
 # not yet available
 yarn add pyscript-react # installation with yarn (preffered node package manager)
@@ -69,3 +70,30 @@ Look here: [CONTRIBUTING.md](https://github.com/Py4Js/PyScript-React/blob/main/C
 ## Contributors
 
 ![(https://github.com/Py4Js/PyScript-React/graphs/contributors)](https://contrib.rocks/image?repo=Py4Js/PyScript-React)
+
+
+## Installation
+In order to test this library, you will need a couple of things:
+
+Make sure yarn, node>=lts, and git are installed.
+Next, clone this repo: git clone https://github.com/Py4Js/PyScript-React
+Then run yarn inside of the cloned repository.
+Now depending on what you would like to test we need to run a couple of commands:
+
+If you want to test with a storybook then:
+
+Run storybook with command yarn storybook
+OR
+
+If you want to use PyScript-React components inside your typescript project without compilation:
+
+run yarn add file:
+ ``` <path to cloned repository> or npm install file:<path to cloned repository>``` inside your project.
+If you encounter any troubles with peer dependencies try installing all of them.
+OR
+
+If you want to use it:
+
+Inside cloned repository run: yarn build.
+Then in the destination folder you will find compiled version of PyScript-React.
+Btw: If you encounter any trouble during use try removing 30 and 3 lines from webpack.config.ts.
