@@ -1,3 +1,4 @@
+import CopyWebpackPlugin from "copy-webpack-plugin";
 import GeneratePackageJsonPlugin from "generate-package-json-webpack-plugin";
 import { join } from "path";
 import { Configuration, WebpackPluginInstance } from "webpack";
@@ -47,6 +48,17 @@ const setupConfig: SetupConfig = (): Configuration => {
           excludeDependencies: ["core-js"],
         },
       ) as WebpackPluginInstance,
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: join(process.cwd(), "types", "index.d.ts"),
+            to: join(process.cwd(), "destination"),
+          },
+        ],
+        options: {
+          concurrency: 100,
+        },
+      }),
     ],
     module: {
       rules: [

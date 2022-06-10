@@ -60,6 +60,7 @@
     "audit-ci": "^6.2.0",
     "babel-loader": "^8.2.5",
     "command-exists": "^1.2.9",
+    "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.22.5",
     "cross-env": "^7.0.3",
     "depcheck": "^1.4.3",
