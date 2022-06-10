@@ -2,7 +2,6 @@ import GeneratePackageJsonPlugin from "generate-package-json-webpack-plugin";
 import { join } from "path";
 import { Configuration, WebpackPluginInstance } from "webpack";
 import nodeExternals from "webpack-node-externals";
-import { peerDependencies } from "./package.json";
 
 type WebpackArguments = {
   mode: "production" | "development";
@@ -17,8 +16,10 @@ const setupConfig: SetupConfig = (): Configuration => {
   return {
     output: {
       path: join(process.cwd(), "destination"),
-      library: "pyanalize_react",
+      library: "pyscript_react",
       filename: "index.js",
+      libraryTarget: "umd",
+      globalObject: "this",
     },
     resolve: {
       extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
@@ -40,10 +41,10 @@ const setupConfig: SetupConfig = (): Configuration => {
           name: "pyscript-react",
           version: "1.0.0",
           main: "./index.js",
-          peerDependencies,
+          types: "./index.d.ts",
         },
         {
-          excludeDependencies: [...Object.keys(peerDependencies), "core-js"],
+          excludeDependencies: ["core-js"],
         },
       ) as WebpackPluginInstance,
     ],
