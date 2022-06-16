@@ -70,7 +70,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "eslint-plugin-react-hooks": "^4.5.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-testing-library": "^5.5.0",
     "eslint-plugin-tsdoc": "^0.2.16",
