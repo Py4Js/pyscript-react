@@ -16,7 +16,7 @@ type SetupConfig = (
 const setupConfig: SetupConfig = (): Configuration => {
   return {
     output: {
-      path: join(process.cwd(), "destination"),
+      path: join(process.cwd(), "library"),
       library: "pyscript_react",
       filename: "index.js",
       libraryTarget: "umd",

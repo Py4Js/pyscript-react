@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: join(process.cwd(), "."),
   }),
-  modulePathIgnorePatterns: ["destination"],
+  modulePathIgnorePatterns: ["library"],
 };
 
 export default config;
