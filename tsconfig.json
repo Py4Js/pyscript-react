@@ -23,7 +23,7 @@
     "noImplicitAny": true,
     "downlevelIteration": true,
     "pretty": true,
-    "noEmit": true,
+    "declaration": true,
     "isolatedModules": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -39,6 +39,8 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
+    "declarationMap": true,
+    "outDir": "./destination",
     "paths": {
       "~root/*": ["*"],
       "~components/*": ["source/components/*"],

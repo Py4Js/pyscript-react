@@ -1,6 +1,18 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs"
-  }
+    "module": "commonjs",
+    "baseUrl": "./source",
+    "rootDir": "./source",
+    "outFile": "./destination/index",
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
+    "paths": {
+      "~components/*": ["components/*"],
+      "~types/*": ["types/*"],
+      "~utils/*": ["utils/*"],
+      "~scripts/*": ["/*"]
+    }
+  },
+  "include": ["./source", "./global.d.ts"]
 }
