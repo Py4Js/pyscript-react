@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.12",
     "@babel/preset-env": "^7.17.12",
-    "@babel/preset-react": "^7.17.12",
+    "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.5.0",
     "@storybook/addon-actions": "^6.5.0",
