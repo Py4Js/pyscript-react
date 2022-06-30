@@ -100,7 +100,7 @@
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.18",
-    "zx": "^4.2.0"
+    "zx": "^7.0.5"
   },
   "dependencies": {
     "lodash": "^4.17.21",
