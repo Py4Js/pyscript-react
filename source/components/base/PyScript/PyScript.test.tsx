@@ -21,7 +21,7 @@ const PyScriptFoliumMapComponent: FC = (): JSX.Element => {
         generateOutputTag
         pyEnvContent={["folium"]}
         src="./test_data/folium_map.py"
-      ></PyScript>
+      />
     </PyScriptProvider>
   );
 };

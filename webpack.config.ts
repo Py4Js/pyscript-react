@@ -1,8 +1,13 @@
 import GeneratePackageJsonPlugin from "generate-package-json-webpack-plugin";
+import { sync } from "glob";
 import { join } from "path";
-import { Configuration, WebpackPluginInstance } from "webpack";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import {
+  Configuration,
+  ResolvePluginInstance,
+  WebpackPluginInstance,
+} from "webpack";
 import nodeExternals from "webpack-node-externals";
-import { dependencies } from "./package.json";
 
 type WebpackArguments = {
   mode: "production" | "development";
@@ -13,17 +18,29 @@ type SetupConfig = (
   webpackArguments: WebpackArguments,
 ) => Configuration;
 
+delete process.env.TS_NODE_PROJECT;
+
 const setupConfig: SetupConfig = (): Configuration => {
   return {
     output: {
       path: join(process.cwd(), "library"),
       library: "pyscript_react",
-      filename: "index.js",
+      filename: "[name].js",
+      sourceMapFilename: "[name].js.map",
       libraryTarget: "umd",
       globalObject: "this",
     },
     resolve: {
-      extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
+      extensions: [
+        ".js",
+        ".ts",
+        ".tsx",
+        ".jsx",
+        ".mjs",
+        ".wasm",
+        ".json",
+        ".d.ts",
+      ],
       alias: {
         "~root": process.cwd(),
         "~components": join(process.cwd(), "source", "components"),
@@ -31,9 +48,28 @@ const setupConfig: SetupConfig = (): Configuration => {
         "~utils": join(process.cwd(), "source", "utils"),
         "~scripts": join(process.cwd(), "scripts"),
       },
+      plugins: [
+        new TsconfigPathsPlugin({
+          configFile: "./tsconfig.node.json",
+        }) as unknown as ResolvePluginInstance,
+      ],
     },
     externals: [nodeExternals()],
-    entry: "./source/index.tsx",
+    entry: sync("./source/**/*.{ts,tsx}").reduce(
+      (
+        accumulator: { [key: string]: string },
+        file: string,
+      ): { [key: string]: string } => {
+        accumulator[
+          file
+            .replace(/^\.\/source\//, "")
+            .replace(".tsx", "")
+            .replace(".ts", "")
+        ] = file;
+        return accumulator;
+      },
+      {} as { [key: string]: string },
+    ),
     mode: "production",
     devtool: "source-map",
     plugins: [
@@ -45,7 +81,7 @@ const setupConfig: SetupConfig = (): Configuration => {
           types: "./index.d.ts",
         },
         {
-          excludeDependencies: [...Object.keys(dependencies), "core-js"],
+          excludeDependencies: ["core-js"],
         },
       ) as WebpackPluginInstance,
     ],
@@ -55,7 +91,7 @@ const setupConfig: SetupConfig = (): Configuration => {
           test: /\.(ts|tsx|js|jsx)$/,
           exclude: /(node_modules)/,
           use: [
-            {
+            /*{
               loader: "babel-loader",
               options: {
                 presets: [
@@ -75,6 +111,19 @@ const setupConfig: SetupConfig = (): Configuration => {
                     },
                   ],
                 ],
+              },
+            },*/
+            {
+              loader: "ts-loader",
+              options: {
+                configFile: "tsconfig.node.json",
+              },
+            },
+            {
+              loader: "@stavalfi/babel-plugin-module-resolver-loader",
+              options: {
+                root: ["./source"],
+                extensions: [".js", ".jsx", ".d.ts", ".ts", ".tsx"],
               },
             },
           ],
