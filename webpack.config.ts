@@ -5,6 +5,7 @@ import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import {
   Configuration,
   ResolvePluginInstance,
+  RuleSetUseItem,
   WebpackPluginInstance,
 } from "webpack";
 import nodeExternals from "webpack-node-externals";
@@ -13,14 +14,27 @@ type WebpackArguments = {
   mode: "production" | "development";
 };
 
+enum Target {
+  Cdn = "cdn",
+  Npm = "npm",
+}
+
+interface EnvironmentArguments {
+  target: Target;
+}
+
 type SetupConfig = (
-  environmentArguments: Record<string, unknown>,
+  environmentArguments: EnvironmentArguments,
   webpackArguments: WebpackArguments,
 ) => Configuration;
 
+const bannedFiles = ["setupTests.ts"];
+
 delete process.env.TS_NODE_PROJECT;
 
-const setupConfig: SetupConfig = (): Configuration => {
+const setupConfig: SetupConfig = ({
+  target,
+}: EnvironmentArguments): Configuration => {
   return {
     output: {
       path: join(process.cwd(), "library"),
@@ -55,7 +69,7 @@ const setupConfig: SetupConfig = (): Configuration => {
       ],
     },
     externals: [nodeExternals()],
-    entry: sync("./source/**/*.{ts,tsx}").reduce(
+    entry: target === Target.Npm ? sync("./source/**/*.{ts,tsx}").reduce(
       (
         accumulator: { [key: string]: string },
         file: string,
@@ -69,7 +83,7 @@ const setupConfig: SetupConfig = (): Configuration => {
         return accumulator;
       },
       {} as { [key: string]: string },
-    ),
+    ) : "./source/index.tsx",
     mode: "production",
     devtool: "source-map",
     plugins: [
@@ -91,7 +105,7 @@ const setupConfig: SetupConfig = (): Configuration => {
           test: /\.(ts|tsx|js|jsx)$/,
           exclude: /(node_modules)/,
           use: [
-            /*{
+            target === Target.Cdn && {
               loader: "babel-loader",
               options: {
                 presets: [
@@ -112,21 +126,14 @@ const setupConfig: SetupConfig = (): Configuration => {
                   ],
                 ],
               },
-            },*/
+            },
             {
               loader: "ts-loader",
               options: {
                 configFile: "tsconfig.node.json",
               },
             },
-            {
-              loader: "@stavalfi/babel-plugin-module-resolver-loader",
-              options: {
-                root: ["./source"],
-                extensions: [".js", ".jsx", ".d.ts", ".ts", ".tsx"],
-              },
-            },
-          ],
+          ].filter(Boolean) as RuleSetUseItem[],
         },
       ],
     },

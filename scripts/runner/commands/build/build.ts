@@ -7,5 +7,5 @@ import { $ } from "zx";
     $.shell = "cmd";
     $.prefix = "";
   }
-  await $`cross-env rimraf library && cross-env tsc --project tsconfig.node.json && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack`;
+  await $`cross-env rimraf library && cross-env TS_NODE_PROJECT=tsconfig.node.json webpack --env target=npm`;
 })();
