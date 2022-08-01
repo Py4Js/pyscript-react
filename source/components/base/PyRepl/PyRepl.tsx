@@ -12,6 +12,7 @@ export type PyReplPropertiesBase = Omit<
   children?: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyReplProperties<T> = T extends infer T
   ? T & PyReplPropertiesBase
   : PyReplPropertiesBase;

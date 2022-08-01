@@ -12,6 +12,7 @@ export type PyButtonPropertiesBase = Omit<
   label: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyButtonProperties<T> = T extends infer T
   ? T & PyButtonPropertiesBase
   : PyButtonPropertiesBase;

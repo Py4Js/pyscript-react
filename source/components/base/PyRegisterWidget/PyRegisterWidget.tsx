@@ -13,6 +13,7 @@ export type PyRegisterWidgetPropertiesBase = Omit<
   pythonClass?: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyRegisterWidgetProperties<T> = T extends infer T
   ? T & PyRegisterWidgetPropertiesBase
   : PyRegisterWidgetPropertiesBase;

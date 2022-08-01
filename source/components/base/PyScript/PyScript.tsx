@@ -63,6 +63,7 @@ export type PyScriptPropertiesWithoutGeneric = PyScriptPropertiesBase &
     | PyScriptPropertiesWithSourceFullName
   );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyScriptProperties<T> = T extends infer T
   ? T & PyScriptPropertiesWithoutGeneric
   : PyScriptPropertiesWithoutGeneric;
