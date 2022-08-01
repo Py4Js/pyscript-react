@@ -9,6 +9,7 @@ afterEach(cleanup);
 const PyScriptHelloWorldComponent: FC = (): JSX.Element => {
   return (
     <PyScriptProvider>
+      {/* eslint-disable-next-line react/no-unescaped-entities*/}
       <PyScript data-testid="py-script">print("Hello world!")</PyScript>
     </PyScriptProvider>
   );
@@ -35,6 +36,7 @@ describe("PyScript", (): void => {
     const { getByTestId }: RenderResult = render(
       <PyScriptHelloWorldComponent />,
     );
+    // eslint-disable-next-line testing-library/prefer-screen-queries
     const pyScript: HTMLElement = getByTestId("py-script");
     setTimeout((): void => {
       expect(pyScript).toContainEqual("Hello world!");

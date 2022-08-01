@@ -13,6 +13,7 @@ const Template: ComponentStory<
 > = ({ ...rest }: PyScriptProviderProperties): JSX.Element => {
   return (
     <PyScriptProvider {...rest}>
+      {/* eslint-disable-next-line react/no-unescaped-entities*/}
       <py-script>print("Hello World!")</py-script>
     </PyScriptProvider>
   );

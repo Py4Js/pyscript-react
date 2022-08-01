@@ -13,7 +13,8 @@ type UseRectangles = (argument: UseRectangleArguments) => string;
 const useRectangles: UseRectangles = ({
   mapName,
   rectangles,
-}: UseRectangleArguments): string => {
+}: // eslint-disable-next-line sonarjs/cognitive-complexity
+UseRectangleArguments): string => {
   return rectangles && mapName && Array.isArray(rectangles)
     ? rectangles
         .map(

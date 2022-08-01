@@ -1,7 +1,7 @@
 import { RuleSetRule } from "webpack";
-import getJavaScriptModuleLoader from "~scripts/build/loaders/getJavaScriptModuleLoader/getJavaScriptModuleLoader";
-import getSourceMapLoader from "~scripts/build/loaders/getSourceMapLoader/getSourceMapLoader";
-import getTypeScriptLoader from "~scripts/build/loaders/getTypeScriptLoader/getTypeScriptLoader";
+import getJavaScriptModuleLoader from "../../loaders/getJavaScriptModuleLoader/getJavaScriptModuleLoader";
+import getSourceMapLoader from "../../loaders/getSourceMapLoader/getSourceMapLoader";
+import getTypeScriptLoader from "../../loaders/getTypeScriptLoader/getTypeScriptLoader";
 import Target from "../../types/target/target";
 
 type GetLoaderArguments = {

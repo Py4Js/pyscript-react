@@ -42,7 +42,7 @@ const FoliumMap: FC<FoliumMapProperties> = ({
     typeof zoomStart === "number" && !isNaN(zoomStart)
       ? `zoom_start=${zoomStart}`
       : "",
-    tiles ? `tiles=\"${tiles}\"` : "",
+    tiles ? `tiles="${tiles}"` : "",
   ].filter((argument: string): boolean => {
     return argument !== "";
   });

@@ -1,14 +1,14 @@
 import { Configuration } from "webpack";
-import Mode from "~scripts/build/types/mode/mode";
-import getEntryPoint from "~scripts/build/utils/getEntryPoint/getEntryPoint";
-import getExperiments from "~scripts/build/wrappers/getExperiments/getExperiments";
-import getExternals from "~scripts/build/wrappers/getExternals/getExternals";
-import getLoaders from "~scripts/build/wrappers/getLoaders/getLoaders";
-import getOptimization from "~scripts/build/wrappers/getOptimization/getOptimization";
-import getOutput from "~scripts/build/wrappers/getOutput/getOutput";
-import getPlugins from "~scripts/build/wrappers/getPlugins/getPlugins";
-import getResolve from "~scripts/build/wrappers/getResolve/getResolve";
+import Mode from "../../types/mode/mode";
 import Target from "../../types/target/target";
+import getEntryPoint from "../../utils/getEntryPoint/getEntryPoint";
+import getExperiments from "../../wrappers/getExperiments/getExperiments";
+import getExternals from "../../wrappers/getExternals/getExternals";
+import getLoaders from "../../wrappers/getLoaders/getLoaders";
+import getOptimization from "../../wrappers/getOptimization/getOptimization";
+import getOutput from "../../wrappers/getOutput/getOutput";
+import getPlugins from "../../wrappers/getPlugins/getPlugins";
+import getResolve from "../../wrappers/getResolve/getResolve";
 
 type GetConfigArguments = {
   target: Target;
