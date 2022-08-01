@@ -1,4 +1,4 @@
-destination/
+library/
 coverage/
 node_modules/
 yarn.lock

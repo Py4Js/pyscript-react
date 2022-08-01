@@ -54,10 +54,12 @@
     "react-hooks/exhaustive-deps": "off",
     "no-nested-ternary": "off"
   },
-  "overrides": [{
-    "files": ["*.js"],
-    "rules": {
-      "@typescript-eslint/no-var-requires": "off"
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
     }
-  }]
+  ]
 }
