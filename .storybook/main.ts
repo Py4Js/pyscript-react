@@ -10,18 +10,9 @@ module.exports = {
   staticDirs: ["../tests_data"],
   framework: "@storybook/react",
   core: {
-    builder: "webpack5",
+    builder: "@storybook/builder-vite",
   },
-  webpackFinal: async (config) => {
-    config.resolve = {
-      extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
-      alias: {
-        "~root": process.cwd(),
-        "~components": join(process.cwd(), "source", "components"),
-        "~types": join(process.cwd(), "source", "types"),
-        "~utils": join(process.cwd(), "source", "utils"),
-      },
-    };
-    return config;
+  features: {
+    storyStoreV7: true,
   },
 };

@@ -1,69 +1,26 @@
-import { join } from "path";
 import { Configuration } from "webpack";
-import nodeExternals from "webpack-node-externals";
+import getConfig from "./scripts/build/root/getConfig/getConfig";
+import Mode from "./scripts/build/types/mode/mode";
+import Target from "./scripts/build/types/target/target";
 
 type WebpackArguments = {
-  mode: "production" | "development";
+  mode: Mode;
 };
 
+interface EnvironmentArguments {
+  target: Target;
+}
+
 type SetupConfig = (
-  environmentArguments: Record<string, unknown>,
+  environmentArguments: EnvironmentArguments,
   webpackArguments: WebpackArguments,
 ) => Configuration;
 
-const setupConfig: SetupConfig = (): Configuration => {
-  return {
-    output: {
-      path: join(process.cwd(), "destination"),
-      library: "pyanalize_react",
-    },
-    resolve: {
-      extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],
-      alias: {
-        "~root": process.cwd(),
-        "~components": join(process.cwd(), "source", "components"),
-        "~types": join(process.cwd(), "source", "types"),
-        "~utils": join(process.cwd(), "source", "utils"),
-        "~scripts": join(process.cwd(), "scripts"),
-      },
-    },
-    externals: [nodeExternals()],
-    entry: "./source/index.tsx",
-    mode: "production",
-    devtool: "source-map",
-    module: {
-      rules: [
-        {
-          test: /\.(ts|tsx|js|jsx)$/,
-          exclude: /(node_modules)/,
-          use: [
-            {
-              loader: "babel-loader",
-              options: {
-                presets: [
-                  [
-                    "@babel/env",
-                    {
-                      bugfixes: true,
-                      useBuiltIns: "usage",
-                      corejs: "3",
-                    },
-                  ],
-                  "@babel/preset-typescript",
-                  [
-                    "@babel/preset-react",
-                    {
-                      runtime: "automatic",
-                    },
-                  ],
-                ],
-              },
-            },
-          ],
-        },
-      ],
-    },
-  };
+const setupConfig: SetupConfig = (
+  { target }: EnvironmentArguments,
+  { mode }: WebpackArguments,
+): Configuration => {
+  return getConfig({ target, mode });
 };
 
 export default setupConfig;

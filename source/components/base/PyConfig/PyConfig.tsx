@@ -11,6 +11,7 @@ export type PyConfigPropertiesBase = Omit<
   children: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyConfigProperties<T> = T extends infer T
   ? T & PyConfigPropertiesBase
   : PyConfigPropertiesBase;

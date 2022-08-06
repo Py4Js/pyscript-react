@@ -1,4 +1,4 @@
-destination/
+library/
 yarn.lock
 .husky/
 coverage/

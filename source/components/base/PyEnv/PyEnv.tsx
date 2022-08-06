@@ -30,6 +30,7 @@ export type PyEnvPropertiesBase = Omit<
   children: string | string[] | ChildrenAsObject;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyEnvProperties<T> = T extends infer T
   ? T & PyEnvPropertiesBase
   : PyEnvPropertiesBase;

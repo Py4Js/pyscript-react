@@ -10,6 +10,7 @@ export type PyTitlePropertiesBase = Omit<
   children: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyTitleProperties<T> = T extends infer T
   ? T & PyTitlePropertiesBase
   : PyTitlePropertiesBase;

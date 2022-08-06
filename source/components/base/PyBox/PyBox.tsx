@@ -11,6 +11,7 @@ export type PyBoxPropertiesBase = PropsWithChildren<
   ReactElementProps<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>>
 >;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyBoxProperties<T> = T extends infer T
   ? T & PyBoxPropertiesBase
   : PyBoxPropertiesBase;

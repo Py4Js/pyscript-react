@@ -48,13 +48,13 @@ declare global {
         klass?: string;
       };
       ["py-button"]: ReactElementProps<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement>
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
       > & {
         children: string;
         label: string;
       };
       ["py-title"]: ReactElementProps<
-        DetailedHTMLProps<HTMLAttributes<HTMElement>, HTMLElement>
+        DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
       > & {
         children: string;
       };

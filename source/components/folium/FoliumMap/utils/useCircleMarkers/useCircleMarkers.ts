@@ -19,6 +19,7 @@ const useCircleMarkers: UseCircleMarkers = ({
             location[1]
           }]${popup ? `popup="${popup}"` : ""}${
             tooltip ? `tooltip="${tooltip}"` : ""
+            // eslint-disable-next-line sonarjs/no-nested-template-literals
           }${radius ? `radius=${radius}` : ""}).add_to(${mapName})`;
         })
         .join("\n")

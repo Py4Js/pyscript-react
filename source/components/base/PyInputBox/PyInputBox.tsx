@@ -11,6 +11,7 @@ export type PyInputBoxPropertiesBase = Omit<
   children: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export type PyInputBoxProperties<T> = T extends infer T
   ? T & PyInputBoxPropertiesBase
   : PyInputBoxPropertiesBase;
