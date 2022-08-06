@@ -30,4 +30,4 @@ jobs:
           prerelease: true
           files: |
             LICENSE.txt
-            lib.zip
+            pyscript-react.zip
