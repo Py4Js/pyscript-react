@@ -7,6 +7,8 @@ const config: Config = {
   url: "https://py4js.github.io/",
   organizationName: "Py4Js",
   projectName: "PyScript-React",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
   i18n: {
     defaultLocale: "en",
     locales: ["en", "pl"],
@@ -17,6 +19,16 @@ const config: Config = {
     },
   },
   themeConfig: {
+    navbar: {
+      title: "PyScript-React",
+      items: [
+        {
+          type: "doc",
+          docId: "Getting Started",
+          position: "left",
+        },
+      ],
+    },
     colorMode: {
       respectPrefersColorScheme: true,
     },

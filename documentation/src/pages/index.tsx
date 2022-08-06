@@ -1,7 +1,7 @@
 import Layout from "@theme/Layout";
-import React from "react";
+import React, { FC } from "react";
 
-const Documentation = () => {
+const Documentation: FC = (): JSX.Element => {
   return <Layout title="PyScript-React">example</Layout>;
 };
 
