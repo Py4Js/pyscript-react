@@ -1,0 +1,33 @@
+# release on push with version tag
+name: "defualt-realese"
+
+on:
+  push:
+    branches:
+      - "main"
+    tags:
+      - "v*"
+
+jobs:
+  tagged-release:
+    name: "Tagged Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # tests here later
+      - uses: actions/checkout@v3
+      - name: "Build & test"
+      - run: yarn --ignore-engines
+      - run: yarn run test
+      - run: yar run build --target npm
+      - uses: vimtor/action-zip@v1
+        with:
+          files: library/
+          dest: pyscript-react.zip
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: true
+          files: |
+            LICENSE.txt
+            lib.zip
