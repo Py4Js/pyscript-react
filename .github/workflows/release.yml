@@ -3,8 +3,6 @@ name: "defualt-realese"
 
 on:
   push:
-    branches:
-      - "main"
     tags:
       - "v*"
 
@@ -26,7 +24,6 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
           prerelease: false
           files: |
             LICENSE.txt
