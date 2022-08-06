@@ -99,7 +99,7 @@
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",
     "snyk": "^1.984.0",
-    "storybook": "^6.4.22",
+    "storybook": "^6.5.10",
     "stylelint-config-standard": "^26.0.0",
     "ts-jest": "^28.0.2",
     "ts-loader": "^9.3.1",
