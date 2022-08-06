@@ -15,8 +15,8 @@ jobs:
 
     steps:
       # tests here later
-      - uses: actions/checkout@v3
       - name: "Build & test"
+      - uses: actions/checkout@v3
       - run: yarn --ignore-engines
       - run: yarn run test
       - run: yar run build --target npm
