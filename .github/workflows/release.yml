@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: yarn --ignore-engines
       - run: yarn run test
-      - run: yar run build --target npm
+      - run: yarn run build --target npm
       - uses: vimtor/action-zip@v1
         with:
           files: library/
