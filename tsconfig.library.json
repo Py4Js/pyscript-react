@@ -36,8 +36,8 @@
     "paths": {
       "~components/*": ["components/*"],
       "~types/*": ["types/*"],
-      "~utils/*": ["utils/*"],
-    },
+      "~utils/*": ["utils/*"]
+    }
   },
-  "include": ["."],
+  "include": ["."]
 }

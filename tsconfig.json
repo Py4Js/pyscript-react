@@ -47,9 +47,11 @@
       "~utils/*": ["source/utils/*"],
       "~scripts/*": ["scripts/*"]
     },
-    "plugins": [{
-      "transform": "typescript-transform-paths"
-    }]
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      }
+    ]
   },
   "include": ["."],
   "exclude": ["node_modules", "coverage", "library"]
