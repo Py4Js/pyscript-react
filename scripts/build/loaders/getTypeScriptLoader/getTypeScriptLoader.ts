@@ -34,7 +34,7 @@ const getTypeScriptLoader = ({ target }: GetTypeScriptLoaderArguments) => {
           ],
         },
       },
-      {
+      target !== Target.Cdn && {
         loader: "ts-loader",
         options: {
           configFile: "tsconfig.node.json",

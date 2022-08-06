@@ -1,11 +1,4 @@
 {
-  "ts-node": {
-    "transpileOnly": true,
-    "require": [
-      "typescript-transform-paths/register",
-      "tsconfig-paths/register"
-    ]
-  },
   "compilerOptions": {
     "incremental": true,
     "jsx": "react-jsx",
@@ -39,18 +32,12 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "outDir": "./library",
+    "declarationMap": true,
     "paths": {
-      "~root/*": ["*"],
-      "~components/*": ["source/components/*"],
-      "~types/*": ["source/types/*"],
-      "~utils/*": ["source/utils/*"],
-      "~scripts/*": ["scripts/*"]
+      "~components/*": ["components/*"],
+      "~types/*": ["types/*"],
+      "~utils/*": ["utils/*"],
     },
-    "plugins": [{
-      "transform": "typescript-transform-paths"
-    }]
   },
   "include": ["."],
-  "exclude": ["node_modules", "coverage", "library"]
 }

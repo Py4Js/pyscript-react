@@ -1,10 +1,15 @@
-import CopyWebpackPlugin, { Pattern } from "copy-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import { join } from "path";
 
-type GetCopyWebpackPlugin = () => CopyWebpackPlugin;
-
-const getCopyWebpackPlugin: GetCopyWebpackPlugin = (): CopyWebpackPlugin => {
+const getCopyWebpackPlugin = (): CopyWebpackPlugin => {
   return new CopyWebpackPlugin({
-    patterns: [{}].filter(Boolean) as Pattern[],
+    patterns: [
+      {
+        from: join(process.cwd(), "tsconfig.library.json"),
+        to: join(process.cwd(), "library", "tsconfig.json"),
+        noErrorOnMissing: true,
+      },
+    ],
     options: {
       concurrency: 100,
     },

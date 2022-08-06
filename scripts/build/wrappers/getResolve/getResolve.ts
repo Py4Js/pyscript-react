@@ -1,6 +1,5 @@
 import { join } from "path";
 
-
 const getResolve = () => {
   return {
     extensions: [".js", ".ts", ".tsx", ".jsx", ".mjs", ".wasm", ".json"],

@@ -9,7 +9,7 @@
   "scripts": {
     "postinstall": "cross-env TS_NODE_PROJECT=tsconfig.node.json ts-node ./scripts/runner/commands/postInstall/postInstall.ts",
     "prepare": "husky install",
-    "build": "cross-env TS_NODE_PROJECT=tsconfig.node.json ts-node ./scripts/runner/commands/build/build.ts",
+    "build": "cross-env TS_NODE_PROJECT=tsconfig.node.json ts-node ./scripts/runner/commands/build/build.ts --target npm",
     "storybook": "start-storybook -p 6006",
     "test": "cross-env jest --coverage",
     "lint": "cross-env prettier --write \"./**/*.{js,jsx,ts,tsx,json,yaml,yml}\" && black ."
@@ -64,6 +64,7 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "command-exists": "^1.2.9",
+    "commander": "^9.4.0",
     "compression-webpack-plugin": "^10.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.22.5",

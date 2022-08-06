@@ -4,8 +4,7 @@
     "module": "commonjs",
     "baseUrl": "./source",
     "rootDir": "./source",
-    "outFile": "./library/index",
-    "emitDeclarationOnly": true,
+    //"outFile": "./library/index",
     "isolatedModules": false,
     "paths": {
       "~components/*": ["components/*"],
