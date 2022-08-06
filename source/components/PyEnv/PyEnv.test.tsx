@@ -1,6 +1,6 @@
 import { cleanup } from "@testing-library/react";
 import { expectType } from "tsd";
-import PyEnv, { PyEnvTag } from "~components/base/PyEnv/PyEnv";
+import PyEnv, { PyEnvTag } from "~components/PyEnv/PyEnv";
 
 afterEach(cleanup);
 

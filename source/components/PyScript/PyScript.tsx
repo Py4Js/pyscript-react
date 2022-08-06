@@ -6,7 +6,7 @@ import {
   ReactHTML,
   WeakValidationMap,
 } from "react";
-import PyEnv, { PyEnvPropertiesBase } from "~components/base/PyEnv/PyEnv";
+import PyEnv, { PyEnvPropertiesBase } from "~components/PyEnv/PyEnv";
 import ReactElementProps from "~types/ReactElementProps/ReactElementProps";
 
 export type PyScriptPropertiesBase = Omit<

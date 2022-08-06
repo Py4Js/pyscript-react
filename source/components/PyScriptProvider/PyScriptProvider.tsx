@@ -1,7 +1,7 @@
 import propTypes from "prop-types";
 import { FC, memo, WeakValidationMap } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { PyScriptProviderProperties } from "~components/base/PyScriptProvider/PyScriptProvider.types";
+import { PyScriptProviderProperties } from "~components/PyScriptProvider/PyScriptProvider.types";
 
 const PyScriptProvider: FC<PyScriptProviderProperties> = ({
   cssSrc = "https://pyscript.net/alpha/pyscript.css",

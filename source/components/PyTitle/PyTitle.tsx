@@ -2,7 +2,7 @@ import propTypes from "prop-types";
 import {
   PyTitleProperties,
   PyTitleTag,
-} from "~components/base/PyTitle/PyTitle.types";
+} from "~components/PyTitle/PyTitle.types";
 
 const PyTitle: PyTitleTag = <T extends object>({
   children,

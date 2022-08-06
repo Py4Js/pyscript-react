@@ -1,8 +1,8 @@
 import { cleanup, render, RenderResult } from "@testing-library/react";
 import { FC } from "react";
 import { expectType } from "tsd";
-import PyScript, { PyScriptTag } from "~components/base/PyScript/PyScript";
-import PyScriptProvider from "~components/base/PyScriptProvider/PyScriptProvider";
+import PyScript, { PyScriptTag } from "~components/PyScript/PyScript";
+import PyScriptProvider from "~components/PyScriptProvider/PyScriptProvider";
 
 afterEach(cleanup);
 
