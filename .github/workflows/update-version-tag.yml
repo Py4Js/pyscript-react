@@ -11,3 +11,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ShootGan/push-tag-version@master
+        with:
+          github_token: "${{ secrets.TOKEN }}"

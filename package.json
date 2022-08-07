@@ -1,6 +1,6 @@
 {
   "name": "pyscript-react",
-  "version": "1.0.0",
+  "version": "0.0.6",
   "main": "./library/index.js",
   "types": "./library/index.d.ts",
   "repository": "https://github.com/ShootGan/PyAnalize-React.git",
