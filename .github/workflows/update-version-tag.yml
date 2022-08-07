@@ -1,0 +1,13 @@
+name: "update version tag"
+
+on:
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ShootGan/push-tag-version@master
