@@ -2161,21 +2161,21 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-interactions@^6.5.10":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-6.5.10.tgz#c1d635b972bb7d21ccfe9b3bd928916683d92b26"
-  integrity sha512-+O/ZuQjonpFmTdFRqjCimQTx4S4c1+S3dYCn6gD/E4xzqlQn1BQaER3paX/aBUKb3oRaSO9RUQ+uxePM4zBEwA==
+"@storybook/addon-interactions@^6.5.11":
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-interactions/-/addon-interactions-6.5.11.tgz#f24ca9cd8f3e2b78d12ab3d3b8cd3f45e3ab60f8"
+  integrity sha512-7CpOL1Yk26e/WdX0CRSUn/EoX1Js0HeKxCe+CNZomPvx4kWebPpknMJw1AQe4dW0bd79MYM1on3kY5nl5BBc1w==
   dependencies:
     "@devtools-ds/object-inspector" "^1.1.2"
-    "@storybook/addons" "6.5.10"
-    "@storybook/api" "6.5.10"
-    "@storybook/client-logger" "6.5.10"
-    "@storybook/components" "6.5.10"
-    "@storybook/core-common" "6.5.10"
-    "@storybook/core-events" "6.5.10"
+    "@storybook/addons" "6.5.11"
+    "@storybook/api" "6.5.11"
+    "@storybook/client-logger" "6.5.11"
+    "@storybook/components" "6.5.11"
+    "@storybook/core-common" "6.5.11"
+    "@storybook/core-events" "6.5.11"
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
-    "@storybook/instrumenter" "6.5.10"
-    "@storybook/theming" "6.5.10"
+    "@storybook/instrumenter" "6.5.11"
+    "@storybook/theming" "6.5.11"
     core-js "^3.8.2"
     global "^4.4.0"
     jest-mock "^27.0.6"
@@ -2964,7 +2964,7 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core-common@^6.5.11":
+"@storybook/core-common@6.5.11", "@storybook/core-common@^6.5.11":
   version "6.5.11"
   resolved "https://registry.yarnpkg.com/@storybook/core-common/-/core-common-6.5.11.tgz#1db450e37deba3f61b0cf3087b92b265acfcd062"
   integrity sha512-XWiEdkI2GpIleByVckB+tlME3AUFqiMJqQWiHB4L/Ob9cRZ7V42cX7yg0hxx4ZrNXSBaEWthJFJl3pOEBbvcfQ==
@@ -3187,14 +3187,14 @@
     lodash "^4.17.21"
     regenerator-runtime "^0.13.7"
 
-"@storybook/instrumenter@6.5.10", "@storybook/instrumenter@^6.4.0":
-  version "6.5.10"
-  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-6.5.10.tgz#5443f5fdb25ddb589ede2e2f0147becaffd405cb"
-  integrity sha512-3yKJW68wTnGYEts2mJQG6M7ZE+fe54fuy5lBBzRtvWnC15uWTxuaiFp2kxH5b+stSCi4m71ws45RNiEafdBgEQ==
+"@storybook/instrumenter@6.5.11", "@storybook/instrumenter@^6.4.0":
+  version "6.5.11"
+  resolved "https://registry.yarnpkg.com/@storybook/instrumenter/-/instrumenter-6.5.11.tgz#8e86c36ee649a30a09d46471aa5852351438a6ed"
+  integrity sha512-vkf9aRMpilQ3FMvNtF6Yum5jUCJvwXNqI87xZS3FHClWIJ2x2JU03u8VsJxvq6CF5HRvo7F/Gk/z9RL81F4Ruw==
   dependencies:
-    "@storybook/addons" "6.5.10"
-    "@storybook/client-logger" "6.5.10"
-    "@storybook/core-events" "6.5.10"
+    "@storybook/addons" "6.5.11"
+    "@storybook/client-logger" "6.5.11"
+    "@storybook/core-events" "6.5.11"
     core-js "^3.8.2"
     global "^4.4.0"
 
