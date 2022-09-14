@@ -30,7 +30,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@stavalfi/babel-plugin-module-resolver-loader": "^1.4.0",
     "@storybook/addon-a11y": "^6.5.11",
-    "@storybook/addon-actions": "^6.5.11",
+    "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-console": "^1.2.3",
     "@storybook/addon-essentials": "^6.5.11",
     "@storybook/addon-interactions": "^6.5.11",
