@@ -117,7 +117,7 @@
     "webpack-cli": "^4.10.0",
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.19",
-    "zx": "^4.2.0"
+    "zx": "^7.0.8"
   },
   "dependencies": {
     "lodash": "^4.17.21",
