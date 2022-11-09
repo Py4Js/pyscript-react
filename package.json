@@ -89,7 +89,7 @@
     "generate-package-json-webpack-plugin": "^2.6.0",
     "husky": "^8.0.2",
     "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
+    "jest-environment-jsdom": "^29.3.1",
     "jest-extended": "^2.0.0",
     "jsdoc": "^3.6.10",
     "json-minimizer-webpack-plugin": "^4.0.0",
