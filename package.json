@@ -93,7 +93,7 @@
     "jest-extended": "^2.0.0",
     "jsdoc": "^3.6.10",
     "json-minimizer-webpack-plugin": "^4.0.0",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.0",
     "prettier-plugin-organize-imports": "^2.3.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
