@@ -98,7 +98,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "rimraf": "^3.0.2",
-    "snyk": "^1.1064.0",
+    "snyk": "^1.1065.0",
     "storybook": "^6.5.13",
     "stylelint-config-standard": "^26.0.0",
     "ts-jest": "^28.0.8",
