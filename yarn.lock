@@ -3974,10 +3974,10 @@
   resolved "https://registry.yarnpkg.com/@types/webpack-env/-/webpack-env-1.16.4.tgz#1f4969042bf76d7ef7b5914f59b3b60073f4e1f4"
   integrity sha512-llS8qveOUX3wxHnSykP5hlYFFuMfJ9p5JvIyCiBgp7WTfl6K5ZcyHj8r8JsN/J6QODkAsRRCLIcTuOCu8etkUw==
 
-"@types/webpack-node-externals@^2.5.3":
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/@types/webpack-node-externals/-/webpack-node-externals-2.5.3.tgz#921783aadda1fe686db0a70e20e4b9548b5a3cef"
-  integrity sha512-A9JxaR8QXoYT95egET4AmCFuChyTlP8d18ZAnmSHuIMsFdS7QlCQQ8pmN/+FHgLIkm+ViE/VngltT5avLACY9A==
+"@types/webpack-node-externals@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/webpack-node-externals/-/webpack-node-externals-3.0.0.tgz#4b85b93cde99a16779c4b1faebaa23c3ef46ec0b"
+  integrity sha512-Z3ELJiH0aZjxkoymT2nrGSmCF/CYjiqC0bpv4/DWy9h7e6gP4B2qmKZFHJFermeF0SYURbSw0puddQl9dMMV0w==
   dependencies:
     "@types/node" "*"
     webpack "^5"
