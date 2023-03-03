@@ -84,7 +84,7 @@
     "eslint-plugin-sonarjs": "^0.17.0",
     "eslint-plugin-testing-library": "^5.9.1",
     "eslint-plugin-tsdoc": "^0.2.17",
-    "eslint-plugin-unicorn": "^43.0.2",
+    "eslint-plugin-unicorn": "^46.0.0",
     "eslint-webpack-plugin": "^3.2.0",
     "generate-package-json-webpack-plugin": "^2.6.0",
     "husky": "^8.0.2",
