@@ -1,18 +1,31 @@
-const { join } = require("path");
+import { resolve } from "path";
 
-module.exports = {
+export default {
   stories: ["../**/*.story.@(js|jsx|ts|tsx|mdx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "@storybook/addon-mdx-gfm",
   ],
   staticDirs: ["../tests_data"],
-  framework: "@storybook/react",
-  core: {
-    builder: "@storybook/builder-vite",
+  framework: {
+    name: "@storybook/react-vite",
+    options: {
+      define: {
+        global: "window",
+      },
+      resolve: {
+        alias: {
+          "~frontend": resolve("..", __dirname),
+        },
+      },
+    },
   },
   features: {
     storyStoreV7: true,
+  },
+  docs: {
+    autodocs: true,
   },
 };
