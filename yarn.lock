@@ -1844,6 +1844,18 @@
     "@types/yargs" "^17.0.8"
     chalk "^4.0.0"
 
+"@jest/types@^29.5.0":
+  version "29.5.0"
+  resolved "https://registry.yarnpkg.com/@jest/types/-/types-29.5.0.tgz#f59ef9b031ced83047c67032700d8c807d6e1593"
+  integrity sha512-qbu7kN6czmVRc3xWFQcAN03RAUamgppVUdXrvl1Wr3jlNF93o9mJbGcDWrwGB6ht44u7efB1qCFgVQmca24Uog==
+  dependencies:
+    "@jest/schemas" "^29.4.3"
+    "@types/istanbul-lib-coverage" "^2.0.0"
+    "@types/istanbul-reports" "^3.0.0"
+    "@types/node" "*"
+    "@types/yargs" "^17.0.8"
+    chalk "^4.0.0"
+
 "@joshwooding/vite-plugin-react-docgen-typescript@0.0.4":
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/@joshwooding/vite-plugin-react-docgen-typescript/-/vite-plugin-react-docgen-typescript-0.0.4.tgz#1b41e3c0f6a09b0279e64f225ebfd2fb86a33dff"
@@ -3880,10 +3892,10 @@
     "@types/eslint" "*"
     "@types/estree" "*"
 
-"@types/eslint@*":
-  version "8.4.3"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.4.3.tgz#5c92815a3838b1985c90034cd85f26f59d9d0ece"
-  integrity sha512-YP1S7YJRMPs+7KZKDb9G63n8YejIwW9BALq7a5j2+H4yl6iOv9CB29edho+cuFRrvmJbbaH2yiVChKLJVysDGw==
+"@types/eslint@*", "@types/eslint@^8.37.0":
+  version "8.37.0"
+  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.37.0.tgz#29cebc6c2a3ac7fea7113207bf5a828fdf4d7ef1"
+  integrity sha512-Piet7dG2JBuDIfohBngQ3rCt7MgO9xCO4xIMKxBThCq5PNRB91IjlJ10eJVwfoNtvTErmxLzwBZ7rHZtbOMmFQ==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -3892,14 +3904,6 @@
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-7.29.0.tgz#e56ddc8e542815272720bb0b4ccc2aff9c3e1c78"
   integrity sha512-VNcvioYDH8/FxaeTKkM4/TiTwt6pBV9E3OfGmvaw8tPl0rrHCJ4Ll15HRT+pMiFAf/MLQvAzC+6RzUMEL9Ceng==
-  dependencies:
-    "@types/estree" "*"
-    "@types/json-schema" "*"
-
-"@types/eslint@^7.29.0 || ^8.4.1":
-  version "8.4.5"
-  resolved "https://registry.yarnpkg.com/@types/eslint/-/eslint-8.4.5.tgz#acdfb7dd36b91cc5d812d7c093811a8f3d9b31e4"
-  integrity sha512-dhsC09y1gpJWnK+Ff4SGvCuSnk9DaU0BJZSzOwa6GVSg65XtTugLBITDAAzRU5duGBoXBHpdR/9jHGxJjNflJQ==
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -7876,13 +7880,13 @@ eslint-visitor-keys@^3.1.0, eslint-visitor-keys@^3.3.0, eslint-visitor-keys@^3.4
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-3.4.0.tgz#c7f0f956124ce677047ddbc192a68f999454dedc"
   integrity sha512-HPpKPUBQcAsZOsHAFwTtIKcYlCje62XB7SEAcxjtmW6TD1WVpkS6i6/hOVtTZIl4zGj/mBqpFVGvaDneik+VoQ==
 
-eslint-webpack-plugin@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-webpack-plugin/-/eslint-webpack-plugin-3.2.0.tgz#1978cdb9edc461e4b0195a20da950cf57988347c"
-  integrity sha512-avrKcGncpPbPSUHX6B3stNGzkKFto3eL+DKM4+VyMrVnhPc3vRczVlCq3uhuFOdRvDHTVXuzwk1ZKUrqDQHQ9w==
+eslint-webpack-plugin@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-webpack-plugin/-/eslint-webpack-plugin-4.0.1.tgz#f0f0e9afff2801d8bd41eac88e5409821ecbaccb"
+  integrity sha512-fUFcXpui/FftGx3NzvWgLZXlLbu+m74sUxGEgxgoxYcUtkIQbS6SdNNZkS99m5ycb23TfoNYrDpp1k/CK5j6Hw==
   dependencies:
-    "@types/eslint" "^7.29.0 || ^8.4.1"
-    jest-worker "^28.0.2"
+    "@types/eslint" "^8.37.0"
+    jest-worker "^29.5.0"
     micromatch "^4.0.5"
     normalize-path "^3.0.0"
     schema-utils "^4.0.0"
@@ -10472,6 +10476,18 @@ jest-util@^28.0.0, jest-util@^28.1.0:
     graceful-fs "^4.2.9"
     picomatch "^2.2.3"
 
+jest-util@^29.5.0:
+  version "29.5.0"
+  resolved "https://registry.yarnpkg.com/jest-util/-/jest-util-29.5.0.tgz#24a4d3d92fc39ce90425311b23c27a6e0ef16b8f"
+  integrity sha512-RYMgG/MTadOr5t8KdhejfvUU82MxsCu5MF6KuDUHl+NuwzUt+Sm6jJWxTJVrDR1j5M/gJVCPKQEpWXY+yIQ6lQ==
+  dependencies:
+    "@jest/types" "^29.5.0"
+    "@types/node" "*"
+    chalk "^4.0.0"
+    ci-info "^3.2.0"
+    graceful-fs "^4.2.9"
+    picomatch "^2.2.3"
+
 jest-validate@^28.1.0:
   version "28.1.0"
   resolved "https://registry.yarnpkg.com/jest-validate/-/jest-validate-28.1.0.tgz#8a6821f48432aba9f830c26e28226ad77b9a0e18"
@@ -10516,21 +10532,22 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest-worker@^28.0.2:
-  version "28.1.3"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-28.1.3.tgz#7e3c4ce3fa23d1bb6accb169e7f396f98ed4bb98"
-  integrity sha512-CqRA220YV/6jCo8VWvAt1KKx6eek1VIHMPeLEbpcfSfkEeWyBNppynM/o6q+Wmw+sOhos2ml34wZbSX3G13//g==
-  dependencies:
-    "@types/node" "*"
-    merge-stream "^2.0.0"
-    supports-color "^8.0.0"
-
 jest-worker@^28.1.0:
   version "28.1.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-28.1.0.tgz#ced54757a035e87591e1208253a6e3aac1a855e5"
   integrity sha512-ZHwM6mNwaWBR52Snff8ZvsCTqQsvhCxP/bT1I6T6DAnb6ygkshsyLQIMxFwHpYxht0HOoqt23JlC01viI7T03A==
   dependencies:
     "@types/node" "*"
+    merge-stream "^2.0.0"
+    supports-color "^8.0.0"
+
+jest-worker@^29.5.0:
+  version "29.5.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-29.5.0.tgz#bdaefb06811bd3384d93f009755014d8acb4615d"
+  integrity sha512-NcrQnevGoSp4b5kg+akIpthoAFHxPBcb5P6mYPY0fUNT+sSvmtu6jlkEle3anczUKIKEbMxFimk9oTP/tpIPgA==
+  dependencies:
+    "@types/node" "*"
+    jest-util "^29.5.0"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
