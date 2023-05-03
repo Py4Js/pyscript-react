@@ -28,7 +28,7 @@ pnpm add pyscript-react # installation with pnpm
 
 ```tsx
 <PyScriptProvider>
-  <PyScript>print("Hello world!")</PyScript>
+  <PyScript>display("Hello world!")</PyScript>
 </PyScriptProvider>
 ```
 
@@ -37,10 +37,13 @@ pnpm add pyscript-react # installation with pnpm
 ```tsx
 <PyScriptProvider>
   <PyScript
+    source="/folium_map.py",
     output="folium"
     generateOutputTag
-    pyEnvContent={["folium"]}
-    src="./folium_map.py"
+    pyConfigProps={{
+      type: "json",
+      packages: new Set(["folium"]),
+    }}
   />
 </PyScriptProvider>
 ```
@@ -50,7 +53,7 @@ pnpm add pyscript-react # installation with pnpm
 from folium import Map
 
 variable = Map(location=[45.5236, -122.6750])
-variable
+display(variable, target="folium")
 ```
 
 ## Documentation
