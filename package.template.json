@@ -1,0 +1,21 @@
+{
+  "name": "pyscript-react",
+  "main": "./index.js",
+  "repository": "https://github.com/Py4Js/pyscript-react",
+  "author": "KrzysztofZawisla <zawislakrzysztof.zk@gmail.com>, ShootGan <nawelpalepka@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "*",
+    "react-helmet-async": "*",
+    "prop-types": "*",
+    "zustand": "*"
+  },
+  "peerDependenciesMeta": {
+    "zustand": {
+      "optional": true
+    },
+    "react-helmet-async": {
+      "optional": true
+    }
+  }
+}

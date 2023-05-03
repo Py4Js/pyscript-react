@@ -1,0 +1,51 @@
+{
+  "ts-node": {
+    "transpileOnly": true,
+    "require": [
+      "typescript-transform-paths/register",
+      "tsconfig-paths/register"
+    ]
+  },
+  "compilerOptions": {
+    "incremental": true,
+    "jsx": "react-jsx",
+    "target": "esnext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "module": "NodeNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "downlevelIteration": true,
+    "pretty": true,
+    "declaration": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "checkJs": true,
+    "strictFunctionTypes": true,
+    "importHelpers": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "~root/*": ["*"],
+      "~components/*": ["source/library/components/*"],
+      "~types/*": ["source/library/types/*"],
+      "~utils/*": ["source/library/utils/*"],
+      "~scripts/*": ["source/scripts/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "coverage", "library"]
+}

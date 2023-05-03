@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./library/esm",
+    "outDir": "./library/esm",
+    "rootDir": "./source/library",
+    "removeComments": false
+  },
+  "include": [
+    "./source/library",
+    "global.d.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.story.ts",
+    "**/*.story.tsx",
+  ]
+}

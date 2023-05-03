@@ -1,0 +1,7 @@
+{
+  "extends": "../../tsconfig.output.template.json",
+  "compilerOptions": {
+    "declarationDir": "../../library/esm",
+    "outDir": "../../library/esm"
+  },
+}

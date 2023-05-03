@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PyScript Renders component properly 1`] = `
+<div>
+  <py-script
+    aria-label="Hello World generated based on Python code"
+    data-testid="py-script"
+  >
+    print("Hello world!")
+  </py-script>
+</div>
+`;
+
+exports[`PyScript Renders component properly with output, source, pyConfigContent and generateOutputTag 1`] = `
+<div>
+  <py-config
+    type="json"
+  >
+    {"packages":["folium"]}
+  </py-config>
+  <div
+    id="folium"
+  />
+  <py-script
+    aria-label="Folium map generated based on Python code"
+    data-testid="py-script"
+    output="folium"
+    src="./test_data/folium_map.py"
+  />
+</div>
+`;
+
+exports[`PyScript Renders component properly with output, source, pyEnvContent and generateOutputTag 1`] = `
+<div>
+  <py-env>
+    - folium
+  </py-env>
+  <div
+    id="folium"
+  />
+  <py-script
+    aria-label="Folium map generated based on Python code"
+    data-testid="py-script"
+    output="folium"
+    src="./test_data/folium_map.py"
+  />
+</div>
+`;
+
+exports[`PyScript Renders component properly with toml external config 1`] = `
+<div>
+  <py-config
+    src="./test_data/folium_map_config.toml"
+    type="toml"
+  />
+  <div
+    id="folium"
+  />
+  <py-script
+    aria-label="Folium map generated based on Python code"
+    data-testid="py-script"
+    output="folium"
+    src="./test_data/folium_map.py"
+  />
+</div>
+`;
