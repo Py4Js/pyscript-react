@@ -1,5 +1,3 @@
-name: Deploy PyScriptReact
-
 on:
   push:
     branches: [main]
@@ -55,6 +53,16 @@ jobs:
             pyscript-react.zip
 
       - name: Publish to npm 🚀
-        run: yarn publish
+        run: |
+          cd library
+          yarn publish
+          cd ..
+          for dir in library/*; do
+            if [ -d "$dir" ]; then
+              cd "$dir"
+              yarn publish
+              cd ../../
+            fi
+          done
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
