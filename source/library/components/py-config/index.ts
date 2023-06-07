@@ -1,5 +1,6 @@
 import type {
   PyConfigFetch,
+  PyConfigFetchItem,
   PyConfigInterpreters,
   PyConfigProperties,
   PyConfigPropertiesBase,
@@ -16,6 +17,7 @@ import PyConfig from "./py-config";
 export type {
   PyConfigInterpreters,
   PyConfigFetch,
+  PyConfigFetchItem,
   PyConfigSplashscreen,
   PyConfigSharedJsonProperties,
   PyConfigPropertiesWithJsonType,
