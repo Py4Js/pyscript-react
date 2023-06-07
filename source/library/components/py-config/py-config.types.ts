@@ -10,10 +10,9 @@ export type PyConfigInterpreters = {
   name?: string;
   language?: string;
 };
+export type PyConfigFetchItem = { files?: string[] | Set<string> };
 
-export type PyConfigFetch = {
-  files?: string[] | Set<string>;
-};
+export type PyConfigFetch = PyConfigFetchItem[];
 
 export type PyConfigSplashscreen = {
   autoclose?: boolean;
