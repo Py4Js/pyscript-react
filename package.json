@@ -99,7 +99,7 @@
     "vite-tsconfig-paths": "^4.2.0",
     "webpack": "^5.81.0",
     "webpack-bundle-analyzer": "^4.8.0",
-    "webpack-cli": "^5.0.2",
+    "webpack-cli": "^5.1.4",
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.19",
     "zustand": "^4.3.7",
