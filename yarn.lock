@@ -3745,7 +3745,7 @@
   resolved "https://registry.yarnpkg.com/@storybook/mdx2-csf/-/mdx2-csf-1.0.0.tgz#ce4b2e44c9082bf382db835eef611b0097b7d771"
   integrity sha512-dBAnEL4HfxxJmv7LdEYUoZlQbWj9APZNIbOaq0tgF8XkxiIbzqvgB0jhL/9UOrysSDbQWBiCRTu2wOVxedGfmw==
 
-"@storybook/node-logger@6.5.16", "@storybook/node-logger@^6.5.7":
+"@storybook/node-logger@6.5.16":
   version "6.5.16"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.5.16.tgz#d57fd6204c2abfbc297551d98ad5475dd73207cc"
   integrity sha512-YjhBKrclQtjhqFNSO+BZK+RXOx6EQypAELJKoLFaawg331e8VUfvUuRCNB3fcEWp8G9oH13PQQte0OTjLyyOYg==
@@ -3760,6 +3760,16 @@
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.7.tgz#114e6d1994e0445dd9e579768bdb89adbf1055cd"
   integrity sha512-5Y4LLgKeCStq1ktCKZ5eNPzQQSQ+CYZAlkEdzQ3Pp//0KXaZvVxEvGtaYhAymP2HatLpI8Oneo4lHrJioRfgww==
+  dependencies:
+    "@types/npmlog" "^4.1.2"
+    chalk "^4.1.0"
+    npmlog "^5.0.1"
+    pretty-hrtime "^1.0.3"
+
+"@storybook/node-logger@^7.0.22":
+  version "7.0.22"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.0.22.tgz#cee51f1036df05486c1635774bb933d9625c6463"
+  integrity sha512-k+RtRhxGxssIByTQ8maiXPc8WaXQcq1zAoSskNOIfi2f47JsZ7v81HJw8JaQ+cxNmafGBcKYW3Lla49wz1t8JQ==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
