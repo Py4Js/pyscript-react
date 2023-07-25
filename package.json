@@ -86,7 +86,7 @@
     "source-map-loader": "^4.0.1",
     "storybook": "^7.0.7",
     "super-expressive": "^2.0.0",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "ts-patch": "^2.1.0",
     "tsc-alias": "^1.8.6",
