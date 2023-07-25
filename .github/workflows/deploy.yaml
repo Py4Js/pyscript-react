@@ -1,68 +1,56 @@
-# on:
-#   push:
-#     branches: [main]
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
-
-#       - name: Setup Node
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: "lts/*"
-#           registry-url: "https://registry.npmjs.org"
-
-#       - name: Install dependencies
-#         run: yarn --ignore-engines
-
-#- name: Run tests
-#  run: yarn run test
-
-# - name: Build project
-#   run: yarn run build #--target npm
-
-# - name: Create zip lib
-#   uses: vimtor/action-zip@v1
-#   with:
-#     files: library/
-#     dest: pyscript-react.zip
-
-# - name: Get current tag
-#   run: |
-#     echo "current_tag=v`grep version package.json | sed 's/.*"version": "\(.*\)".*/\1/'`" >> $GITHUB_ENV
-
-# - name: Create new tag
-#   uses: rickstaa/action-create-tag@v1
-#   id: "tag_create"
-#   with:
-#     tag: "${{ env.current_tag }}"
-#     tag_exists_error: true
-#     message: "Latest release"
-
-# - name: Create GitHub realese
-#   uses: "marvinpinto/action-automatic-releases@latest"
-#   with:
-#     repo_token: "${{ secrets.GITHUB_TOKEN }}"
-#     automatic_release_tag: "${{ env.current_tag }}"
-#     prerelease: false
-#     files: |
-#       LICENSE
-#       pyscript-react.zip
-
-# - name: Publish to npm 🚀
-#   run: |
-#     cd library
-#     yarn publish
-#     cd ..
-#     for dir in library/*; do
-#       if [ -d "$dir" ]; then
-#         cd "$dir"
-#         yarn publish
-#         cd ../../
-#       fi
-#     done
-#   env:
-#     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "lts/*"
+          registry-url: "https://registry.npmjs.org"
+      - name: Install dependencies
+        run: yarn --ignore-engines
+      - name: Build project
+        run: yarn run build #--target npm
+      - name: Create zip lib
+        uses: vimtor/action-zip@v1
+        with:
+          files: library/
+          dest: pyscript-react.zip
+      - name: Get current tag
+        run: |
+          echo "current_tag=v`grep version package.json | sed 's/.*"version": "\(.*\)".*/\1/'`" >> $GITHUB_ENV
+      - name: Create new tag
+        uses: rickstaa/action-create-tag@v1
+        id: "tag_create"
+        with:
+          tag: "${{ env.current_tag }}"
+          tag_exists_error: true
+          message: "Latest release"
+      - name: Create GitHub realese
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${{ env.current_tag }}"
+          prerelease: false
+          files: |
+            LICENSE
+            pyscript-react.zip
+      - name: Publish to npm 🚀
+        run: |
+          cd library
+          yarn publish
+          cd ..
+          for dir in library/*; do
+            if [ -d "$dir" ]; then
+              cd "$dir"
+              yarn publish
+              cd ../../
+            fi
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
