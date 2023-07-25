@@ -1,15 +1,12 @@
 import propTypes from "prop-types";
 import { WeakValidationMap, useEffect, useMemo } from "react";
-
-import {
-  PyConfigInterpreters,
-  PyConfigSplashscreen,
-} from "~root/source/library/components/py-config/py-config.types";
-
 import type {
   PyConfigFetch,
+  PyConfigFetchItem,
+  PyConfigInterpreters,
   PyConfigProperties,
   PyConfigPropertiesBase,
+  PyConfigSplashscreen,
   PyConfigTag,
 } from "./py-config.types";
 
@@ -54,10 +51,6 @@ const PyConfig: PyConfigTag = <T extends object>({
   // eslint-disable-next-line sonarjs/cognitive-complexity
   const config: string = useMemo((): string => {
     if (type === "json") {
-      const transformedFiles: string[] = [
-        ...(fetch?.files || []),
-        ...(children?.fetch?.files || []),
-      ];
       const transformedPlugins: string[] = [
         ...(plugins || []),
         ...(children?.plugins || []),
@@ -66,10 +59,16 @@ const PyConfig: PyConfigTag = <T extends object>({
         ...(packages || []),
         ...(children?.packages || []),
       ];
-      const transformedFetch: PyConfigFetch = {
-        files: transformedFiles.length ? transformedFiles : undefined,
-        ...children?.fetch,
-      };
+      const transformedFetch: PyConfigFetch = [
+        ...(fetch || []),
+        ...(children?.fetch || []),
+      ].map(({ files, ...restItem }: PyConfigFetchItem): PyConfigFetchItem => {
+        const transformedFiles: string[] = [...(files || [])];
+        return {
+          files: transformedFiles.length ? transformedFiles : undefined,
+          ...restItem,
+        };
+      });
       const transformedInterpreters: Omit<PyConfigInterpreters, "source"> & {
         src?: string;
       } = {
@@ -89,7 +88,7 @@ const PyConfig: PyConfigTag = <T extends object>({
         interpreters: checkForAnyKey(transformedInterpreters)
           ? transformedInterpreters
           : undefined,
-        fetch: checkForAnyKey(transformedFetch) ? transformedFetch : undefined,
+        fetch: transformedFetch.length ? transformedFetch : undefined,
         packages: transformedPackages.length ? transformedPackages : undefined,
         plugins: transformedPlugins.length ? transformedPlugins : undefined,
         ...children,
@@ -127,10 +126,18 @@ PyConfig.propTypes = {
     name: propTypes.string,
     language: propTypes.string,
   }),
-  fetch: propTypes.shape({
-    files: propTypes.arrayOf(propTypes.string),
-  }),
-  packages: propTypes.arrayOf(propTypes.string),
+  fetch: propTypes.arrayOf(
+    propTypes.shape({
+      files: propTypes.oneOfType([
+        propTypes.arrayOf(propTypes.string),
+        propTypes.instanceOf(Set),
+      ]),
+    }),
+  ),
+  packages: propTypes.oneOfType([
+    propTypes.arrayOf(propTypes.string),
+    propTypes.instanceOf(Set),
+  ]),
   plugins: propTypes.arrayOf(propTypes.string),
 } as WeakValidationMap<PyConfigPropertiesBase>;
 

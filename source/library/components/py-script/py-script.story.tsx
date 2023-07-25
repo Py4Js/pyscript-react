@@ -61,7 +61,7 @@ PyScriptFoliumExample.args = {
 export const PyScriptFoliumWithTomlConfigExample: StoryFn<typeof PyScript> =
   Template.bind({});
 
-PyScriptFoliumExample.args = {
+PyScriptFoliumWithTomlConfigExample.args = {
   source: "/folium_map.py",
   output: "folium",
   generateOutputTag: true,
