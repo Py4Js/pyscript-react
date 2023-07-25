@@ -15422,6 +15422,11 @@ stylis@4.1.3:
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.3.tgz#fd2fbe79f5fed17c55269e16ed8da14c84d069f7"
   integrity sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==
 
+super-expressive@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/super-expressive/-/super-expressive-2.0.0.tgz#646c4c6b7d813d47196cf144df36366f90bec456"
+  integrity sha512-jtCS9dEBPxtq4jd0v33LnRPI0kYQP1npHxzl+Pk+IOuufIn5Pyo0AXiU6ypvhO3vZevqEE9AE3YDD7aWp+RxRg==
+
 supports-color@^5.3.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"

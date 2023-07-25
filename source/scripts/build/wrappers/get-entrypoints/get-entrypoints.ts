@@ -1,5 +1,6 @@
 import { globSync } from "glob";
-import { join } from "path";
+import { join, sep } from "path";
+import SuperExpressive from "super-expressive";
 import type { GetEntrypoints } from "~root/source/scripts/build/wrappers/get-entrypoints/get-entrypoints.types";
 
 const getEntrypoints: GetEntrypoints = (): Record<string, string> => {
@@ -21,7 +22,11 @@ const getEntrypoints: GetEntrypoints = (): Record<string, string> => {
       splittedFile.pop();
       const deletedExtensionFile = splittedFile.join();
       const fixedFileName = deletedExtensionFile.replace(
-        /^(source\\library\\)/,
+        SuperExpressive()
+          .startOfInput.string("source")
+          .string(sep)
+          .string("library")
+          .toRegex(),
         "",
       );
       accumulator[fixedFileName] = join(process.cwd(), file);
