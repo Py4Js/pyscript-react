@@ -1,0 +1,37 @@
+---
+sidebar_position: 1
+title: Specific module installation
+---
+
+# Installation of the specific module type
+
+By default, PyScript-React uses [UMD](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-plugin-d-ts.html#umd) version of code. In this package we can access diffrent module types. For example, if we would like to use [ESM](https://tc39.es/ecma262/#sec-modules), we can add to import a post-fix after the library name.
+
+Example:
+
+```ts
+import PyScript from "pyscript-react/esm"; // main entrypoint
+import PyScriptProvider from "pyscript-react/esm/components/py-script-provider"; // specific component
+```
+
+Also, we can just download package with only specific module type. List of possible to download packages is relative to that which are embedded into main package.
+
+Packages: [[UMD](https://www.npmjs.com/package/pyscript-react-umd), [ESM](https://www.npmjs.com/package/pyscript-react-esm), [AMD](https://www.npmjs.com/package/pyscript-react-amd), [CJS](https://www.npmjs.com/package/pyscript-react-cjs), [SYSTEM](https://www.npmjs.com/package/pyscript-react-system), [CJS2](https://www.npmjs.com/package/pyscript-react-cjs2), [CJS-ESM](https://www.npmjs.com/package/pyscript-react-cjs-esm)]
+
+Via npm:
+
+```sh
+npm i pyscript-react-(umd|esm|amd|cjs|system|cjs2|cjs-esm)
+```
+
+Via yarn:
+
+```sh
+yarn add pyscript-react-(umd|esm|amd|cjs|system|cjs2|cjs-esm)
+```
+
+Via pnpm:
+
+```sh
+pnpm i pyscript-react-(umd|esm|amd|cjs|system|cjs2|cjs-esm)
+```

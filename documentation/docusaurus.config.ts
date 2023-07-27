@@ -10,11 +10,10 @@ const githubLink = "https://github.com/Py4Js/pyscript-react";
 const config: Config = {
   title: `${organizationName} Documentation`,
   tagline: `${organizationName} Documentation`,
-  url: "https://pyscript-react.github.io",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
+  url: "https://py4js.github.io/",
+  baseUrl: "/pyscript-react/",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
   organizationName,
   projectName: organizationName,
   i18n: {
@@ -39,10 +38,6 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: organizationName,
-      logo: {
-        alt: organizationName,
-        src: "img/logo.svg",
-      },
       items: [
         {
           type: "doc",
