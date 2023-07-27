@@ -7,7 +7,10 @@ import PyScriptProvider from "../py-script-provider/py-script-provider";
 
 const PyScriptProviderZustandWrapper: FC<
   PyScriptProviderZustandWrapperProperties
-> = ({ children, ...rest }: PyScriptProviderZustandWrapperProperties) => {
+> = ({
+  children,
+  ...rest
+}: PyScriptProviderZustandWrapperProperties): JSX.Element => {
   const { setPyScript } = usePyScriptStore();
   return (
     <PyScriptProvider
