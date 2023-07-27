@@ -76,7 +76,7 @@
     "jest-extended": "^3.2.4",
     "jsdom": "^21.1.1",
     "json-minimizer-webpack-plugin": "^4.0.0",
-    "plugin-image-zoom": "^1.1.0",
+    "plugin-image-zoom": "^1.2.0",
     "prettier": "^2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
     "prop-types": "^15.8.1",
