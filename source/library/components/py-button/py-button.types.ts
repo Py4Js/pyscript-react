@@ -1,9 +1,10 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
-import ReactElementProps from "~types/react-element-properties/react-element-properties";
+import type ReactElementProps from "~types/react-element-properties/react-element-properties";
 
 export type PyButtonPropertiesBase = Omit<
   ReactElementProps<
@@ -15,11 +16,17 @@ export type PyButtonPropertiesBase = Omit<
   label: string;
 };
 
-export type PyButtonProperties<T> = T extends infer T
-  ? T & PyButtonPropertiesBase
-  : PyButtonPropertiesBase;
+export type PyButtonProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyButtonPropertiesBase
+    : PyButtonPropertiesBase;
 
 export type PyButtonTag = {
-  <T extends object>(properties: PyButtonProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyButtonPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyButtonProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyButtonPropertiesBase>;
+  propTypes?: WeakValidationMap<PyButtonPropertiesBase>;
 };

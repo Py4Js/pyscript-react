@@ -1,5 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
-import ReactElementProps from "~types/react-element-properties/react-element-properties";
+import type {
+  DetailedHTMLProps,
+  HTMLAttributes,
+  WeakValidationMap,
+} from "react";
+import type ReactElementProps from "~types/react-element-properties/react-element-properties";
 
 export type PyTerminalPropertiesBase = Omit<
   ReactElementProps<
@@ -10,13 +14,19 @@ export type PyTerminalPropertiesBase = Omit<
   auto?: boolean;
 };
 
-export type PyTerminalProperties<T> = T extends infer T
-  ? T & PyTerminalPropertiesBase
-  : PyTerminalPropertiesBase;
+export type PyTerminalProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyTerminalPropertiesBase
+    : PyTerminalPropertiesBase;
 
-export type PyTerminalProps<T> = PyTerminalProperties<T>;
+export type PyTerminalProps<OptionalProperties> =
+  PyTerminalProperties<OptionalProperties>;
 
 export type PyTerminalTag = {
-  <T extends object>(properties: PyTerminalProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyTerminalPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyTerminalProperties<OptionalProperties>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyTerminalPropertiesBase>;
+  propTypes?: WeakValidationMap<PyTerminalPropertiesBase>;
 };
