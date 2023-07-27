@@ -10,9 +10,9 @@ const githubLink = "https://github.com/Py4Js/pyscript-react";
 const config: Config = {
   title: `${organizationName} Documentation`,
   tagline: `${organizationName} Documentation`,
-  url: "https://pyscript-react.github.io",
-  baseUrl: "/",
-  onBrokenLinks: "throw",
+  url: "https://py4js.github.io/",
+  baseUrl: "/pyscript-react/",
+  onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   organizationName,
   projectName: organizationName,
