@@ -1,7 +1,7 @@
 import {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
-  LegacyRef,
   WeakValidationMap,
 } from "react";
 import type ReactElementProps from "~types/react-element-properties/react-element-properties";
@@ -82,7 +82,7 @@ export type PyConfigProperties<OptionalProperties> =
 export type PyConfigTag = {
   <OptionalProperties extends object>(
     properties: PyConfigProperties<OptionalProperties>,
-    reference?: LegacyRef<HTMLElement>,
+    reference?: ForwardedRef<HTMLElement>,
   ): JSX.Element;
   displayName?: string;
   defaultProps?: Partial<PyConfigPropertiesBase>;

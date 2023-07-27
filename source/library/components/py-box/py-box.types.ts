@@ -1,7 +1,7 @@
-import type {
+import {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
-  LegacyRef,
   PropsWithChildren,
   WeakValidationMap,
 } from "react";
@@ -23,7 +23,7 @@ export type PyBoxProperties<OptionalProperties> =
 export type PyBoxTag = {
   <OptionalProperties extends object>(
     properties: PyBoxProperties<OptionalProperties>,
-    reference?: LegacyRef<HTMLElement>,
+    reference?: ForwardedRef<HTMLElement>,
   ): JSX.Element;
   displayName?: string;
   defaultProps?: Partial<PyBoxPropertiesBase>;

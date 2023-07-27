@@ -9,8 +9,8 @@ import type { PyButtonProperties, PyButtonTag } from "./py-button.types";
  * @deprecated
  */
 const PyButton: PyButtonTag = forwardRef(
-  <T extends object>(
-    { children, label, ...rest }: PyButtonProperties<T>,
+  <OptionalProperties extends object>(
+    { children, label, ...rest }: PyButtonProperties<OptionalProperties>,
     reference: ForwardedRef<HTMLElement> | undefined,
     // eslint-disable-next-line max-params
   ): JSX.Element => {

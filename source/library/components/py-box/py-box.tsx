@@ -9,8 +9,8 @@ import type { PyBoxProperties, PyBoxTag } from "./py-box.types";
  * @deprecated
  */
 const PyBox: PyBoxTag = forwardRef(
-  <T extends object>(
-    { children, ...rest }: PyBoxProperties<T>,
+  <OptionalProperties extends object>(
+    { children, ...rest }: PyBoxProperties<OptionalProperties>,
     reference: ForwardedRef<HTMLElement> | undefined,
     // eslint-disable-next-line max-params
   ): JSX.Element => {

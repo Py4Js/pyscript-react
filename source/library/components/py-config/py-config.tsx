@@ -44,7 +44,7 @@ const checkForAnyKey = (
  * @see {@link https://pyscript-react.github.io/} Pyscript-react element documentation.
  */
 const PyConfig: PyConfigTag = forwardRef(
-  <T extends object>(
+  <OptionalProperties extends object>(
     {
       children,
       source,
@@ -55,7 +55,7 @@ const PyConfig: PyConfigTag = forwardRef(
       packages,
       plugins,
       ...rest
-    }: PyConfigProperties<T>,
+    }: PyConfigProperties<OptionalProperties>,
     reference: ForwardedRef<HTMLElement> | undefined,
     // eslint-disable-next-line max-params, sonarjs/cognitive-complexity
   ): JSX.Element => {
