@@ -1,17 +1,19 @@
 import propTypes from "prop-types";
 import {
-  DetailedHTMLProps,
-  HTMLAttributes,
-  WeakValidationMap,
   createElement,
+  forwardRef,
   useMemo,
+  type DetailedHTMLProps,
+  type ForwardedRef,
+  type HTMLAttributes,
+  type WeakValidationMap,
 } from "react";
-import {
+import type {
   PyConfigPropertiesWithJsonType,
   PyConfigPropertiesWithTomlType,
   PyConfigPropertiesWithoutChildren,
 } from "~components/py-config/py-config.types";
-import ReactElementProps from "~root/source/library/types/react-element-properties/react-element-properties";
+import type ReactElementProps from "~root/source/library/types/react-element-properties/react-element-properties";
 import PyConfig from "../py-config/py-config";
 import PyEnv from "../py-env/py-env";
 import type {
@@ -36,47 +38,36 @@ import type {
  * @see {@link https://docs.pyscript.net/latest/reference/elements/py-script.html} Original py-script element documentation.
  * @see {@link https://pyscript-react.github.io/} Pyscript-react element documentation.
  */
-const PyScript: PyScriptTag = <T extends object>({
-  children,
-  output,
-  generateOutputTag,
-  pyEnvContent,
-  pyEnvProps,
-  pyConfigContent,
-  pyConfigProps,
-  src,
-  source,
-  ...rest
-}: PyScriptProperties<T>): JSX.Element => {
-  const pyConfigElement: "" | JSX.Element | undefined = useMemo(():
-    | ""
-    | JSX.Element
-    | undefined => {
-    const isPyConfigSource: boolean = Boolean(
-      (pyConfigProps as Partial<PyConfigPropertiesWithoutChildren>)?.source,
-    );
-    const isPyConfigContentJsonType: boolean = pyConfigProps?.type === "json";
-    const pyConfigElementWithContent: "" | JSX.Element | undefined =
-      isPyConfigContentJsonType ? (
-        <PyConfig
-          {...(pyConfigProps as Omit<
-            PyConfigPropertiesWithJsonType,
-            "children"
-          > &
-            Omit<
-              ReactElementProps<
-                DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-              >,
-              "children"
-            >)}
-        >
-          {pyConfigContent as PyConfigPropertiesWithJsonType["children"]}
-        </PyConfig>
-      ) : (
-        pyConfigContent && (
+const PyScript: PyScriptTag = forwardRef(
+  <OptionalProperties extends object>(
+    {
+      children,
+      output,
+      generateOutputTag,
+      pyEnvContent,
+      pyEnvProps,
+      pyConfigContent,
+      pyConfigProps,
+      src,
+      source,
+      ...rest
+    }: PyScriptProperties<OptionalProperties>,
+    reference: ForwardedRef<HTMLElement> | undefined,
+    // eslint-disable-next-line max-params
+  ): JSX.Element => {
+    const pyConfigElement: "" | JSX.Element | undefined = useMemo(():
+      | ""
+      | JSX.Element
+      | undefined => {
+      const isPyConfigSource: boolean = Boolean(
+        (pyConfigProps as Partial<PyConfigPropertiesWithoutChildren>)?.source,
+      );
+      const isPyConfigContentJsonType: boolean = pyConfigProps?.type === "json";
+      const pyConfigElementWithContent: "" | JSX.Element | undefined =
+        isPyConfigContentJsonType ? (
           <PyConfig
             {...(pyConfigProps as Omit<
-              PyConfigPropertiesWithTomlType,
+              PyConfigPropertiesWithJsonType,
               "children"
             > &
               Omit<
@@ -86,34 +77,58 @@ const PyScript: PyScriptTag = <T extends object>({
                 "children"
               >)}
           >
-            {pyConfigContent as PyConfigPropertiesWithTomlType["children"]}
+            {pyConfigContent as PyConfigPropertiesWithJsonType["children"]}
           </PyConfig>
-        )
+        ) : (
+          pyConfigContent && (
+            <PyConfig
+              {...(pyConfigProps as Omit<
+                PyConfigPropertiesWithTomlType,
+                "children"
+              > &
+                Omit<
+                  ReactElementProps<
+                    DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+                  >,
+                  "children"
+                >)}
+            >
+              {pyConfigContent as PyConfigPropertiesWithTomlType["children"]}
+            </PyConfig>
+          )
+        );
+      return isPyConfigSource ? (
+        <PyConfig {...(pyConfigProps as PyConfigPropertiesWithoutChildren)} />
+      ) : (
+        pyConfigElementWithContent
       );
-    return isPyConfigSource ? (
-      <PyConfig {...(pyConfigProps as PyConfigPropertiesWithoutChildren)} />
-    ) : (
-      pyConfigElementWithContent
+    }, [pyConfigProps, pyConfigContent]);
+    return (
+      <>
+        {pyConfigElement}
+        {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
+        {output &&
+          generateOutputTag &&
+          createElement(
+            typeof generateOutputTag === "string" ? generateOutputTag : "div",
+            {
+              id: output,
+            },
+          )}
+        <py-script
+          ref={reference}
+          {...rest}
+          src={source ?? src}
+          output={output}
+        >
+          {children ?? ""}
+        </py-script>
+      </>
     );
-  }, [pyConfigProps, pyConfigContent]);
-  return (
-    <>
-      {pyConfigElement}
-      {pyEnvContent && <PyEnv {...pyEnvProps}>{pyEnvContent}</PyEnv>}
-      {output &&
-        generateOutputTag &&
-        createElement(
-          typeof generateOutputTag === "string" ? generateOutputTag : "div",
-          {
-            id: output,
-          },
-        )}
-      <py-script {...rest} src={source || src} output={output}>
-        {children || ""}
-      </py-script>
-    </>
-  );
-};
+  },
+) as PyScriptTag;
+
+PyScript.displayName = "PyScript";
 
 PyScript.propTypes = {
   children: propTypes.string,

@@ -1,11 +1,13 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
 import type { PyEnvPropertiesBase } from "~components/py-env/py-env.types";
-import { PyConfigPropertiesWithoutChildren } from "~root/source/library/components/py-config/py-config.types";
+import type { PyConfigPropertiesWithoutChildren } from "~root/source/library/components/py-config/py-config.types";
 import type ReactElementProps from "~types/react-element-properties/react-element-properties";
+
 import type {
   PyConfigPropertiesWithJsonType,
   PyConfigPropertiesWithTomlType,
@@ -145,13 +147,20 @@ export type PyScriptPropertiesWithoutGeneric = PyScriptPropertiesBase &
     | PyScriptPropertiesWithSourceFullName
   );
 
-export type PyScriptProperties<T> = T extends infer T
-  ? T & PyScriptPropertiesWithoutGeneric
-  : PyScriptPropertiesWithoutGeneric;
+export type PyScriptProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyScriptPropertiesWithoutGeneric
+    : PyScriptPropertiesWithoutGeneric;
 
-export type PyScriptProps<T> = PyScriptProperties<T>;
+export type PyScriptProps<OptionalProperties> =
+  PyScriptProperties<OptionalProperties>;
 
 export type PyScriptTag = {
-  <T extends object>(properties: PyScriptProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
+  <OptionalProperties extends object>(
+    properties: PyScriptProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyScriptPropertiesWithoutGeneric>;
+  propTypes?: WeakValidationMap<PyScriptPropertiesWithoutGeneric>;
 };
