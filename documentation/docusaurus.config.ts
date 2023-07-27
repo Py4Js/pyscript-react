@@ -14,7 +14,6 @@ const config: Config = {
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
   organizationName,
   projectName: organizationName,
   i18n: {
@@ -39,10 +38,6 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: organizationName,
-      logo: {
-        alt: organizationName,
-        src: "img/logo.svg",
-      },
       items: [
         {
           type: "doc",
