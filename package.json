@@ -26,7 +26,7 @@
     "@docusaurus/core": "^2.4.0",
     "@docusaurus/module-type-aliases": "^2.4.0",
     "@docusaurus/preset-classic": "^2.4.0",
-    "@emotion/babel-plugin": "^11.10.6",
+    "@emotion/babel-plugin": "^11.11.0",
     "@storybook/addon-actions": "^7.0.6",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
