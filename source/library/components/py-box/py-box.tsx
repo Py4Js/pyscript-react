@@ -1,4 +1,5 @@
 import propTypes from "prop-types";
+import { forwardRef, type ForwardedRef } from "react";
 import type { PyBoxProperties, PyBoxTag } from "./py-box.types";
 
 /**
@@ -7,12 +8,21 @@ import type { PyBoxProperties, PyBoxTag } from "./py-box.types";
  * @param root0.children
  * @deprecated
  */
-const PyBox: PyBoxTag = <T extends object>({
-  children,
-  ...rest
-}: PyBoxProperties<T>): JSX.Element => {
-  return <py-box {...rest}>{children}</py-box>;
-};
+const PyBox: PyBoxTag = forwardRef(
+  <OptionalProperties extends object>(
+    { children, ...rest }: PyBoxProperties<OptionalProperties>,
+    reference: ForwardedRef<HTMLElement> | undefined,
+    // eslint-disable-next-line max-params
+  ): JSX.Element => {
+    return (
+      <py-box ref={reference} {...rest}>
+        {children}
+      </py-box>
+    );
+  },
+) as PyBoxTag;
+
+PyBox.displayName = "PyBox";
 
 PyBox.propTypes = {
   children: propTypes.oneOfType([

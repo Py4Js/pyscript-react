@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -28,11 +29,17 @@ export type PyEnvPropertiesBase = Omit<
   children: string | string[] | Set<string> | PyEnvChildrenAsObject;
 };
 
-export type PyEnvProperties<T> = T extends infer T
-  ? T & PyEnvPropertiesBase
-  : PyEnvPropertiesBase;
+export type PyEnvProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyEnvPropertiesBase
+    : PyEnvPropertiesBase;
 
 export type PyEnvTag = {
-  <T extends object>(properties: PyEnvProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyEnvPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyEnvProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyEnvPropertiesBase>;
+  propTypes?: WeakValidationMap<PyEnvPropertiesBase>;
 };

@@ -40,14 +40,14 @@ const PyScriptProvider: FC<PyScriptProviderProperties> = ({
     };
   }, [setPyScript]);
   return (
-    <HelmetProvider {...(helmetProviderProperties || helmetProviderProps)}>
-      <Helmet {...(helmetProperties || helmetProps)}>
+    <HelmetProvider {...(helmetProviderProperties ?? helmetProviderProps)}>
+      <Helmet {...(helmetProperties ?? helmetProps)}>
         <link
           rel="stylesheet"
-          {...(cssProperties || cssProps)}
-          href={cssSource || cssSrc}
+          {...(cssProperties ?? cssProps)}
+          href={cssSource ?? cssSrc}
         />
-        <script defer {...(jsProperties || jsProps)} src={jsSource || jsSrc} />
+        <script defer {...(jsProperties ?? jsProps)} src={jsSource ?? jsSrc} />
       </Helmet>
       {children}
     </HelmetProvider>

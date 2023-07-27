@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -16,11 +17,17 @@ export type PyRegisterWidgetPropertiesBase = Omit<
   pythonClass?: string;
 };
 
-export type PyRegisterWidgetProperties<T> = T extends infer T
-  ? T & PyRegisterWidgetPropertiesBase
-  : PyRegisterWidgetPropertiesBase;
+export type PyRegisterWidgetProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyRegisterWidgetPropertiesBase
+    : PyRegisterWidgetPropertiesBase;
 
 export type PyRegisterWidgetTag = {
-  <T extends object>(properties: PyRegisterWidgetProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyRegisterWidgetPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyRegisterWidgetProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyRegisterWidgetPropertiesBase>;
+  propTypes?: WeakValidationMap<PyRegisterWidgetPropertiesBase>;
 };
