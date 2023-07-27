@@ -74,13 +74,14 @@ export type PyConfigPropertiesBase = Omit<
 > &
   (PyConfigPropertiesWithChildren | PyConfigPropertiesWithoutChildren);
 
-export type PyConfigProperties<T> = T extends infer T
-  ? T & PyConfigPropertiesBase
-  : PyConfigPropertiesBase;
+export type PyConfigProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyConfigPropertiesBase
+    : PyConfigPropertiesBase;
 
 export type PyConfigTag = {
-  <T extends object>(
-    properties: PyConfigProperties<T>,
+  <OptionalProperties extends object>(
+    properties: PyConfigProperties<OptionalProperties>,
     reference?: LegacyRef<HTMLElement>,
   ): JSX.Element;
   displayName?: string;
