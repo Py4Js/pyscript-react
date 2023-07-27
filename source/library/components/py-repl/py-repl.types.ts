@@ -1,4 +1,9 @@
-import { DetailedHTMLProps, HTMLAttributes, WeakValidationMap } from "react";
+import type {
+  DetailedHTMLProps,
+  ForwardedRef,
+  HTMLAttributes,
+  WeakValidationMap,
+} from "react";
 import ReactElementProps from "~types/react-element-properties/react-element-properties";
 
 export type PyReplPropertiesBase = Omit<
@@ -11,11 +16,17 @@ export type PyReplPropertiesBase = Omit<
   children?: string;
 };
 
-export type PyReplProperties<T> = T extends infer T
-  ? T & PyReplPropertiesBase
-  : PyReplPropertiesBase;
+export type PyReplProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyReplPropertiesBase
+    : PyReplPropertiesBase;
 
 export type PyReplTag = {
-  <T extends object>(properties: PyReplProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyReplPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyReplProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyReplPropertiesBase>;
+  propTypes?: WeakValidationMap<PyReplPropertiesBase>;
 };
