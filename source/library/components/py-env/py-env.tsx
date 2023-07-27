@@ -1,6 +1,10 @@
 import propTypes from "prop-types";
-import { ForwardedRef, WeakValidationMap, forwardRef, useMemo } from "react";
-
+import {
+  forwardRef,
+  useMemo,
+  type ForwardedRef,
+  type WeakValidationMap,
+} from "react";
 import type {
   PyEnvChildrenAsObject,
   PyEnvProperties,
