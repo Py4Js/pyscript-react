@@ -1,4 +1,5 @@
 import propTypes from "prop-types";
+import { forwardRef, type ForwardedRef } from "react";
 import type { PyButtonProperties, PyButtonTag } from "./py-button.types";
 
 /**
@@ -7,17 +8,21 @@ import type { PyButtonProperties, PyButtonTag } from "./py-button.types";
  * @param root0.label
  * @deprecated
  */
-const PyButton: PyButtonTag = <T extends object>({
-  children,
-  label,
-  ...rest
-}: PyButtonProperties<T>): JSX.Element => {
-  return (
-    <py-button {...rest} label={label}>
-      {children}
-    </py-button>
-  );
-};
+const PyButton: PyButtonTag = forwardRef(
+  <T extends object>(
+    { children, label, ...rest }: PyButtonProperties<T>,
+    reference: ForwardedRef<HTMLElement> | undefined,
+    // eslint-disable-next-line max-params
+  ): JSX.Element => {
+    return (
+      <py-button ref={reference} {...rest} label={label}>
+        {children}
+      </py-button>
+    );
+  },
+) as PyButtonTag;
+
+PyButton.displayName = "PyButton";
 
 PyButton.propTypes = {
   children: propTypes.string.isRequired,

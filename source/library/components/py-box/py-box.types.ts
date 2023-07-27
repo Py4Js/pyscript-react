@@ -5,7 +5,6 @@ import type {
   PropsWithChildren,
   WeakValidationMap,
 } from "react";
-
 import type ReactElementProps from "~types/react-element-properties/react-element-properties";
 
 export type PyBoxPropertiesBase = PropsWithChildren<
@@ -16,13 +15,14 @@ export type PyBoxPropertiesBase = PropsWithChildren<
   }
 >;
 
-export type PyBoxProperties<T> = T extends infer T
-  ? T & PyBoxPropertiesBase
-  : PyBoxPropertiesBase;
+export type PyBoxProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyBoxPropertiesBase
+    : PyBoxPropertiesBase;
 
 export type PyBoxTag = {
-  <T extends object>(
-    properties: PyBoxProperties<T>,
+  <OptionalProperties extends object>(
+    properties: PyBoxProperties<OptionalProperties>,
     reference: LegacyRef<HTMLElement> | undefined,
   ): JSX.Element;
   displayName?: string;
