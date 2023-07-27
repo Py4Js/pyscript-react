@@ -1,5 +1,11 @@
 import propTypes from "prop-types";
-import { WeakValidationMap, useEffect, useMemo } from "react";
+import {
+  forwardRef,
+  useEffect,
+  useMemo,
+  type ForwardedRef,
+  type WeakValidationMap,
+} from "react";
 import type {
   PyConfigFetch,
   PyConfigFetchItem,
@@ -37,79 +43,91 @@ const checkForAnyKey = (
  * @see {@link https://docs.pyscript.net/latest/reference/elements/py-config.html} Original py-config element documentation.
  * @see {@link https://pyscript-react.github.io/} Pyscript-react element documentation.
  */
-const PyConfig: PyConfigTag = <T extends object>({
-  children,
-  source,
-  type,
-  splashscreen,
-  interpreters,
-  fetch,
-  packages,
-  plugins,
-  ...rest
-}: PyConfigProperties<T>): JSX.Element => {
-  // eslint-disable-next-line sonarjs/cognitive-complexity
-  const config: string = useMemo((): string => {
-    if (type === "json") {
-      const transformedPlugins: string[] = [
-        ...(plugins || []),
-        ...(children?.plugins || []),
-      ];
-      const transformedPackages: string[] = [
-        ...(packages || []),
-        ...(children?.packages || []),
-      ];
-      const transformedFetch: PyConfigFetch = [
-        ...(fetch || []),
-        ...(children?.fetch || []),
-      ].map(({ files, ...restItem }: PyConfigFetchItem): PyConfigFetchItem => {
-        const transformedFiles: string[] = [...(files || [])];
-        return {
-          files: transformedFiles.length ? transformedFiles : undefined,
-          ...restItem,
+const PyConfig: PyConfigTag = forwardRef(
+  <OptionalProperties extends object>(
+    {
+      children,
+      source,
+      type,
+      splashscreen,
+      interpreters,
+      fetch,
+      packages,
+      plugins,
+      ...rest
+    }: PyConfigProperties<OptionalProperties>,
+    reference: ForwardedRef<HTMLElement> | undefined,
+    // eslint-disable-next-line max-params, sonarjs/cognitive-complexity
+  ): JSX.Element => {
+    const config: string = useMemo((): string => {
+      if (type === "json") {
+        const transformedPlugins: string[] = [
+          ...(plugins ?? []),
+          ...(children?.plugins ?? []),
+        ];
+        const transformedPackages: string[] = [
+          ...(packages ?? []),
+          ...(children?.packages ?? []),
+        ];
+        const transformedFetch: PyConfigFetch = [
+          ...(fetch ?? []),
+          ...(children?.fetch ?? []),
+        ].map(
+          ({ files, ...restItem }: PyConfigFetchItem): PyConfigFetchItem => {
+            const transformedFiles: string[] = [...(files ?? [])];
+            return {
+              files: transformedFiles.length ? transformedFiles : undefined,
+              ...restItem,
+            };
+          },
+        );
+        const transformedInterpreters: Omit<PyConfigInterpreters, "source"> & {
+          src?: string;
+        } = {
+          src: interpreters?.source,
+          name: interpreters?.name,
+          language: interpreters?.language,
+          ...children?.interpreters,
         };
-      });
-      const transformedInterpreters: Omit<PyConfigInterpreters, "source"> & {
-        src?: string;
-      } = {
-        src: interpreters?.source,
-        name: interpreters?.name,
-        language: interpreters?.language,
-        ...children?.interpreters,
-      };
-      const transformedSplashscreen: PyConfigSplashscreen = {
-        autoclose: splashscreen?.autoclose,
-        ...children?.splashscreen,
-      };
-      const config: string = JSON.stringify({
-        splashscreen: checkForAnyKey(transformedSplashscreen)
-          ? transformedSplashscreen
-          : undefined,
-        interpreters: checkForAnyKey(transformedInterpreters)
-          ? transformedInterpreters
-          : undefined,
-        fetch: transformedFetch.length ? transformedFetch : undefined,
-        packages: transformedPackages.length ? transformedPackages : undefined,
-        plugins: transformedPlugins.length ? transformedPlugins : undefined,
-        ...children,
-      });
-      return config;
-    }
-    return `${children || ""}`;
-  }, [children, splashscreen, interpreters, fetch, packages, plugins]);
-  useEffect((): void => {
-    source &&
-      children &&
-      console.warn(
-        "Children is passed with source. It may create undefined behavior. Remove one of these properties.",
-      );
-  }, [source, children]);
-  return (
-    <py-config {...rest} type={type} src={source}>
-      {!source ? config : undefined}
-    </py-config>
-  );
-};
+        const transformedSplashscreen: PyConfigSplashscreen = {
+          autoclose: splashscreen?.autoclose,
+          ...children?.splashscreen,
+        };
+        const config: string = JSON.stringify({
+          splashscreen: checkForAnyKey(transformedSplashscreen)
+            ? transformedSplashscreen
+            : undefined,
+          interpreters: checkForAnyKey(transformedInterpreters)
+            ? transformedInterpreters
+            : undefined,
+          fetch: transformedFetch.length ? transformedFetch : undefined,
+          packages: transformedPackages.length
+            ? transformedPackages
+            : undefined,
+          plugins: transformedPlugins.length ? transformedPlugins : undefined,
+          ...children,
+        });
+        return config;
+      }
+      return `${children ?? ""}`;
+    }, [children, splashscreen, interpreters, fetch, packages, plugins]);
+    useEffect((): void => {
+      source &&
+        children &&
+        // eslint-disable-next-line no-console
+        console.warn(
+          "Children is passed with source. It may create undefined behavior. Remove one of these properties.",
+        );
+    }, [source, children]);
+    return (
+      <py-config ref={reference} {...rest} type={type} src={source}>
+        {!source ? config : undefined}
+      </py-config>
+    );
+  },
+) as PyConfigTag;
+
+PyConfig.displayName = "PyConfig";
 
 PyConfig.propTypes = {
   children: propTypes.oneOfType([

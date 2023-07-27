@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -12,13 +13,20 @@ export type PyLoaderPropertiesBase = Omit<
   "children"
 >;
 
-export type PyLoaderProperties<T> = T extends infer T
-  ? T & PyLoaderPropertiesBase
-  : PyLoaderPropertiesBase;
+export type PyLoaderProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyLoaderPropertiesBase
+    : PyLoaderPropertiesBase;
 
-export type PyLoaderProps<T> = PyLoaderProperties<T>;
+export type PyLoaderProps<OptionalProperties> =
+  PyLoaderProperties<OptionalProperties>;
 
 export type PyLoaderTag = {
-  <T extends object>(properties: PyLoaderProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyLoaderPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyLoaderProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyLoaderPropertiesBase>;
+  propTypes?: WeakValidationMap<PyLoaderPropertiesBase>;
 };

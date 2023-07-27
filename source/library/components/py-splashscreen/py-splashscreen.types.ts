@@ -15,13 +15,19 @@ export type PySplashscreenPropertiesBase = Omit<
   autoclose?: boolean;
 };
 
-export type PySplashscreenProperties<T> = T extends infer T
-  ? T & PySplashscreenPropertiesBase
-  : PySplashscreenPropertiesBase;
+export type PySplashscreenProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PySplashscreenPropertiesBase
+    : PySplashscreenPropertiesBase;
 
-export type PySplashscreenProps<T> = PySplashscreenProperties<T>;
+export type PySplashscreenProps<OptionalProperties> =
+  PySplashscreenProperties<OptionalProperties>;
 
 export type PySplashscreenTag = {
-  <T extends object>(properties: PySplashscreenProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PySplashscreenPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PySplashscreenProperties<OptionalProperties>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PySplashscreenPropertiesBase>;
+  propTypes?: WeakValidationMap<PySplashscreenPropertiesBase>;
 };

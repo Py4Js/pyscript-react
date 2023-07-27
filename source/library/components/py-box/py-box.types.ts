@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   PropsWithChildren,
   WeakValidationMap,
@@ -14,11 +15,17 @@ export type PyBoxPropertiesBase = PropsWithChildren<
   }
 >;
 
-export type PyBoxProperties<T> = T extends infer T
-  ? T & PyBoxPropertiesBase
-  : PyBoxPropertiesBase;
+export type PyBoxProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyBoxPropertiesBase
+    : PyBoxPropertiesBase;
 
 export type PyBoxTag = {
-  <T extends object>(properties: PyBoxProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyBoxPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyBoxProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyBoxPropertiesBase>;
+  propTypes?: WeakValidationMap<PyBoxPropertiesBase>;
 };

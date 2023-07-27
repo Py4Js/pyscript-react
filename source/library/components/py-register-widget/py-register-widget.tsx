@@ -1,4 +1,6 @@
 import propTypes from "prop-types";
+import { forwardRef, type ForwardedRef } from "react";
+
 import type {
   PyRegisterWidgetProperties,
   PyRegisterWidgetTag,
@@ -11,16 +13,30 @@ import type {
  * @param root0.pythonClass
  * @deprecated
  */
-const PyRegisterWidget: PyRegisterWidgetTag = <T extends object>({
-  name,
-  src,
-  pythonClass,
-  ...rest
-}: PyRegisterWidgetProperties<T>): JSX.Element => {
-  return (
-    <py-register-widget {...rest} src={src} name={name} klass={pythonClass} />
-  );
-};
+const PyRegisterWidget: PyRegisterWidgetTag = forwardRef(
+  <OptionalProperties extends object>(
+    {
+      name,
+      src,
+      pythonClass,
+      ...rest
+    }: PyRegisterWidgetProperties<OptionalProperties>,
+    reference: ForwardedRef<HTMLElement> | undefined,
+    // eslint-disable-next-line max-params
+  ): JSX.Element => {
+    return (
+      <py-register-widget
+        ref={reference}
+        {...rest}
+        src={src}
+        name={name}
+        klass={pythonClass}
+      />
+    );
+  },
+) as PyRegisterWidgetTag;
+
+PyRegisterWidget.displayName = "PyRegisterWidget";
 
 PyRegisterWidget.propTypes = {
   name: propTypes.string,

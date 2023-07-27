@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -73,11 +74,17 @@ export type PyConfigPropertiesBase = Omit<
 > &
   (PyConfigPropertiesWithChildren | PyConfigPropertiesWithoutChildren);
 
-export type PyConfigProperties<T> = T extends infer T
-  ? T & PyConfigPropertiesBase
-  : PyConfigPropertiesBase;
+export type PyConfigProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyConfigPropertiesBase
+    : PyConfigPropertiesBase;
 
 export type PyConfigTag = {
-  <T extends object>(properties: PyConfigProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyConfigPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyConfigProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyConfigPropertiesBase>;
+  propTypes?: WeakValidationMap<PyConfigPropertiesBase>;
 };
