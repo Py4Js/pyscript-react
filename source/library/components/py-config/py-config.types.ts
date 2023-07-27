@@ -1,6 +1,7 @@
-import type {
+import {
   DetailedHTMLProps,
   HTMLAttributes,
+  LegacyRef,
   WeakValidationMap,
 } from "react";
 import type ReactElementProps from "~types/react-element-properties/react-element-properties";
@@ -78,6 +79,11 @@ export type PyConfigProperties<T> = T extends infer T
   : PyConfigPropertiesBase;
 
 export type PyConfigTag = {
-  <T extends object>(properties: PyConfigProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyConfigPropertiesBase>;
+  <T extends object>(
+    properties: PyConfigProperties<T>,
+    reference?: LegacyRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyConfigPropertiesBase>;
+  propTypes?: WeakValidationMap<PyConfigPropertiesBase>;
 };

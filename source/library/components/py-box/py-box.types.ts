@@ -23,7 +23,7 @@ export type PyBoxProperties<OptionalProperties> =
 export type PyBoxTag = {
   <OptionalProperties extends object>(
     properties: PyBoxProperties<OptionalProperties>,
-    reference: LegacyRef<HTMLElement> | undefined,
+    reference?: LegacyRef<HTMLElement>,
   ): JSX.Element;
   displayName?: string;
   defaultProps?: Partial<PyBoxPropertiesBase>;
