@@ -1,11 +1,16 @@
 import propTypes from "prop-types";
-import { PyTerminalProperties, PyTerminalTag } from "./py-terminal.types";
+import { forwardRef } from "react";
+import type { PyTerminalProperties, PyTerminalTag } from "./py-terminal.types";
 
-const PyTerminal: PyTerminalTag = <T extends object>({
-  ...rest
-}: PyTerminalProperties<T>): JSX.Element => {
-  return <py-terminal {...rest} />;
-};
+const PyTerminal: PyTerminalTag = forwardRef(
+  <OptionalProperties extends object>(
+    properties: PyTerminalProperties<OptionalProperties>,
+  ): JSX.Element => {
+    return <py-terminal {...properties} />;
+  },
+) as PyTerminalTag;
+
+PyTerminal.displayName = "PyTerminal";
 
 PyTerminal.propTypes = {
   auto: propTypes.bool,
