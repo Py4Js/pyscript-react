@@ -1,5 +1,6 @@
 import type {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -14,13 +15,20 @@ export type PyTitlePropertiesBase = Omit<
   children: string;
 };
 
-export type PyTitleProperties<T> = T extends infer T
-  ? T & PyTitlePropertiesBase
-  : PyTitlePropertiesBase;
+export type PyTitleProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyTitlePropertiesBase
+    : PyTitlePropertiesBase;
 
-export type PyTitleProps<T> = PyTitleProperties<T>;
+export type PyTitleProps<OptionalProperties> =
+  PyTitleProperties<OptionalProperties>;
 
 export type PyTitleTag = {
-  <T extends object>(properties: PyTitleProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyTitlePropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyTitleProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyTitlePropertiesBase>;
+  propTypes?: WeakValidationMap<PyTitlePropertiesBase>;
 };
