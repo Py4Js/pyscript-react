@@ -1,14 +1,13 @@
 import type { Meta, StoryFn } from "@storybook/react";
-
 import PyScriptProvider from "~root/source/library/components/py-script-provider/py-script-provider";
-
 import PyConfig from "./py-config";
-
 import type { PyConfigProperties, PyConfigTag } from "./py-config.types";
 
 export default {
   component: PyConfig,
 } as Meta<typeof PyConfig>;
+
+const pythonTestFile: string = "./test_file.py";
 
 const Template: StoryFn<PyConfigTag> = <T extends object>({
   ...rest
@@ -26,9 +25,11 @@ PyConfigExample.args = {
   type: "json",
   packages: new Set(["matplotlib", "numpy", "folium"]),
   plugins: new Set(["https://pyscript.net/latest/plugins/python/py_tutor.py"]),
-  fetch: {
-    files: new Set(["./test_file.py"]),
-  },
+  fetch: [
+    {
+      files: new Set([pythonTestFile]),
+    },
+  ],
 };
 
 export const PyConfigExternalJsonConfigExample: StoryFn<typeof PyConfig> =
@@ -36,7 +37,7 @@ export const PyConfigExternalJsonConfigExample: StoryFn<typeof PyConfig> =
 
 PyConfigExternalJsonConfigExample.args = {
   type: "json",
-  source: "./test_file.py",
+  source: pythonTestFile,
 };
 
 export const PyConfigExternalTomlConfigExample: StoryFn<typeof PyConfig> =
@@ -44,7 +45,7 @@ export const PyConfigExternalTomlConfigExample: StoryFn<typeof PyConfig> =
 
 PyConfigExternalTomlConfigExample.args = {
   type: "toml",
-  source: "./test_file.py",
+  source: pythonTestFile,
 };
 
 export const PyConfigTomlConfigExample: StoryFn<typeof PyConfig> =
