@@ -1,5 +1,6 @@
-import type {
+import {
   DetailedHTMLProps,
+  ForwardedRef,
   HTMLAttributes,
   WeakValidationMap,
 } from "react";
@@ -14,11 +15,17 @@ export type PyInputBoxPropertiesBase = Omit<
   children: string;
 };
 
-export type PyInputBoxProperties<T> = T extends infer T
-  ? T & PyInputBoxPropertiesBase
-  : PyInputBoxPropertiesBase;
+export type PyInputBoxProperties<OptionalProperties> =
+  OptionalProperties extends infer OptionalProperties
+    ? OptionalProperties & PyInputBoxPropertiesBase
+    : PyInputBoxPropertiesBase;
 
 export type PyInputBoxTag = {
-  <T extends object>(properties: PyInputBoxProperties<T>): JSX.Element;
-  propTypes: WeakValidationMap<PyInputBoxPropertiesBase>;
+  <OptionalProperties extends object>(
+    properties: PyInputBoxProperties<OptionalProperties>,
+    reference?: ForwardedRef<HTMLElement>,
+  ): JSX.Element;
+  displayName?: string;
+  defaultProps?: Partial<PyInputBoxPropertiesBase>;
+  propTypes?: WeakValidationMap<PyInputBoxPropertiesBase>;
 };
