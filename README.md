@@ -58,7 +58,7 @@ display(variable, target="folium")
 
 ## Documentation
 
-[Documentation](https://py4js.github.io/pyscript-react)
+[Documentation](https://py4js.github.io/pyscript-react/docs/intro)
 
 `we are working on it... 🐢`
 
