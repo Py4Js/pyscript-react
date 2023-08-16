@@ -29,7 +29,7 @@
     "@emotion/babel-plugin": "^11.10.6",
     "@storybook/addon-actions": "^7.0.6",
     "@storybook/addon-essentials": "^7.0.6",
-    "@storybook/addon-interactions": "^7.0.6",
+    "@storybook/addon-interactions": "^7.3.1",
     "@storybook/addon-links": "^7.0.6",
     "@storybook/addon-mdx-gfm": "^7.0.6",
     "@storybook/builder-vite": "^7.0.6",
