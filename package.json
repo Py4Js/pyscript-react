@@ -37,7 +37,7 @@
     "@storybook/core-common": "^6.5.16",
     "@storybook/jest": "^0.0.10",
     "@storybook/manager-webpack5": "^6.5.7",
-    "@storybook/node-logger": "^6.5.7",
+    "@storybook/node-logger": "^7.4.0",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^7.0.6",
     "@storybook/react-vite": "^7.0.7",
