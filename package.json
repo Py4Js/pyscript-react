@@ -87,7 +87,7 @@
     "snyk": "^1.1144.0",
     "sort-package-json": "^2.4.1",
     "source-map-loader": "^4.0.1",
-    "storybook": "^7.0.7",
+    "storybook": "^7.4.0",
     "super-expressive": "^2.0.0",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
