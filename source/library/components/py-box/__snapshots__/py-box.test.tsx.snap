@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PyBox check if match snapshots with alpha pyscript provider 1`] = `
+<div>
+  <py-box
+    widths="2/3;1/6;1/6"
+  >
+    <div
+      data-testid="first-element"
+    >
+      first
+    </div>
+    <div
+      data-testid="second-element"
+    >
+      second
+    </div>
+    <div
+      data-testid="third-element"
+    >
+      third
+    </div>
+  </py-box>
+</div>
+`;
+
+exports[`PyBox check if match snapshots with set width 1`] = `
+<div>
+  <py-box
+    widths="2/3;1/6;1/6"
+  >
+    <div
+      data-testid="first-element"
+    >
+      first
+    </div>
+    <div
+      data-testid="second-element"
+    >
+      second
+    </div>
+    <div
+      data-testid="third-element"
+    >
+      third
+    </div>
+  </py-box>
+</div>
+`;
+
+exports[`PyBox check if match snapshots without pyscript provider 1`] = `
+<div>
+  <py-box />
+</div>
+`;
+
+exports[`PyBox ensure that PyBox doesn't work with latest pyscript provider  1`] = `
+<div>
+  <py-box>
+    <div
+      data-testid="first-element"
+    >
+      first
+    </div>
+    <div
+      data-testid="second-element"
+    >
+      second
+    </div>
+    <div
+      data-testid="third-element"
+    >
+      third
+    </div>
+  </py-box>
+</div>
+`;

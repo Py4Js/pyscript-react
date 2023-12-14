@@ -29,6 +29,7 @@ PyBoxWithMultipleElementsExample.args = {
     <div key="element-2">Second element</div>,
     <div key="element-3">Third element</div>,
   ],
+  widths: "2/3;1/6;1/6",
 };
 
 export const PyBoxWithSingleElementExample: StoryFn<typeof PyBox> =
