@@ -40,7 +40,7 @@
     "@storybook/node-logger": "^6.5.7",
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^7.0.6",
-    "@storybook/react-vite": "^7.0.7",
+    "@storybook/react-vite": "^7.6.5",
     "@storybook/testing-library": "^0.1.0",
     "@testing-library/react": "^14.0.0",
     "@total-typescript/ts-reset": "^0.4.2",
