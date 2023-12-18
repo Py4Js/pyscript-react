@@ -82,7 +82,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet-async": "^1.3.0",
+    "react-helmet-async": "^2.0.4",
     "rimraf": "^5.0.0",
     "snyk": "^1.1144.0",
     "sort-package-json": "^2.4.1",
