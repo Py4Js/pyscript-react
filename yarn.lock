@@ -16659,10 +16659,10 @@ vfile@^5.0.0:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
-vite-tsconfig-paths@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/vite-tsconfig-paths/-/vite-tsconfig-paths-4.2.0.tgz#bd2647d3eadafb65a10fc98a2ca565211f2eaf63"
-  integrity sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==
+vite-tsconfig-paths@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/vite-tsconfig-paths/-/vite-tsconfig-paths-4.2.3.tgz#af31ba11e828c0b2b5426304294c88edd7a1071a"
+  integrity sha512-xVsA2xe6QSlzBujtWF8q2NYexh7PAUYfzJ4C8Axpe/7d2pcERYxuxGgph9F4f0iQO36g5tyGq6eBUYIssdUrVw==
   dependencies:
     debug "^4.1.1"
     globrex "^0.1.2"
