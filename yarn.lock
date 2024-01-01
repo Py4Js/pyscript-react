@@ -2972,20 +2972,13 @@
     polished "^4.2.2"
     ts-dedent "^2.2.0"
 
-"@storybook/addon-links@^7.0.6":
-  version "7.0.7"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-7.0.7.tgz#4a0181b54e2d631739b2d417b9158580fb5e23fe"
-  integrity sha512-DEjDxjHb3mT8Sdnx4In5Ev9gJ/XdjlHOq4iuy0wnMyrCV4wnzTQnIeSCx8nkrXFb314zc33JPnCcrb5pQoD5GQ==
+"@storybook/addon-links@^7.6.7":
+  version "7.6.7"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-7.6.7.tgz#9f9c9a259bcb383d6d139c49472a9cd932a157ff"
+  integrity sha512-O5LekPslkAIDtXC/TCIyg/3c0htBxDYwb/s+NrZUPTNWJsngxvTAwp6aIk6aVSeSCFUMWvBFcVsuV3hv+ndK6w==
   dependencies:
-    "@storybook/client-logger" "7.0.7"
-    "@storybook/core-events" "7.0.7"
-    "@storybook/csf" "^0.1.0"
+    "@storybook/csf" "^0.1.2"
     "@storybook/global" "^5.0.0"
-    "@storybook/manager-api" "7.0.7"
-    "@storybook/preview-api" "7.0.7"
-    "@storybook/router" "7.0.7"
-    "@storybook/types" "7.0.7"
-    prop-types "^15.7.2"
     ts-dedent "^2.0.0"
 
 "@storybook/addon-mdx-gfm@^7.0.6":
@@ -3607,10 +3600,10 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/csf@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.1.0.tgz#62315bf9704f3aa4e0d4d909b9033833774ddfbe"
-  integrity sha512-uk+jMXCZ8t38jSTHk2o5btI+aV2Ksbvl6DoOv3r6VaCM1KZqeuMwtwywIQdflkA8/6q/dKT8z8L+g8hC4GC3VQ==
+"@storybook/csf@^0.1.0", "@storybook/csf@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@storybook/csf/-/csf-0.1.2.tgz#8e7452f0097507f5841b5ade3f5da1525bc9afb2"
+  integrity sha512-ePrvE/pS1vsKR9Xr+o+YwdqNgHUyXvg+1Xjx0h9LrVx7Zq4zNe06pd63F5EvzTbCbJsHj7GHr9tkiaqm7U8WRA==
   dependencies:
     type-fest "^2.19.0"
 

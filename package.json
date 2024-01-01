@@ -30,7 +30,7 @@
     "@storybook/addon-actions": "^7.0.6",
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
-    "@storybook/addon-links": "^7.0.6",
+    "@storybook/addon-links": "^7.6.7",
     "@storybook/addon-mdx-gfm": "^7.0.6",
     "@storybook/builder-vite": "^7.0.6",
     "@storybook/builder-webpack5": "^6.5.7",
