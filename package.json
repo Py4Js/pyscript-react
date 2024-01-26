@@ -24,7 +24,7 @@
     "@babel/preset-typescript": "^7.21.5",
     "@cmfcmf/docusaurus-search-local": "^1.1.0",
     "@docusaurus/core": "^2.4.0",
-    "@docusaurus/module-type-aliases": "^2.4.0",
+    "@docusaurus/module-type-aliases": "^3.1.1",
     "@docusaurus/preset-classic": "^2.4.0",
     "@emotion/babel-plugin": "^11.10.6",
     "@storybook/addon-actions": "^7.0.6",
