@@ -62,7 +62,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-sonarjs": "^0.24.0",
     "eslint-plugin-testing-library": "^5.10.3",
     "eslint-plugin-tsdoc": "^0.2.17",
     "eslint-webpack-plugin": "^4.0.1",
