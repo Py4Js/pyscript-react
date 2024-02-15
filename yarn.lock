@@ -2842,7 +2842,7 @@
     p-map "^4.0.0"
     webpack-sources "^3.2.2"
 
-"@storybook/addon-actions@7.0.7", "@storybook/addon-actions@^7.0.6":
+"@storybook/addon-actions@7.0.7":
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-7.0.7.tgz#d35c77a0ae0127562da5b5c27dc68ebd72fdebf7"
   integrity sha512-WxsnSjAvdf6NhUfTqcwV+FJmsJV56gh2cY4QnGfqfwO5zoBWTUYnhz57TgxSMhJY0kspyX9Q1Kc//r1d5lt1qA==
@@ -2862,6 +2862,18 @@
     react-inspector "^6.0.0"
     telejson "^7.0.3"
     ts-dedent "^2.0.0"
+    uuid "^9.0.0"
+
+"@storybook/addon-actions@^7.6.16":
+  version "7.6.16"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-7.6.16.tgz#aed33b43743832f037aede8ce2bfda26b3b91fe6"
+  integrity sha512-wCpZljLXnu08TZzp+qL5AXousfUBzY6TgHVwn4yoZkMhPg3WLxZTceKYnc+XAxoMmdTrDjwanEF7v/uQ9eu64Q==
+  dependencies:
+    "@storybook/core-events" "7.6.16"
+    "@storybook/global" "^5.0.0"
+    "@types/uuid" "^9.0.1"
+    dequal "^2.0.2"
+    polished "^4.2.2"
     uuid "^9.0.0"
 
 "@storybook/addon-backgrounds@7.0.7":
@@ -3528,6 +3540,13 @@
   version "7.0.7"
   resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-7.0.7.tgz#9acb6425d0a2a3d25becc21980c2c678c6c5548e"
   integrity sha512-XNsR2RgaL2vBwuqsu+KA1DzGmB1UFfrAhpxhmyWTKDCniwtTLlaXgfKbqwcrOrPu/o1YswgIup/9UHepRHaf4A==
+
+"@storybook/core-events@7.6.16":
+  version "7.6.16"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-7.6.16.tgz#320f88f463201a1a1c857c7b596dd61bde34e4c8"
+  integrity sha512-mkBqzrbp6vmdjo0fBZGrFQQ4YdvMFxF6AesdKTf8EzPa69FoxnhQLrmQ4aXF+9vXkxfXVJF2HfpoTEdfqqAo+w==
+  dependencies:
+    ts-dedent "^2.0.0"
 
 "@storybook/core-server@7.0.7":
   version "7.0.7"
@@ -4702,6 +4721,11 @@
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
+
+"@types/uuid@^9.0.1":
+  version "9.0.8"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.8.tgz#7545ba4fc3c003d6c756f651f3bf163d8f0f29ba"
+  integrity sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==
 
 "@types/webpack-bundle-analyzer@^4.6.0":
   version "4.6.0"
