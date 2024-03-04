@@ -106,7 +106,7 @@
     "webpack-cli": "^5.0.2",
     "webpack-node-externals": "^3.0.0",
     "yarn": "^1.22.19",
-    "zustand": "^4.3.7",
+    "zustand": "^4.5.2",
     "zx": "4.2.0"
   }
 }
