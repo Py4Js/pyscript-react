@@ -105,7 +105,7 @@
     "webpack-bundle-analyzer": "^4.8.0",
     "webpack-cli": "^5.0.2",
     "webpack-node-externals": "^3.0.0",
-    "yarn": "^1.22.19",
+    "yarn": "^1.22.22",
     "zustand": "^4.3.7",
     "zx": "4.2.0"
   }
